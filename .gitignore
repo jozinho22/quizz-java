@@ -1,0 +1,13 @@
+# Eclipse Core      
+.project
+.settings
+.Servers/
+
+# JDT-specific (Eclipse Java Development Tools)     
+.classpath
+
+# Maven
+target/
+
+
+.log
