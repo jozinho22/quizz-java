@@ -9,14 +9,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/debut")
-public class DebutServlet {
+public class DebutServlet extends HttpServlet {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5384359235916855711L;
 
 	/**
      * @see HttpServlet#HttpServlet()
      */
     public DebutServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -25,8 +29,8 @@ public class DebutServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		response.sendRedirect("debut.jsp");
-
 	}
 
 	/**
@@ -35,7 +39,7 @@ public class DebutServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		response.sendRedirect("debut.jsp");
-
 	}
 }

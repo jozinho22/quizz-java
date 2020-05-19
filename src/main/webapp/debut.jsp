@@ -17,5 +17,5 @@
 
 </div>
 
-<tag:fixed-footer />
+<tag:footer />
 <tag:end />
