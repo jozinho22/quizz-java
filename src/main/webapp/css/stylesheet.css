@@ -22,16 +22,45 @@ body {
 	background-size: cover;
 }
 
-p, h1, h2, h3 {
+p {
 	text-align: center;
 	color: #808080;
+	font-size: 200%;
 	font-family: 'csm', Fallback, sans-serif;
 }
 
 h4, h5 {
-	color: #212529;
+	font-size: 120%;
+	color: #343a40;
 	font-family: 'csm', Fallback, sans-serif;
-    margin-left: 50px;
+	margin-left: 2%;
+}
+
+@media ( max-width : 1000px) {
+	p {
+		font-size: 150%;
+	}
+	h4, h5 {
+		font-size: 100%;
+	}
+}
+
+@media ( max-width : 600px) {
+	p {
+		font-size: 130%;
+	}
+	h4, h5 {
+		font-size: 80%;
+	}
+}
+
+@media ( max-width : 450px) {
+	p {
+		font-size: 110%;
+	}
+	h4, h5 {
+		font-size: 60%;
+	}
 }
 
 /* @font-face { */
@@ -46,7 +75,7 @@ h4, h5 {
 .navbar-brand {
 	margin-left: auto;
 	margin-right: auto;
-	float:none;
+	float: none;
 }
 /* footer */
 footer {
@@ -95,6 +124,7 @@ footer {
 	border-style: solid;
 	border-color: #CD853F;
 	border-width: 4px;
+	padding: 10px;
 }
 
 @media ( max-width : 1000px) {
@@ -135,7 +165,6 @@ footer {
 	justify-content: center;
 }
 
-
 /* @media ( max-width : 300px) { */
 /* 	#section { */
 /* 		width: 50px; */
@@ -144,13 +173,6 @@ footer {
 /* } */
 
 /*section */
-
-#btn-start {
-	position: absolute;
-	right: 0;
-	margin-right: 30px;
-}
-
 #section-footer {
 	position: absolute;
 	bottom: 0;
@@ -159,19 +181,60 @@ footer {
 	margin: 10px;
 }
 
-#question {
+#section-header {
 	position: absolute;
-	top   : 20px;
+	top: 20px;
 	height: 50px;
 	width: 100%;
 	margin: 10px;
 }
 
+/* Index */
+#input-name {
+	width: 40%;
+}
+
+#input-name button {
+	background-color: #CD853F;
+	color: black;
+	margin: 0 auto;
+	position: relative;
+	top: 15px;
+	/* reponsive */
+	width: 100%;
+}
+
+#input-name input {
+	text-align: center;
+}
+
+#input-name button:hover {
+	background-color: #A0522D;
+}
+
+/* Index */
+
+/* Test */
 .form-check {
 	position: absolute;
-	top   : 120px;
-	left : 80px;
+	top: 30%;
+	left: 5%;
 	height: 50px;
-	width: 100%;
 	margin: 10px;
+}
+
+#next button {
+	text-align: center;
+	background-color: #228B22;
+	color: black;
+	margin: 0 auto;
+	position: absolute;
+	top: 300px;
+	right : 100px;
+	/* reponsive */
+	width: 20%;
+}
+
+#next button:hover {
+	background-color: #006400;
 }

@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.douineau.dao.QuestionDao;
 import com.douineau.entity.Question;
@@ -39,15 +40,26 @@ public class TestServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		questions = QuestionDao.getRandomQuestions(2);
-		nbRestantes = questions.size();
-
-		request.setAttribute("nbRestantes", nbRestantes);
-		request.setAttribute("question", questions.get(0));
+		String inputName = request.getParameter("input-name");
+		HttpSession session = request.getSession();
+		session.setAttribute("input-name", inputName);
 		
+		if(questions == null || questions != null) {
+			questions = QuestionDao.getRandomQuestions(2);
+		}
+		nbRestantes = questions.size();
+		
+		setAttributes(request);
+
 		RequestDispatcher rd = request.getRequestDispatcher("test.jsp");
 		rd.forward(request, response);
 		
+	}
+
+	private void setAttributes(HttpServletRequest request) {
+		request.setAttribute("nbRestantes", nbRestantes);
+		request.setAttribute("question", questions.get(0));
+		request.setAttribute("reponses", questions.get(0).getReponses());
 	}
 
 	/**
@@ -61,15 +73,12 @@ public class TestServlet extends HttpServlet {
 		nbRestantes -= 1 ;
 		
 		if (questions.size() == 0) {
-			response.sendRedirect("fin.jsp");
+			response.sendRedirect("fin");
+		} else {
+			setAttributes(request);
 
+			RequestDispatcher rd = request.getRequestDispatcher("test.jsp");
+			rd.forward(request, response);
 		}
-		
-		request.setAttribute("nbRestantes", nbRestantes);
-		request.setAttribute("question", questions.get(0));		
-		
-		RequestDispatcher rd = request.getRequestDispatcher("test.jsp");
-		rd.forward(request, response);
-
 	}
 }

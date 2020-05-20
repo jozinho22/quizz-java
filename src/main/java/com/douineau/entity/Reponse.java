@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,9 +26,15 @@ public class Reponse implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Long id;
 	
-	@ManyToOne
-	@JoinColumn(name = "question_id")
-	private Question question;
+	private String texte;
+	
+//	@ManyToOne
+//	@JoinColumn(name = "question_id")
+//	private Question question;
+	
+	 @ManyToOne
+	 @JoinColumn(name = "question_id")
+	 private Question question;
 
 	@Column(name = "created_at")
 	@Temporal(TemporalType.TIMESTAMP)
@@ -44,6 +51,14 @@ public class Reponse implements Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getTexte() {
+		return texte;
+	}
+
+	public void setTexte(String texte) {
+		this.texte = texte;
 	}
 
 	public Question getQuestion() {
@@ -64,7 +79,7 @@ public class Reponse implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Reponse [id=" + id + ", question=" + question + "]";
+		return "Reponse [texte=" + texte + "]";
 	}
 
 }

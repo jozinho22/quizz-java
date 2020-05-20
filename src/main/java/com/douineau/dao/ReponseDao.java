@@ -10,7 +10,7 @@ import javax.persistence.TypedQuery;
 import com.douineau.entity.Question;
 import com.douineau.utils.PersistenceUtil;
 
-public class QuestionDao {
+public class ReponseDao {
 
 	public static List<Question> getRandomQuestions(int nb) {
     	EntityManager em = PersistenceUtil.getEntityManager();
@@ -23,14 +23,13 @@ public class QuestionDao {
     	}
     	
     	StringBuilder sb = new StringBuilder();
-    	sb.append("SELECT q FROM Question q WHERE q.id in (1, 2)");
-//    	sb.append("SELECT q FROM Question q WHERE q.id in (");
-//    	for(Integer i : integers) {
-//    		sb.append(i);	
-//    		sb.append(",");
-//    	}
-//    	sb.deleteCharAt(sb.length() - 1);
-//    	sb.append(")");
+    	sb.append("SELECT q FROM Question q WHERE q.id in (");
+    	for(Integer i : integers) {
+    		sb.append(i);	
+    		sb.append(",");
+    	}
+    	sb.deleteCharAt(sb.length() - 1);
+    	sb.append(")");
     	
 		TypedQuery<Question> query = em.createQuery(sb.toString(), Question.class);
 		List<Question> questions = query.getResultList();

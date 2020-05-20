@@ -8,7 +8,8 @@
 				</div>
 				<div class="container text-center">
 					<a href="https://stackoverflow.com/users/6741310/josselin-douineau"
-						target="_blank"> <img
+						target="_blank"> 
+					<img onmouseover="displayImage(this)" onmouseout="hideImage(this)" style="opacity : 0.03"
 						src="https://stackoverflow.com/users/flair/6741310.png?theme=dark"
 						width="150" height="40" style="margin-top: 15px">
 					</a>
@@ -19,3 +20,17 @@
 		</div>
 	</div>
 </footer>
+
+
+<script>
+function displayImage(img) {
+	console.log('ok');
+	img.style.opacity = '1';
+	
+}
+function hideImage(img) {
+	console.log('ok');
+	img.style.opacity = '0.1';
+	
+}
+</script>

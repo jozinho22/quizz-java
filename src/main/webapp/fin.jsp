@@ -6,7 +6,7 @@
 
 	<div id="inner-section">
 		<div id="question">
-			<h3>Quizz terminé !</h3>
+			<p>Quizz terminé !</p>
 		</div>
 	</div>
 </div>

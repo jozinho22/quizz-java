@@ -2,12 +2,15 @@ package com.douineau.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -24,6 +27,9 @@ public class Question implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Long id;
 	protected String texte;
+	
+	@OneToMany(mappedBy = "question", fetch = FetchType.EAGER)
+	private List<Reponse> reponses;
 	
 	@Column(name = "created_at")
 	@Temporal(TemporalType.TIMESTAMP)
@@ -50,6 +56,14 @@ public class Question implements Serializable {
 	public void setTexte(String texte) {
 		this.texte = texte;
 	}
+	
+	public List<Reponse> getReponses() {
+		return reponses;
+	}
+
+	public void setReponses(List<Reponse> reponses) {
+		this.reponses = reponses;
+	}
 
 	public Date getCreatedAt() {
 		return createdAt;
@@ -61,8 +75,7 @@ public class Question implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Question [id=" + id + ", texte=" + texte + ", createdAt=" + createdAt + "]";
+		return "Question [id=" + id + ", texte=" + texte + ", reponses=" + reponses + ", createdAt=" + createdAt + "]";
 	}
-	
-	
+
 }
