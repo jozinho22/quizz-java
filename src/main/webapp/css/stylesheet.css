@@ -29,9 +29,9 @@ p, h1, h2, h3 {
 }
 
 h4, h5 {
-	text-align: center;
 	color: #212529;
 	font-family: 'csm', Fallback, sans-serif;
+    margin-left: 50px;
 }
 
 /* @font-face { */
@@ -89,8 +89,8 @@ footer {
 	margin-left: auto;
 	margin-right: auto;
 	/* add the same space as navbar (35px) + navBarHeight + spaceThatWeWant*/
-	top: 120px;
-	bottom: 150px;
+	top: 15%;
+	bottom: 20%;
 	background-color: #FFE4C4;
 	border-style: solid;
 	border-color: #CD853F;
@@ -135,6 +135,7 @@ footer {
 	justify-content: center;
 }
 
+
 /* @media ( max-width : 300px) { */
 /* 	#section { */
 /* 		width: 50px; */
@@ -160,7 +161,16 @@ footer {
 
 #question {
 	position: absolute;
-	top   : 50px;
+	top   : 20px;
+	height: 50px;
+	width: 100%;
+	margin: 10px;
+}
+
+.form-check {
+	position: absolute;
+	top   : 120px;
+	left : 80px;
 	height: 50px;
 	width: 100%;
 	margin: 10px;

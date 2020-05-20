@@ -7,10 +7,9 @@
 		<h1>Bienvenue sur le quizz java</h1>
 	</div>
 	<div id="section-footer">
-		<form action="debut" method="POST">
+		<form action="test" method="GET">
 			<button id="btn-start" class="btn btn-success" type="submit">Commencer</button>
 		</form>
-		<a href="debut">Ici</a>
 	</div>
 </div>
 <tag:footer />
