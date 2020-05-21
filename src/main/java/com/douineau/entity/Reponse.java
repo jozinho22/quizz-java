@@ -21,25 +21,24 @@ public class Reponse implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1876188057166632647L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Long id;
-	
+
 	private String texte;
-	
-//	@ManyToOne
-//	@JoinColumn(name = "question_id")
-//	private Question question;
-	
-	 @ManyToOne
-	 @JoinColumn(name = "question_id")
-	 private Question question;
+
+	@Column(name = "is_true")
+	private Boolean isTrue;
+
+	@ManyToOne
+	@JoinColumn(name = "question_id")
+	private Question question;
 
 	@Column(name = "created_at")
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date createdAt;
-	
+
 	public Reponse() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -61,6 +60,14 @@ public class Reponse implements Serializable {
 		this.texte = texte;
 	}
 
+	public Boolean getIsTrue() {
+		return isTrue;
+	}
+
+	public void setIsTrue(Boolean isTrue) {
+		this.isTrue = isTrue;
+	}
+
 	public Question getQuestion() {
 		return question;
 	}
@@ -79,7 +86,8 @@ public class Reponse implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Reponse [texte=" + texte + "]";
+		return "Reponse [id=" + id + ", texte=" + texte + ", isTrue=" + isTrue + ", question=" + question
+				+ ", createdAt=" + createdAt + "]";
 	}
 
 }

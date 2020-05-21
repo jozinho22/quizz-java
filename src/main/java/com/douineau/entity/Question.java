@@ -25,15 +25,16 @@ public class Question implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	protected Long id;
-	protected String texte;
+	private Long id;
+	private String texte;
+	private String topic;
 	
 	@OneToMany(mappedBy = "question", fetch = FetchType.EAGER)
 	private List<Reponse> reponses;
 	
 	@Column(name = "created_at")
 	@Temporal(TemporalType.TIMESTAMP)
-	protected Date createdAt;
+	private Date createdAt;
 	
 	
 	public Question() {
@@ -57,6 +58,14 @@ public class Question implements Serializable {
 		this.texte = texte;
 	}
 	
+	public String getTopic() {
+		return topic;
+	}
+
+	public void setTopic(String topic) {
+		this.topic = topic;
+	}
+
 	public List<Reponse> getReponses() {
 		return reponses;
 	}
@@ -75,7 +84,8 @@ public class Question implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Question [id=" + id + ", texte=" + texte + ", reponses=" + reponses + ", createdAt=" + createdAt + "]";
+		return "Question [id=" + id + ", texte=" + texte + ", topic=" + topic + ", reponses=" + reponses
+				+ ", createdAt=" + createdAt + "]";
 	}
 
 }

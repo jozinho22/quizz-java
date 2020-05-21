@@ -25,6 +25,8 @@ public class TestServlet extends HttpServlet {
 	private static List<Question> questions;
 	
 	private static Integer nbRestantes;
+	
+	private static Integer score;
 
 	/**
      * @see HttpServlet#HttpServlet()
@@ -44,7 +46,7 @@ public class TestServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("input-name", inputName);
 		
-		if(questions == null || questions != null) {
+		if(questions == null) {
 			questions = QuestionDao.getRandomQuestions(2);
 		}
 		nbRestantes = questions.size();
@@ -70,9 +72,10 @@ public class TestServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		questions.remove(questions.get(0));
-		nbRestantes -= 1 ;
+		nbRestantes = questions.size();
 		
 		if (questions.size() == 0) {
+			questions = null;
 			response.sendRedirect("fin");
 		} else {
 			setAttributes(request);
