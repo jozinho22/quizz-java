@@ -7,6 +7,7 @@
 	<div id="inner-section">
 		<div id="question">
 			<p>Quizz terminé !</p>
+			<p>${score}</p>
 		</div>
 	</div>
 </div>

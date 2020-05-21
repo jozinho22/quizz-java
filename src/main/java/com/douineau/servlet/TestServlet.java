@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import com.douineau.dao.QuestionDao;
 import com.douineau.entity.Question;
+import com.douineau.entity.Reponse;
 
 @WebServlet("/test")
 public class TestServlet extends HttpServlet {
@@ -24,6 +25,9 @@ public class TestServlet extends HttpServlet {
 
 	private static List<Question> questions;
 	
+	private static List<Reponse> reponses;
+	private boolean isTrue;
+
 	private static Integer nbRestantes;
 	
 	private static Integer score;
@@ -41,7 +45,7 @@ public class TestServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+		score = 0;
 		String inputName = request.getParameter("input-name");
 		HttpSession session = request.getSession();
 		session.setAttribute("input-name", inputName);
@@ -50,7 +54,6 @@ public class TestServlet extends HttpServlet {
 			questions = QuestionDao.getRandomQuestions(2);
 		}
 		nbRestantes = questions.size();
-		
 		setAttributes(request);
 
 		RequestDispatcher rd = request.getRequestDispatcher("test.jsp");
@@ -59,9 +62,11 @@ public class TestServlet extends HttpServlet {
 	}
 
 	private void setAttributes(HttpServletRequest request) {
+		reponses = questions.get(0).getReponses();
+
 		request.setAttribute("nbRestantes", nbRestantes);
 		request.setAttribute("question", questions.get(0));
-		request.setAttribute("reponses", questions.get(0).getReponses());
+		request.setAttribute("reponses", reponses);
 	}
 
 	/**
@@ -71,12 +76,30 @@ public class TestServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		String idReponse = request.getParameter("reponse");
+		System.out.println(idReponse);
+		
+		Long id = Long.parseLong(idReponse);
+		
+		for(Reponse reponse : reponses) {
+			if(reponse.getId().equals(id)) {
+				isTrue = reponse.getIsTrue();
+				break;
+			}
+		}	
+		
+		if(isTrue) {
+			score += 1;
+		}
+		
 		questions.remove(questions.get(0));
 		nbRestantes = questions.size();
 		
 		if (questions.size() == 0) {
 			questions = null;
-			response.sendRedirect("fin");
+			request.setAttribute("score", score);
+			RequestDispatcher rd = request.getRequestDispatcher("fin");
+			rd.forward(request, response);
 		} else {
 			setAttributes(request);
 

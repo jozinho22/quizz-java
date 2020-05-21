@@ -29,19 +29,21 @@ public class FinServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		
-		HttpSession session = request.getSession();
-		session.removeAttribute("input-name");
-		
-		RequestDispatcher rd = request.getRequestDispatcher("fin.jsp");
-		rd.forward(request, response);	}
+		}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		HttpSession session = request.getSession();
+		session.removeAttribute("input-name");
+		
+		Integer score = (Integer) request.getAttribute("score");
+		request.setAttribute("score", score);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("fin.jsp");
+		rd.forward(request, response);	
 	}
 
 }

@@ -24,13 +24,9 @@
 
 <script>
 function displayImage(img) {
-	console.log('ok');
 	img.style.opacity = '1';
-	
 }
 function hideImage(img) {
-	console.log('ok');
 	img.style.opacity = '0.1';
-	
 }
 </script>

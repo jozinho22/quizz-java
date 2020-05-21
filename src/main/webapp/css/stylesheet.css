@@ -201,11 +201,14 @@ footer {
 	position: relative;
 	top: 15px;
 	/* reponsive */
-	width: 100%;
+	width: 60%;
 }
 
 #input-name input {
+	position: relative;
+	margin: 0 auto;
 	text-align: center;
+	width: 80%;
 }
 
 #input-name button:hover {

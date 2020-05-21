@@ -1,7 +1,7 @@
 <%@ taglib prefix="tag" tagdir="/WEB-INF/tags"%>
 
 <tag:begin />
-<tag:session-navbar />
+<tag:navbar />
 <div id="section">
 	<form action="test" method="POST">
 	
@@ -10,15 +10,14 @@
 				<h4>${question.texte}</h4>
 			</div>
 			<div id="reponses">
-				<input name="reponse" id="reponse" >
 				<div class="form-check">
-					<input type="checkbox" class="form-check-input"
+					<input name="reponse" value="${reponses.get(0).id}" type="checkbox" class="form-check-input"
 						id="checkbox-reponse">
 					<h5>${reponses.get(0).texte}</h5>
-					<input type="checkbox" class="form-check-input"
+					<input name="reponse" value="${reponses.get(1).id}" type="checkbox" class="form-check-input"
 						id="checkbox-reponse">
 					<h5>${reponses.get(1).texte}</h5>
-					<input type="checkbox" class="form-check-input"
+					<input name="reponse" value="${reponses.get(2).id}" type="checkbox" class="form-check-input"
 						id="checkbox-reponse">
 					<h5>${reponses.get(2).texte}</h5>
 				</div>
@@ -39,10 +38,7 @@
 			$('input:checkbox').not(this).prop('checked', false);
 		});
 	});
-	
-	function sendReponse(this) {
-		var input = document.getElementById("reponse").value = '';
-	}
+
 </script>
 
 <tag:footer />
