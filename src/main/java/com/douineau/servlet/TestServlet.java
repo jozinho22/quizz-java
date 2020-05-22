@@ -51,9 +51,9 @@ public class TestServlet extends HttpServlet {
 		session.setAttribute("input-name", inputName);
 		
 		if(questions == null) {
-			questions = QuestionDao.getRandomQuestions(5, 10);
+			questions = QuestionDao.getRandomQuestions(2, 10);
 			nbQuestions = questions.size();
-			session.setAttribute("time-out", 10);
+			session.setAttribute("time-out", 30);
 		}
 		nbRestantes = questions.size();
 		setAttributes(request);
@@ -107,7 +107,7 @@ public class TestServlet extends HttpServlet {
 			rd.forward(request, response);
 		} else {
 			setAttributes(request);
-
+			
 			RequestDispatcher rd = request.getRequestDispatcher("test.jsp");
 			rd.forward(request, response);
 		}

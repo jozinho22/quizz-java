@@ -27,27 +27,26 @@ Integer timeOut = (Integer) session.getAttribute("time-out");
 			window.setTimeout("timer()", 1000);
 		} else {
 			console.log('timeout');
-
-		    $.post('test', function(data) {
-		        alert(data);
-		    });
-			///disable submit-button etc
+			
+			document.getElementById("form").submit();
+ // 		     location.reload();
+// 			document.location.href = "test?input-name=fg";
 		}
 	}
 </script>
-<form action="test" method="POST" name="form">
+<form action="test" method="POST" id="form" name="form">
 
 	<div id="timer-section">
 		Temps restant : <input type="text" name="clock" value="<%=timeOut%>"> secondes.
 	</div>
 
-	<div id="section" class="container">
+	<div id="test-section" class="container">
 		<div id="inner-section">
 			<div id="header-section">
 				<h4>${question.texte}</h4>
 			</div>
 			<hr>
-			<div id="reponses">
+			<div id="reponses-section" class="container">
 				<div class="form-check">
 					<c:forEach items="${reponses}" var="reponse">
 						<input name="reponse" value="${reponse.id}" type="checkbox"

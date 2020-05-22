@@ -3,7 +3,7 @@
 <tag:begin />
 <tag:navbar />
 
-	<div id="section" class="container">
+	<div id="index-section" class="container">
 		<div id="inner-section">
 	
 			<div id="header-section">

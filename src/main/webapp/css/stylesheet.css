@@ -22,13 +22,15 @@ body {
 	background-size: cover;
 }
 
-p {
+/* Titre */
+p, h3 {
 	text-align: center;
 	color: #808080;
-	font-size: 200%;
+	font-size: 180%;
 	font-family: 'csm', Fallback, sans-serif;
 }
 
+/* Questions / reponses */
 h4, h5 {
 	font-size: 120%;
 	color: #343a40;
@@ -37,7 +39,7 @@ h4, h5 {
 }
 
 @media ( max-width : 1000px) {
-	p {
+	p, h3 {
 		font-size: 150%;
 	}
 	h4, h5 {
@@ -110,13 +112,10 @@ footer {
 /* footer */
 
 /*section */
-#section {
-	width: 65%;
+#index-section, #test-section {
 	position: absolute;
-	left: 0;
-	right: 0;
-	margin-left: auto;
-	margin-right: auto;
+	/* 	margin-left: auto; */
+	/* 	margin-right: auto; */
 	/* add the same space as navbar (35px) + navBarHeight + spaceThatWeWant*/
 	top: 20%;
 	bottom: 15%;
@@ -126,22 +125,58 @@ footer {
 	border-width: 4px;
 }
 
+#index-section {
+	width: 40%;
+	left: 0;
+	right: 0;
+}
+
 @media ( max-width : 1000px) {
-	#section {
+	#index-section {
+		width: 50%;
+	}
+}
+
+@media ( max-width : 800px) {
+	#index-section {
+		width: 55%;
+	}
+}
+
+@media ( max-width : 575px) {
+	#index-section {
+		width: 60%;
+	}
+}
+
+@media ( max-width : 768px) {
+	#index-section {
 		width: 70%;
+	}
+}
+
+#test-section {
+	width: 80%;
+	left: 0;
+	right: 0;
+}
+
+@media ( max-width : 1000px) {
+	#test-section {
+		width: 85%;
 		top: 150px;
 	}
 }
 
 @media ( max-width : 800px) {
-	#section {
-		width: 80%;
+	#test-section {
+		width: 87%;
 	}
 }
 
 @media ( max-width : 575px) {
-	#section {
-		width: 87%;
+	#test-section {
+		width: 92%;
 	}
 }
 
@@ -164,23 +199,41 @@ footer {
 	justify-content: center;
 }
 
-/* @media ( max-width : 300px) { */
-/* 	#section { */
-/* 		width: 50px; */
-/* 		top: 50px; */
-/* 	} */
-/* } */
-
-/*section */
-
 #header-section {
 	position: absolute;
-	top: 20px;
+	top: 10px;
 	height: 50px;
 	width: 100%;
 	margin: 10px;
 	padding: 20px;
 }
+
+
+/* Index */
+#input-name input {
+	position: relative;
+	margin: 0 auto;
+	text-align: center;
+	width: 120px;
+	top: 100px;
+	border-color: grey;
+	border-width : 1px;
+}
+
+#input-name button {
+	background-color: #CD853F;
+	color: black;
+	margin: 0 auto;
+	position: relative;
+	top: 110px;
+	width: 120px;
+}
+
+#input-name button:hover {
+	background-color: #A0522D;
+}
+
+/* Index */
 
 #timer-section {
 	width: 65%;
@@ -198,38 +251,18 @@ footer {
 }
 
 #timer-section input {
-	margin : 0 auto;
-    width : 50px;
-    border-radius : 5px;
-    border-width : 1px;
-    border-color :#CD853F;
-    text-align : center;
-}
-
-/* Index */
-
-#input-name button {
-	background-color: #CD853F;
-	color: black;
 	margin: 0 auto;
-	position: relative;
-	top: 15px;
-	/* reponsive */
-	width: 120px;
-}
-
-#input-name input {
-	position: relative;
-	margin: 0 auto;
+	width: 50px;
+	border-radius: 5px;
+	border-width: 1px;
+	border-color: #CD853F;
 	text-align: center;
-	width: 150px;
 }
 
-#input-name button:hover {
-	background-color: #A0522D;
+#reponses-section .form-check input {
+	width: 100%;
 }
 
-/* Index */
 
 /* Test */
 .form-check {
@@ -247,7 +280,7 @@ footer {
 	margin: 0 auto;
 	position: absolute;
 	bottom: 5%;
-	right :5%;
+	right: 5%;
 	/* reponsive */
 	width: 120px;
 }
