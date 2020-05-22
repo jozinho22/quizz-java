@@ -2,11 +2,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="com.douineau.entity.User" %>
 
 <%
-	boolean ok = false;
-String name = (String) session.getAttribute("input-name");
-if (name != null) {
+boolean ok = false;
+User user = (User) session.getAttribute("user");
+if (user != null) {
 	ok = true;
 } else {
 	response.sendRedirect("error");
@@ -37,7 +38,7 @@ Integer timeOut = (Integer) session.getAttribute("time-out");
 <form action="test" method="POST" id="form" name="form">
 
 	<div id="timer-section">
-		Temps restant : <input type="text" name="clock" value="<%=timeOut%>"> secondes.
+		Temps restant : <input type="text" name="clock" value="<%=timeOut%>"> s.
 	</div>
 
 	<div id="test-section" class="container">
@@ -74,7 +75,7 @@ Integer timeOut = (Integer) session.getAttribute("time-out");
 		});
 	});
 
-	timer();
+// 	timer();
 </script>
 
 <tag:footer />
