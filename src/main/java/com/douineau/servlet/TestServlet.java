@@ -24,9 +24,9 @@ public class TestServlet extends HttpServlet {
 	private static final long serialVersionUID = -5384359235916855711L;
 
 	private static List<Question> questions;
+	private static Integer nbQuestions;
 	
 	private static List<Reponse> reponses;
-	private boolean isTrue;
 
 	private static Integer nbRestantes;
 	
@@ -51,7 +51,9 @@ public class TestServlet extends HttpServlet {
 		session.setAttribute("input-name", inputName);
 		
 		if(questions == null) {
-			questions = QuestionDao.getRandomQuestions(2);
+			questions = QuestionDao.getRandomQuestions(5, 10);
+			nbQuestions = questions.size();
+			session.setAttribute("time-out", 10);
 		}
 		nbRestantes = questions.size();
 		setAttributes(request);
@@ -79,25 +81,28 @@ public class TestServlet extends HttpServlet {
 		String idReponse = request.getParameter("reponse");
 		System.out.println(idReponse);
 		
-		Long id = Long.parseLong(idReponse);
-		
-		for(Reponse reponse : reponses) {
-			if(reponse.getId().equals(id)) {
-				isTrue = reponse.getIsTrue();
-				break;
+		if(idReponse != null) {
+			Long id = Long.parseLong(idReponse);
+			
+			for(Reponse reponse : reponses) {
+				if(reponse.getId().equals(id)) {
+					if(reponse.getIsTrue()) {
+						score += 1;
+						break;
+					}
+				}
 			}
-		}	
-		
-		if(isTrue) {
-			score += 1;
+			
 		}
-		
+			
 		questions.remove(questions.get(0));
 		nbRestantes = questions.size();
 		
 		if (questions.size() == 0) {
 			questions = null;
 			request.setAttribute("score", score);
+			request.setAttribute("nbQuestions", nbQuestions);
+
 			RequestDispatcher rd = request.getRequestDispatcher("fin");
 			rd.forward(request, response);
 		} else {

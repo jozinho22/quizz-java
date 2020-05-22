@@ -2,12 +2,13 @@
 
 <tag:begin />
 <tag:navbar />
+
 <div id="section">
 
 	<div id="inner-section">
 		<div id="question">
 			<p>Quizz terminé !</p>
-			<p>${score}</p>
+			<p>${score}/${nbQuestions}</p>
 		</div>
 	</div>
 </div>
