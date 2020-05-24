@@ -55,8 +55,8 @@ Integer timeOut = (Integer) session.getAttribute("time-out");
 				</c:forEach>
 			</div>
 
-			<div id="next">
-				<button id="btn-next" class="btn btn-outline-secondary"
+			<div id="next-btn">
+				<button class="btn btn-outline-secondary"
 					type="submit">Valider</button>
 			</div>
 		</div>

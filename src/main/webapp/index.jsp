@@ -13,7 +13,7 @@
 			<form action="test" method="GET">
 				<input name="input-name" type="text" class="form-control"
 					placeholder="Votre nom">
-				<div class="input-group-append">
+				<div id="index" class="input-group-append">
 					<button class="btn" type="submit">Commencer</button>
 				</div>
 			</form>

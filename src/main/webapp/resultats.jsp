@@ -27,11 +27,14 @@ User user = (User) request.getAttribute("user");
 						out.print(TagBuilder.buildTag("h4", TagBuilder.buildTag("b", "Question n°" + ++k + " : ") + entry.getKey().getTexte()));
 						//Réponse
 						if(entry.getValue() != null) {
+							out.print(TagBuilder.buildTag("h5", "Vous avez répondu : "));
 							out.print(TagBuilder.buildTag("h5", " - " + entry.getValue().getTexte()));
 							if(entry.getValue().getIsTrue()) {
-								out.print(TagBuilder.buildTag("h5", "Bonne réponse !!!"));
+								out.print("<i class=\"fa fa-wright\" style=\"font-size: 36px\"></i>");
+								out.print(TagBuilder.buildTag("h5", "Bonne réponse !!!", "display:inline-block"));
 							} else {
-								out.print(TagBuilder.buildTag("h5", "Mauvaise réponse..."));
+								out.print("<i class=\"fa fa-false\" style=\"font-size: 36px\"></i>");
+								out.print(TagBuilder.buildTag("h5", "Mauvaise réponse...", "display:inline-block"));
 							}
 						} else {
 							out.print(TagBuilder.buildTag("h5", "(Vous n'avez pas répondu...)"));

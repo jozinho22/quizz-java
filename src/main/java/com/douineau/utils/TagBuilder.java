@@ -14,5 +14,18 @@ public class TagBuilder {
 		
 		return sb.toString();
 	}
+	
+	public static String buildTag(String tag, String texte, String style) {
+		StringBuilder sb = new StringBuilder();
+		sb.append("<");
+		sb.append(tag);
+		sb.append(" style=\"" + style + "\">");
+		sb.append(texte);
+		sb.append("</");
+		sb.append(tag);
+		sb.append(">");
+		
+		return sb.toString();
+	}
 
 }

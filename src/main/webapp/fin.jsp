@@ -12,9 +12,9 @@
 <!-- 		<div class="center"> -->
 			<form id="form" action="resultats" method="POST">
 				<input name="score" type="text" value="${user}" hidden="true">
-				<button type="submit" class="btn">
-					Voir les résultats
-				</button>
+				<div id="resultats-btn">
+					<button class="btn" type="submit">Voir les résultats</button>
+				</div>
 			</form>
 <!-- 		</div> -->
 	</div>
