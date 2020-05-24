@@ -4,11 +4,11 @@ body {
 	min-height: 100vh;
 }
 
-@media ( max-width : 1000px) {
-	body {
-		margin-bottom: 120px;
-	}
-}
+/* @media ( max-width : 1000px) { */
+/* 	body { */
+/* 		margin-bottom: 120px; */
+/* 	} */
+/* } */
 
 #mainback {
 	/* 	background-image: url("./../img/sacs.jpg"); */
@@ -103,7 +103,7 @@ h5 {
 }
 /* footer */
 
-footer {
+#footer {
 	width: 100%;
 	position: fixed;
 	bottom: 0;
@@ -112,10 +112,15 @@ footer {
 }
 
 @media ( max-width : 768px) {
-	footer {
-		position: absolute;
-		bottom : -120px;
+	#footer {
+    	position: relative;
+    	bottom: -120px;
 	}
+}
+
+#relative-footer {
+    position: relative;
+    bottom: -40px;	
 }
 
 #click-contact {
@@ -243,28 +248,30 @@ footer {
 	top: 10px;
 }
 
-#index {
+#index-btn {
 	position: relative;
-	text-align: center;
-	top : 140px;
+	top : 15px;
 }
 
 /* Index */
-#input-name input {
+
+#input-name form{
+	top : 90px;
 	position: relative;
+}
+
+#input-name input {
 	margin: 0 auto;
 	text-align: center;
 	border-color: grey;
 	border-width : 1px;
 	width: 120px;
-	top : 120px;
 }
 
 #input-name button {
 	background-color: #CD853F;
 	color: black;
 	margin: 0 auto;
-	position: relative;
 	width: 120px;
 }
 
@@ -275,7 +282,9 @@ footer {
 /* Index */
 
 #timer-section {
-	width: 65%;
+	position: relative;
+/* 	height:380px; */
+	width :60%;
 	height: 30%;
 	position: absolute;
 	left: 0;
@@ -286,7 +295,25 @@ footer {
 	top: 10%;
 	bottom: 80%;
 	background-color: #A9A9A9;
-	padding: 10px;
+	padding: 15px;
+}
+
+@media ( max-width : 1000px) {
+	#timer-section {
+		width: 75%;
+	}
+}
+
+@media ( max-width : 768px) {
+	#timer-section {
+		width: 80%;
+	}
+}
+
+@media ( max-width : 575px) {
+	#timer-section {
+		width: 85%;
+	}
 }
 
 #timer-section input {
@@ -310,9 +337,9 @@ footer {
 #reponses-section {
 	position : relative;
 	width : 90%;
-	align-items: center;
 	top:50px;
 	left : 30px;
+	margin-right: 30px;
 	margin-bottom: 80px;
 }
 
@@ -323,13 +350,15 @@ footer {
 
 #next-btn {
 	position: relative;
+	bottom: 15px;
+    height: 60px;
 }
 #next-btn button {
 	background-color: #228B22;
 	color: black;
 	width: 120px;
 	left : 30px;
-	bottom: 15px;
+	top:20px;
 }
 
 #next-btn button:hover {

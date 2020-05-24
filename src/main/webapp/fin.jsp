@@ -1,4 +1,17 @@
 <%@ taglib prefix="tag" tagdir="/WEB-INF/tags"%>
+<%@ page import="com.douineau.entity.User"%>
+
+<%
+boolean ok = false;
+User user = (User) session.getAttribute("user");
+if (user != null) {
+	ok = true;
+} else {
+	response.sendRedirect("error");
+}
+
+Integer timeOut = (Integer) session.getAttribute("time-out");
+%>
 
 <tag:begin />
 <tag:navbar />

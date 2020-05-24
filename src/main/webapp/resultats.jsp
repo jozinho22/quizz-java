@@ -6,12 +6,21 @@
 <%@ page import="java.util.Map"%>
 <%@ page import="com.douineau.utils.TagBuilder"%>
 
+<%
+boolean ok = false;
+User user = (User) session.getAttribute("user");
+if (user != null) {
+	ok = true;
+} else {
+	response.sendRedirect("error");
+}
+
+Integer timeOut = (Integer) session.getAttribute("time-out");
+%>
+
 <tag:begin />
 <tag:navbar />
 
-<% 
-User user = (User) request.getAttribute("user");
-%>
 <div id="resultats-section" class="container">
 	<div id="inner-section-resultats">
 		<div id="resultats">
@@ -60,5 +69,5 @@ User user = (User) request.getAttribute("user");
 
 </div>
 
-<tag:footer />
+<tag:relative-footer />
 <tag:end />
