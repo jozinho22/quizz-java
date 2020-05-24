@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page import="com.douineau.entity.User" %>
+<%@ page import="com.douineau.entity.User"%>
 
 <%
 boolean ok = false;
@@ -38,23 +38,21 @@ Integer timeOut = (Integer) session.getAttribute("time-out");
 <form action="test" method="POST" id="form" name="form">
 
 	<div id="timer-section">
-		Temps restant : <input type="text" name="clock" value="<%=timeOut%>"> s.
+		Temps restant : <input type="text" name="clock" value="<%=timeOut%>">
+		s.
 	</div>
 
 	<div id="test-section" class="container">
 		<div id="inner-section">
-			<div id="header-section">
+			<div id="question-section">
 				<h4>${question.texte}</h4>
 			</div>
-			<hr>
-			<div id="reponses-section" class="container">
-				<div class="form-check">
-					<c:forEach items="${reponses}" var="reponse">
-						<input name="reponse" value="${reponse.id}" type="checkbox"
-							class="form-check-input" id="checkbox-reponse">
-						<h5>${reponse.texte}</h5>
-					</c:forEach>
-				</div>
+			<div id="reponses-section" class="form-check">
+				<c:forEach items="${reponses}" var="reponse">
+					<input name="reponse" value="${reponse.id}" type="checkbox"
+						class="form-check-input" id="checkbox-reponse">
+					<h5>${reponse.texte}</h5>
+				</c:forEach>
 			</div>
 
 			<div id="next">

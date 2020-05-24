@@ -34,6 +34,8 @@ public class TestServlet extends HttpServlet {
 	private static Integer nbRestantes;
 
 	private static User user;
+	
+	private static boolean init;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -48,25 +50,27 @@ public class TestServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+	
+			String inputName = request.getParameter("input-name");
+			createUser(inputName);
 
-		String inputName = request.getParameter("input-name");
-		createUser(inputName);
+			HttpSession session = request.getSession();
+			session.setAttribute("user", user);
 
-		HttpSession session = request.getSession();
-		session.setAttribute("user", user);
+			if (questions == null) {
+				questions = QuestionDao.getRandomQuestionsJson(4, 10);
+				nbQuestions = questions.size();
+				session.setAttribute("time-out", 30);
+			} else {
+				session.setAttribute("time-out", 1);
+			}
 
-		if (questions == null) {
-			questions = QuestionDao.getRandomQuestionsJson(2, 10);
-			nbQuestions = questions.size();
-			session.setAttribute("time-out", 30);
-		}
-
-		nbRestantes = questions.size();
-		setRequestAttributes(request);
-
-		RequestDispatcher rd = request.getRequestDispatcher("test.jsp");
-		rd.forward(request, response);
-
+			nbRestantes = questions.size();
+			setRequestAttributes(request);
+			init = true;
+			
+			RequestDispatcher rd = request.getRequestDispatcher("test.jsp");
+			rd.forward(request, response);
 	}
 
 	private void createUser(String inputName) {

@@ -1,7 +1,6 @@
 package com.douineau.servlet;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -11,15 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.pdfbox.cos.COSName;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.common.PDStream;
 import org.apache.pdfbox.pdmodel.font.PDFont;
-import org.apache.pdfbox.pdmodel.font.PDTrueTypeFont;
-import org.apache.pdfbox.pdmodel.font.PDType0Font;
+import org.apache.pdfbox.pdmodel.font.PDFontFactory;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
-import org.apache.pdfbox.pdmodel.font.encoding.Encoding;
 
 import com.douineau.entity.Question;
 import com.douineau.entity.Reponse;
@@ -63,21 +60,16 @@ public class PdfServlet extends HttpServlet {
 		PDDocument document = new PDDocument();
 		PDPage page = new PDPage();
 		document.addPage(page);
-
+		
 		// Retrieving the pages of the document
 		PDPageContentStream contentStream = new PDPageContentStream(document, page);
-
-		contentStream.beginText();
-		contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-
+		start(contentStream);
 		contentStream.showText("Voici les réponses que vous avez répondues");
-		contentStream.newLine();  
 
 		for (Map.Entry<Question, Reponse> entry : user.getMap().entrySet()) {
+			
 			contentStream.showText("Question posée :");
 			contentStream.showText(entry.getKey().getTexte());
-			contentStream.newLine();  
-
 
 			if (entry.getValue() != null) {
 				contentStream.showText("Reponse faite");
@@ -109,12 +101,22 @@ public class PdfServlet extends HttpServlet {
 		
 		contentStream.showText("Merci d'avoir participé à ce quizz...");
 		
-		contentStream.endText();
-		contentStream.close();
+		end(contentStream);
 
-		document.save("pdfBoxHelloWorld.pdf");
+		document.save("C:\\Users\\josselin.douineau\\projects\\quizz-java\\Resultats.pdf");
 		document.close();
 
+		response.sendRedirect("C:\\Users\\josselin.douineau\\projects\\quizz-java\\Resultats.pdf");
+	}
+
+	private void end(PDPageContentStream contentStream) throws IOException {
+		contentStream.endText();
+		contentStream.close();
+	}
+
+	private void start(PDPageContentStream contentStream) throws IOException {
+		contentStream.beginText();
+		contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
 	}
 
 }

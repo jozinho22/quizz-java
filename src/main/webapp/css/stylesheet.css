@@ -4,6 +4,12 @@ body {
 	min-height: 100vh;
 }
 
+@media ( max-width : 1000px) {
+	body {
+		margin-bottom: 120px;
+	}
+}
+
 #mainback {
 	/* 	background-image: url("./../img/sacs.jpg"); */
 	background-color: #A9A9A9;
@@ -28,21 +34,34 @@ p, h3 {
 	color: #808080;
 	font-size: 180%;
 	font-family: 'csm', Fallback, sans-serif;
+	padding : 5px;
 }
 
 /* Questions / reponses */
 h4, h5 {
-	font-size: 120%;
 	color: #343a40;
 	font-family: 'csm', Fallback, sans-serif;
-	margin-left: 2%;
+	padding-right: 10px;
+}
+
+h4 {
+	font-size: 130%;
+	padding : 5px;
+}
+
+h5 {
+	font-size: 120%;
+	margin-left: 20px;
 }
 
 @media ( max-width : 1000px) {
 	p, h3 {
 		font-size: 150%;
 	}
-	h4, h5 {
+	h4 {
+		font-size: 120%;
+	}
+	 h5 {
 		font-size: 110%;
 	}
 }
@@ -51,7 +70,11 @@ h4, h5 {
 	p {
 		font-size: 130%;
 	}
-	h4, h5 {
+	h4 {
+		font-size: 110%;
+	}
+	
+	h5 {
 		font-size: 100%;
 	}
 }
@@ -60,7 +83,10 @@ h4, h5 {
 	p {
 		font-size: 110%;
 	}
-	h4, h5 {
+	h4 {
+		font-size: 100%;
+	}
+	h5 {
 		font-size: 90%;
 	}
 }
@@ -76,15 +102,20 @@ h4, h5 {
 	float: none;
 }
 /* footer */
+
 footer {
 	width: 100%;
 	position: fixed;
-	/* 	top: 0; */
-	bottom: 20px;
-	left: 0;
-	right: 0;
-	margin-left: auto;
-	margin-right: auto;
+	bottom: 0;
+	/* 	height: 80px;  */
+	margin-bottom: 20px;
+}
+
+@media ( max-width : 768px) {
+	footer {
+		position: absolute;
+		bottom : -120px;
+	}
 }
 
 #click-contact {
@@ -108,23 +139,23 @@ footer {
 /* footer */
 
 /*section */
-#index-section, #test-section {
-	position: absolute;
-	/* 	margin-left: auto; */
-	/* 	margin-right: auto; */
-	/* add the same space as navbar (35px) + navBarHeight + spaceThatWeWant*/
-	top: 20%;
-	bottom: 15%;
+#index-section, #test-section, #resultats-section {
+	position: relative;
+/* 	height:380px; */
+	width :60%;
 	background-color: #FFE4C4;
 	border-style: solid;
 	border-color: #CD853F;
 	border-width: 4px;
+
+	padding-top: 15px;
+	padding-bottom: 15px;
 }
 
 #index-section {
-	width: 40%;
-	left: 0;
-	right: 0;
+	height : 350px;
+	width: 40%;	
+	top: 60px;
 }
 
 @media ( max-width : 1000px) {
@@ -133,7 +164,7 @@ footer {
 	}
 }
 
-@media ( max-width : 800px) {
+@media ( max-width : 768px) {
 	#index-section {
 		width: 55%;
 	}
@@ -145,63 +176,87 @@ footer {
 	}
 }
 
-@media ( max-width : 768px) {
-	#index-section {
-		width: 70%;
-	}
-}
-
 #test-section {
-	width: 80%;
-	left: 0;
-	right: 0;
+	    top : 80px;
 }
 
 @media ( max-width : 1000px) {
 	#test-section {
-		width: 85%;
+		width: 75%;
 	}
 }
 
 @media ( max-width : 768px) {
 	#test-section {
-		width: 87%;
-		height : 75%;
+		width: 80%;
 	}
 }
 
 @media ( max-width : 575px) {
 	#test-section {
+		width: 85%;
+	}
+}
+
+#resultats-section {
+	height:100%;
+	top: 20px;
+}
+
+@media ( max-width : 1000px) {
+	#resultats-section {
+		width: 85%;
+	}
+}
+
+@media ( max-width : 768px) {
+	#resultats-section {
+		width: 87%;
+	}
+}
+
+@media ( max-width : 575px) {
+	#resultats-section {
 		width: 92%;
 	}
 }
 
-#inner-section {
-	width: 90%;
-	position: absolute;
-	left: 0;
-	right: 0;
-	margin-left: auto;
-	margin-right: auto;
-	/* add the same space as navbar (35px) + navBarHeight + spaceThatWeWant*/
-	top: 30px;
-	bottom: 30px;
+#inner-section, #inner-section-resultats {
 	background-color: #DCDCDC;
 	border-style: solid;
 	border-color: #A9A9A9;
 	border-width: 2px;
-	display: flex;
-	align-items: center;
+}
+
+#inner-section {
+	width:100%;
+	height:100%;
 	justify-content: center;
 }
 
+/* #inner-section-resultats { */
+/* 	position: absolute; */
+/* } */
+
 #header-section {
-	position: absolute;
+	position: relative;
 	top: 10px;
-	height: 50px;
-	width: 100%;
 }
 
+#question-section {
+	position : relative;
+	top: 20px;
+	left : 2px;
+}
+
+#reponses-section {
+	position : relative;
+	width : 90%;
+	align-items: center;
+	top:50px;
+	left : 30px;
+	margin-bottom: 80px;
+}
 
 /* Index */
 #input-name input {
@@ -254,31 +309,34 @@ footer {
 }
 
 /* Test */
-.form-check {
-	position: relative;
-	top: 30%;
-	left: 5%;
-	width : 90%;
-	margin: 10px;
-}
+
+/* .form-check { */
+/* 	position : absolute; */
+/* 	width : 90%; */
+/* 	align-items: center; */
+	
+/* } */
 
 .form-check input {
 	width : 15px;
 	height : 15px;
 }
 
+#next {
+	position: relative;
+}
 #next button {
-	text-align: center;
 	background-color: #228B22;
 	color: black;
-	margin: 0 auto;
-	position: absolute;
-	bottom: 5%;
-	right: 5%;
-	/* reponsive */
 	width: 120px;
 }
 
 #next button:hover {
 	background-color: #006400;
+}
+
+form button {
+	position : relative;
+	margin : 0 auto;
+	text-align:center;
 }
