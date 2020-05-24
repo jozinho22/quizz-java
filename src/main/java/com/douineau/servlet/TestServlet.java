@@ -34,7 +34,7 @@ public class TestServlet extends HttpServlet {
 	private static Integer nbRestantes;
 
 	private static User user;
-	
+
 	private static boolean init;
 
 	/**
@@ -50,8 +50,12 @@ public class TestServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-	
-			String inputName = request.getParameter("input-name");
+
+		String inputName = request.getParameter("input-name");
+
+		if (inputName == null) {
+			response.sendRedirect("test.jsp");
+		} else {
 			createUser(inputName);
 
 			HttpSession session = request.getSession();
@@ -68,9 +72,10 @@ public class TestServlet extends HttpServlet {
 			nbRestantes = questions.size();
 			setRequestAttributes(request);
 			init = true;
-			
+
 			RequestDispatcher rd = request.getRequestDispatcher("test.jsp");
 			rd.forward(request, response);
+		}
 	}
 
 	private void createUser(String inputName) {
@@ -133,5 +138,5 @@ public class TestServlet extends HttpServlet {
 			rd.forward(request, response);
 		}
 	}
-	
+
 }

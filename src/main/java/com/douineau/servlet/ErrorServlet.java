@@ -26,7 +26,6 @@ public class ErrorServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setStatus(HttpServletResponse.SC_FORBIDDEN);
-//		response.sendRedirect("error.jsp");
 	}
 
 	/**

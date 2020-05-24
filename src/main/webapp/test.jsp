@@ -5,15 +5,15 @@
 <%@ page import="com.douineau.entity.User"%>
 
 <%
-boolean ok = false;
-User user = (User) session.getAttribute("user");
-if (user != null) {
-	ok = true;
-} else {
-	response.sendRedirect("error");
-}
 
-Integer timeOut = (Integer) session.getAttribute("time-out");
+	Integer timeOut = 0;
+	User user = (User) session.getAttribute("user");
+	if (user == null) {
+		response.sendRedirect("error");
+	} else {
+	    timeOut = (Integer) session.getAttribute("time-out");
+	}
+
 %>
 
 <tag:begin />
@@ -76,5 +76,5 @@ Integer timeOut = (Integer) session.getAttribute("time-out");
 // 	timer();
 </script>
 
-<tag:footer />
+<%-- <tag:footer /> --%>
 <tag:end />

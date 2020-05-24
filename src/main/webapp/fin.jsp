@@ -2,15 +2,13 @@
 <%@ page import="com.douineau.entity.User"%>
 
 <%
-boolean ok = false;
-User user = (User) session.getAttribute("user");
-if (user != null) {
-	ok = true;
-} else {
-	response.sendRedirect("error");
-}
-
-Integer timeOut = (Integer) session.getAttribute("time-out");
+	boolean ok = false;
+	User user = (User) session.getAttribute("user");
+	if (user == null) {
+		response.sendRedirect("error");
+	} else {
+		ok = true;
+	}
 %>
 
 <tag:begin />
@@ -18,13 +16,18 @@ Integer timeOut = (Integer) session.getAttribute("time-out");
 
 <div id="index-section" class="container">
 	<div id="inner-section">
-		<div id="header-section">
+		<div id="reponses-section">
 			<p>Quizz terminé !</p>
 			<p>${user.score}/${nbQuestions}</p>
 		</div>
 <!-- 		<div class="center"> -->
 			<form id="form" action="resultats" method="POST">
-				<input name="score" type="text" value="${user}" hidden="true">
+				<%
+					if(ok) {
+						out.print("<input name=\"score\" type=\"text\" value=\"${user}\" hidden=\"true\">");
+					}
+				%>
+<%-- 				<input name="score" type="text" value="${user}" hidden="true"> --%>
 				<div id="resultats-btn">
 					<button class="btn" type="submit">Voir les résultats</button>
 				</div>
@@ -33,5 +36,5 @@ Integer timeOut = (Integer) session.getAttribute("time-out");
 	</div>
 </div>
 
-<tag:footer />
+<%-- <tag:footer /> --%>
 <tag:end />

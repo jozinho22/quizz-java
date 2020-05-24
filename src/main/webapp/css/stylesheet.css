@@ -4,9 +4,9 @@ body {
 	min-height: 100vh;
 }
 
-/* @media ( max-width : 1000px) { */
+/* @media ( max-width : 7668px) { */
 /* 	body { */
-/* 		margin-bottom: 120px; */
+/* 		margin-bottom : 20px; */
 /* 	} */
 /* } */
 
@@ -114,13 +114,20 @@ h5 {
 @media ( max-width : 768px) {
 	#footer {
     	position: relative;
-    	bottom: -120px;
+    	top: 120px;
+	}
+}
+
+@media ( max-height : 610px) {
+	#footer {
+    	position: relative;
+    	top: 120px;
 	}
 }
 
 #relative-footer {
     position: relative;
-    bottom: -40px;	
+    top: 120px;
 }
 
 #click-contact {
@@ -155,34 +162,32 @@ h5 {
 
 	padding-top: 15px;
 	padding-bottom: 15px;
+	margin : 0 auto;
+	top : 20px;
+	margin-bottom:40px;
 }
 
 #index-section {
-	height : 350px;
+	top: 80px;
 	width: 40%;	
-	top: 60px;
 }
 
 @media ( max-width : 1000px) {
-	#index-section {
-		width: 50%;
-	}
-}
-
-@media ( max-width : 768px) {
 	#index-section {
 		width: 55%;
 	}
 }
 
-@media ( max-width : 575px) {
+@media ( max-width : 768px) {
 	#index-section {
 		width: 60%;
 	}
 }
 
-#test-section {
-	    top : 80px;
+@media ( max-width : 575px) {
+	#index-section {
+		width: 70%;
+	}
 }
 
 @media ( max-width : 1000px) {
@@ -204,8 +209,8 @@ h5 {
 }
 
 #resultats-section {
+	top: 40px;
 	height:100%;
-	top: 20px;
 }
 
 @media ( max-width : 1000px) {
@@ -236,31 +241,30 @@ h5 {
 #inner-section {
 	width:100%;
 	height:100%;
-	justify-content: center;
-}
-
-/* #inner-section-resultats { */
-/* 	position: absolute; */
-/* } */
-
-#header-section {
-	position: relative;
-	top: 10px;
-}
-
-#index-btn {
-	position: relative;
-	top : 15px;
 }
 
 /* Index */
-
-#input-name form{
-	top : 90px;
-	position: relative;
+#title-section {
+	position : relative;
+	text-align : center;
+	text-decoration: underline;
+	top : 20px;
 }
 
-#input-name input {
+#desc-section {
+	position : relative;
+	top : 40px;
+	margin-bottom: 30px;
+}
+
+#desc-section form {
+	position : relative;
+	top: 20px;
+	height : 80px;
+}
+
+#desc-section input {
+	position: relative;
 	margin: 0 auto;
 	text-align: center;
 	border-color: grey;
@@ -268,27 +272,40 @@ h5 {
 	width: 120px;
 }
 
-#input-name button {
+#desc-section button {
+	position: relative;
 	background-color: #CD853F;
 	color: black;
 	margin: 0 auto;
 	width: 120px;
 }
 
-#input-name button:hover {
+#desc-section button:hover {
+	background-color: #A0522D;
+}
+
+#start-btn {
+	position: relative;
+	text-align: center;
+/* 	top : 60px; */
+}
+
+#start-btn button {
+    background-color: #CD853F;
+	color: black;
+	margin: 0 auto;
+	position: relative;
+	width: 150px;
+}
+
+#start-btn button:hover {
 	background-color: #A0522D;
 }
 
 /* Index */
 
 #timer-section {
-	position: relative;
-/* 	height:380px; */
 	width :60%;
-	height: 30%;
-	position: absolute;
-	left: 0;
-	right: 0;
 	margin-left: auto;
 	margin-right: auto;
 	/* add the same space as navbar (35px) + navBarHeight + spaceThatWeWant*/
@@ -335,8 +352,6 @@ h5 {
 }
 
 #reponses-section {
-	position : relative;
-	width : 90%;
 	top:50px;
 	left : 30px;
 	margin-right: 30px;
@@ -373,7 +388,7 @@ form button {
 
 /* TEST */ 
 
-/* RESULTATS */
+/* FIN */
 #resultats-btn {
 	position: relative;
 	text-align: center;
@@ -391,3 +406,27 @@ form button {
 #resultats-btn button:hover {
 	background-color: #A0522D;
 }
+
+/* FIN */
+
+/* RESULTATS */ 
+#return-btn {
+	position: relative;
+	text-align: center;
+	top : 90px;
+}
+
+#return-btn button {
+    background-color: #CD853F;
+	color: black;
+	margin: 0 auto;
+	position: relative;
+	width: 150px;
+	bottom : 20px;
+}
+
+#return-btn button:hover {
+	background-color: #A0522D;
+}
+
+/* RESULTATS */ 
