@@ -16,10 +16,8 @@
 
 <div id="index-section" class="container">
 	<div id="inner-section">
-		<div id="reponses-section">
 			<p>Quizz terminé !</p>
 			<p>${user.score}/${nbQuestions}</p>
-		</div>
 <!-- 		<div class="center"> -->
 			<form id="form" action="resultats" method="POST">
 				<%

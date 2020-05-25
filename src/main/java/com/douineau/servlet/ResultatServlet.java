@@ -45,10 +45,6 @@ public class ResultatServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");	
 		
-//		for (Map.Entry<Question, Reponse> entry : user.getMap().entrySet()) {
-//			
-//		}
-//		
 		request.setAttribute("user", user);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("resultats.jsp");

@@ -4,7 +4,7 @@ import java.util.Map;
 
 public class User {
 	
-	private String name;
+	private String uuid;
 	private Integer score;
 	private Map<Question, Reponse> map;
 	
@@ -13,14 +13,15 @@ public class User {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public String getName() {
-		return name;
+	public String getUuid() {
+		return uuid;
 	}
-	
-	public void setName(String name) {
-		this.name = name;
+
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
 	}
-	
+
+
 	public Integer getScore() {
 		return score;
 	}
@@ -40,7 +41,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [name=" + name + ", score=" + score + ", map=" + map + "]";
+		return "User [uuid=" + uuid + ", score=" + score + ", map=" + map + "]";
 	}
 	
 }

@@ -1,12 +1,10 @@
 body {
-	position: relative;
-	min-height: 100%;
 	min-height: 100vh;
 }
 
 /* @media ( max-width : 7668px) { */
 /* 	body { */
-/* 		margin-bottom : 20px; */
+/* 		margin-bottom : 80px; */
 /* 	} */
 /* } */
 
@@ -96,61 +94,58 @@ h5 {
 	src: url("./font/comic-sans-ms.ttf") format("truetype");
 }
 
+#navbar {
+    border-bottom: 2px solid rgba(255, 255, 255, .5);
+	border-top: 2px solid rgba(255, 255, 255, .5);
+	height : 100px;
+}
+
 .navbar-brand {
 	margin-left: auto;
 	margin-right: auto;
 	float: none;
 }
-/* footer */
 
+/* footer */
 #footer {
 	width: 100%;
-	position: fixed;
+	position: relative;
 	bottom: 0;
-	/* 	height: 80px;  */
-	margin-bottom: 20px;
+	height: 100px; 
+/* 	margin-bottom: 20px; */
+	background-color : #343a40;
+	bottom : -100px;
 }
 
-@media ( max-width : 768px) {
+@media ( max-width : 1000px) {
 	#footer {
-    	position: relative;
-    	top: 120px;
+/*     	position: relative; */
+		bottom : -200px;
+	}
+}
+
+@media ( max-width : 1000px) {
+	#footer {
+/*     	position: relative; */
+		bottom : -130px;
 	}
 }
 
 @media ( max-height : 610px) {
 	#footer {
     	position: relative;
-    	top: 120px;
+/*     	top: 120px; */
 	}
 }
 
 #relative-footer {
     position: relative;
-    top: 120px;
+/*     top: 120px; */
 }
-
-#click-contact {
-	color: #CD853F;
-}
-
-#click-contact:hover {
-	color: #A0522D;
-	cursor: pointer;
-}
-
-.credits {
-	text-align: center;
-	color: rgba(255, 255, 255, .5);
-}
-
-/* #socials { */
-
-/* } */
 
 /* footer */
 
-/*section */
+/*sections */
 #index-section, #test-section, #resultats-section {
 	position: relative;
 /* 	height:380px; */
@@ -163,13 +158,25 @@ h5 {
 	padding-top: 15px;
 	padding-bottom: 15px;
 	margin : 0 auto;
-	top : 20px;
-	margin-bottom:40px;
+	top: 30px;
+    margin-bottom : 60px;
 }
 
+#inner-section, #inner-section-resultats {
+	background-color: #DCDCDC;
+	border-style: solid;
+	border-color: #A9A9A9;
+	border-width: 2px;
+	width:100%;
+	height:100%;
+}
+/*sections */
+
+/* Index */
+
 #index-section {
-	top: 80px;
 	width: 40%;	
+	top: 100px;
 }
 
 @media ( max-width : 1000px) {
@@ -190,60 +197,6 @@ h5 {
 	}
 }
 
-@media ( max-width : 1000px) {
-	#test-section {
-		width: 75%;
-	}
-}
-
-@media ( max-width : 768px) {
-	#test-section {
-		width: 80%;
-	}
-}
-
-@media ( max-width : 575px) {
-	#test-section {
-		width: 85%;
-	}
-}
-
-#resultats-section {
-	top: 40px;
-	height:100%;
-}
-
-@media ( max-width : 1000px) {
-	#resultats-section {
-		width: 85%;
-	}
-}
-
-@media ( max-width : 768px) {
-	#resultats-section {
-		width: 87%;
-	}
-}
-
-@media ( max-width : 575px) {
-	#resultats-section {
-		width: 92%;
-	}
-}
-
-#inner-section, #inner-section-resultats {
-	background-color: #DCDCDC;
-	border-style: solid;
-	border-color: #A9A9A9;
-	border-width: 2px;
-}
-
-#inner-section {
-	width:100%;
-	height:100%;
-}
-
-/* Index */
 #title-section {
 	position : relative;
 	text-align : center;
@@ -304,12 +257,37 @@ h5 {
 
 /* Index */
 
+/* Test*/ 
+
+#test-section {
+	top: 60px;
+}
+
+@media ( max-width : 1000px) {
+	#test-section {
+		top: 50px;
+	}
+}
+
+@media ( max-width : 768px) {
+	#test-section {
+		width: 80%;
+	}
+}
+
+@media ( max-width : 575px) {
+	#test-section {
+		width: 85%;
+	}
+}
+
 #timer-section {
+	position : relative;
 	width :60%;
 	margin-left: auto;
 	margin-right: auto;
 	/* add the same space as navbar (35px) + navBarHeight + spaceThatWeWant*/
-	top: 10%;
+	top: 30px;
 	bottom: 80%;
 	background-color: #A9A9A9;
 	padding: 15px;
@@ -341,8 +319,6 @@ h5 {
 	border-color: #CD853F;
 	text-align: center;
 }
-
-/* Test */
 
 #question-section {
 	position : relative;
@@ -389,10 +365,13 @@ form button {
 /* TEST */ 
 
 /* FIN */
+
+#form {
+	margin-bottom: 20px;
+}
 #resultats-btn {
 	position: relative;
 	text-align: center;
-	top : 90px;
 }
 
 #resultats-btn button {
@@ -410,6 +389,31 @@ form button {
 /* FIN */
 
 /* RESULTATS */ 
+
+#resultats-section {
+	width: 40%;	
+	top: 60px;
+	margin-bottom : 120px;
+}
+
+@media ( max-width : 1000px) {
+	#resultats-section {
+		width: 85%;
+	}
+}
+
+@media ( max-width : 768px) {
+	#resultats-section {
+		width: 87%;
+	}
+}
+
+@media ( max-width : 575px) {
+	#resultats-section {
+		width: 92%;
+	}
+}
+
 #return-btn {
 	position: relative;
 	text-align: center;
@@ -422,7 +426,6 @@ form button {
 	margin: 0 auto;
 	position: relative;
 	width: 150px;
-	bottom : 20px;
 }
 
 #return-btn button:hover {

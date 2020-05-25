@@ -24,6 +24,7 @@
 		<div id="resultats">
 			<%-- 			<c:forEach items="${map}" var="entry"> --%>
 			<p>Voici vos résultats</p>
+			<p>${user.score}/${nbQuestions}</p>
 			<hr>
 			<%-- 					<h4>${entry.key.texte}</h4> --%>
 			<%

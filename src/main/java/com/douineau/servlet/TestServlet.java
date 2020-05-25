@@ -35,8 +35,6 @@ public class TestServlet extends HttpServlet {
 
 	private static User user;
 
-	private static boolean init;
-
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -51,12 +49,12 @@ public class TestServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String inputName = request.getParameter("input-name");
+		String uuid = (String) request.getParameter("uuid");
 
-		if (inputName == null) {
+		if (uuid == null) {
 			response.sendRedirect("test.jsp");
 		} else {
-			createUser(inputName);
+			createUser(uuid);
 
 			HttpSession session = request.getSession();
 			session.setAttribute("user", user);
@@ -64,23 +62,20 @@ public class TestServlet extends HttpServlet {
 			if (questions == null) {
 				questions = QuestionDao.getRandomQuestionsJson(4, 10);
 				nbQuestions = questions.size();
-				session.setAttribute("time-out", 30);
-			} else {
-				session.setAttribute("time-out", 1);
+				session.setAttribute("time-out", 20);
 			}
 
 			nbRestantes = questions.size();
 			setRequestAttributes(request);
-			init = true;
 
 			RequestDispatcher rd = request.getRequestDispatcher("test.jsp");
 			rd.forward(request, response);
 		}
 	}
 
-	private void createUser(String inputName) {
+	private void createUser(String uuid) {
 		user = new User();
-		user.setName(inputName);
+		user.setUuid(uuid);
 		user.setScore(0);
 		Map<Question, Reponse> map = new HashMap<Question, Reponse>();
 		user.setMap(map);
@@ -102,32 +97,34 @@ public class TestServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String idReponse = request.getParameter("reponse");
-		System.out.println(idReponse);
+			String idReponse = request.getParameter("reponse");
+			System.out.println("Réponse : " + idReponse);
 
-		if (idReponse != null) {
-			Long id = Long.parseLong(idReponse);
+			if (idReponse != null) {
+				Long id = Long.parseLong(idReponse);
 
-			for (Reponse reponse : reponses) {
-				if (reponse.getId().equals(id)) {
-					user.getMap().put(questions.get(0), reponse);
-					if (reponse.getIsTrue()) {
-						user.setScore(user.getScore() + 1);
-						break;
+				for (Reponse reponse : reponses) {
+					if (reponse.getId().equals(id)) {
+						user.getMap().put(questions.get(0), reponse);
+						if (reponse.getIsTrue()) {
+							user.setScore(user.getScore() + 1);
+							break;
+						}
 					}
 				}
+
+			} else {
+				user.getMap().put(questions.get(0), null);
 			}
 
-		} else {
-			user.getMap().put(questions.get(0), null);
-		}
-
-		questions.remove(questions.get(0));
-		nbRestantes = questions.size();
+			questions.remove(questions.get(0));
+			nbRestantes = questions.size();
 
 		if (questions.size() == 0) {
 			questions = null;
-			request.setAttribute("nbQuestions", nbQuestions);
+			
+			HttpSession session = request.getSession();
+			session.setAttribute("nbQuestions", nbQuestions);
 
 			RequestDispatcher rd = request.getRequestDispatcher("fin");
 			rd.forward(request, response);

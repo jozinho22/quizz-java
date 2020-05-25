@@ -38,10 +38,7 @@ public class FinServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
-		session.removeAttribute("input-name");
-		
-		Integer score = (Integer) request.getAttribute("score");
-		request.setAttribute("score", score);
+		session.removeAttribute("uuid");
 		
 		RequestDispatcher rd = request.getRequestDispatcher("fin.jsp");
 		rd.forward(request, response);	

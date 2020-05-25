@@ -1,5 +1,8 @@
 <%@ taglib prefix="tag" tagdir="/WEB-INF/tags"%>
-
+<%@ page import="java.util.UUID"%>
+<% 
+	String uuid = UUID.randomUUID().toString();
+%>
 <tag:begin />
 <tag:navbar />
 
@@ -13,12 +16,9 @@
 			<h5>- 20 questions sur le thème de Java et son environnement</h5>
 			<h5>- 20 secondes par question</h5>
 			<h5>- vos résultats imprimables en pdf à l'issue du quizz</h5>
-			<h5>- blabla</h5>
-			<h5>- blabla</h5>
 			
 			<form action="test" method="GET">
-				<input name="input-name" type="text" class="form-control"
-					placeholder="Votre nom" hidden=true value="joss">
+				<input id="input" name="uuid" type="text" class="form-control" hidden=true>
 				<div id="start-btn">
 					<button class="btn" type="submit">Commencer</button>
 				</div>
@@ -27,6 +27,12 @@
 	</div>
 
 </div>
+
+<script>
+	var uuid = '<%=uuid%>' ;
+	document.getElementById("input").value = uuid ;
+	console.log(uuid)
+</script>
 
 <%-- <tag:footer /> --%>
 <tag:end />
