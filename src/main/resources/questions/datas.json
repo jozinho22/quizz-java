@@ -1,0 +1,326 @@
+[
+	{
+		"texte": "Quel sont les trois grands principes de la POO ?",
+		"topic": "Java",
+		"reponses": [
+			{
+				"texte": "L'encapsulation, l'héritage et le polymorphisme",
+				"isTrue": true
+			},
+			{
+				"texte": "L'encapsulation, l'héritage multiple et le polymorphisme",
+				"isTrue": false
+			},
+			{
+				"texte": "Le multi-threading, l'accès aux données et le polymorphisme",
+				"isTrue": false
+			}
+		]
+	},
+	{
+		"texte": "Quel interface implémente la classe ArrayList ?",
+		"topic": "Java",
+		"reponses": [
+			{
+				"texte": "List",
+				"isTrue": true
+			},
+			{
+				"texte": "Queue",
+				"isTrue": false
+			},
+			{
+				"texte": "Serializable",
+				"isTrue": false
+			}
+		]
+	},
+	{
+		"texte": "Que signifie '-u' dans la commande 'git push -u origin master' ?",
+		"topic": "Git",
+		"reponses": [
+			{
+				"texte": "--unique",
+				"isTrue": false
+			},
+			{
+				"texte": "--set-upstream",
+				"isTrue": true
+			},
+			{
+				"texte": "--utf-8",
+				"isTrue": false
+			}
+		]
+	},
+	{
+		"texte": "Quel est le principal avantage de l'interface Set par rapport à l'interface List ?",
+		"topic": "Java",
+		"reponses": [
+			{
+				"texte": "Elle permet d'accepter des doublons",
+				"isTrue": true
+			},
+			{
+				"texte": "Elle permet une flexibilité des entrées",
+				"isTrue": false
+			},
+			{
+				"texte": "Elle permet de ne pas accepter de doublons",
+				"isTrue": false
+			}
+		]
+	},
+	{
+		"texte": "Que se passe-t-il si vous créez un nouveau dépôt Git en remote avec un commit, et que vous créez son équivalent local et que vous effectuez la commenade 'git push' après avoir commité ?",
+		"topic": "Git",
+		"reponses": [
+			{
+				"texte": "Git va vous informer que les deux commits n'ont pas de commits en commun",
+				"isTrue": true
+			},
+			{
+				"texte": "Le push va bien se passer",
+				"isTrue": false
+			},
+			{
+				"texte": "Git va vous informer que vous n'êtes pas à jour par rapport au dépôt distant",
+				"isTrue": false
+			}
+		]
+	},
+	{
+		"texte": "Quel sont les avantages à utiliser la classe Vector plutôt que la classe List ?",
+		"topic": "Java",
+		"reponses": [
+			{
+				"texte": "Elle est plus rapide",
+				"isTrue": false
+			},
+			{
+				"texte": "Elle est synchronisée et permet d'itérer sur des Enums",
+				"isTrue": true
+			},
+			{
+				"texte": "Elle a plus de capacité",
+				"isTrue": false
+			}
+		]
+	},
+	{
+		"texte": "Quel interfaces implémente la classe <code>LinkedList</code> ?",
+		"topic": "Java",
+		"reponses": [
+			{
+				"texte": "<code>List</code> et <code>Set</code>",
+				"isTrue": false
+			},
+			{
+				"texte": "<code>List</code> et <code>Queue</code>",
+				"isTrue": true
+			},
+			{
+				"texte": "<code>Set</code> et <code>Queue</code>",
+				"isTrue": false
+			}
+		]
+	},
+	{
+		"texte": "Quelle est une des utilités de la classe <code>Integer</code>, par rapport à un <code>int</code> primitif ?",
+		"topic": "Java",
+		"reponses": [
+			{
+				"texte": "C'est Thread-safe",
+				"isTrue": false
+			},
+			{
+				"texte": "Cela augmente la performance de traitement",
+				"isTrue": false
+			},
+			{
+				"texte": "Cela permet de créer des listes de nombres entiers",
+				"isTrue": true
+			}
+		]
+	},
+	{
+		"texte": "Quel est la différence entre les commandes 'git rebase' et 'git merge' ?",
+		"topic": "Git",
+		"reponses": [
+			{
+				"texte": "'git rebase' place le commit souhaité au niveau du commit actuel, tandis que 'git merge' va créer un nouveau commit pour la fusion des deux branches",
+				"isTrue": true
+			},
+			{
+				"texte": "Ce sont deux façons de faire différentes pour le même résultat",
+				"isTrue": false
+			},
+			{
+				"texte": "'git rebase' place le commit actuel au niveau du commit souhaité, tandis que 'git merge' va créer un nouveau commit pour la fusion des deux branches",
+				"isTrue": true
+			}
+		]
+	},
+	{
+		"texte": "Comment démarre-t-on un dépôt Git en local",
+		"topic": "Java",
+		"reponses": [
+			{
+				"texte": "'git init'",
+				"isTrue": true
+			},
+			{
+				"texte": "'git status'",
+				"isTrue": false
+			},
+			{
+				"texte": "'git clone'",
+				"isTrue": false
+			}
+		]
+	},
+	{
+		"texte": "Quel code permet de conserver un attribut en session avec les JSP",
+		"topic": "Java",
+		"reponses": [
+			{
+				"texte": "<code>request.setAttribute(\"attribute\", attribute);</code>",
+				"isTrue": true
+			},
+			{
+				"texte": "<code>request.setParameter(\"attribute\", attribute);</code>",
+				"isTrue": false
+			},
+			{
+				"texte": "<code>session.setAttribute(\"attribute\", attribute);</code>",
+				"isTrue": true
+			}
+		]
+	},
+	{
+		"texte": "Laquelles de ces deux appels sont des façons d'appeler une Servlet dans une page HTML ?",
+		"topic": "Java",
+		"reponses": [
+			{
+				"texte": "'<code><form onaction=\"MyServlet.java\" method=\"GET\"></code>' + '<code><button type=\"submit\"></button></code>' et '<code><a href=\"MyServlet.java\"></code>'",
+				"isTrue": false
+			},
+			{
+				"texte": "'<code><form action=\"myServlet\" method=\"GET\"></code>' + '<code><button type=\"submit\"></button></code>' et '<code><a href=\"myServlet\"></code>'",
+				"isTrue": true
+			},
+			{
+				"texte": "'<code><form onaction=\"myServlet\" method=\"GET\"></code>' + '<code><button type=\"submit\"></button></code>' et '<code><a href=\"myServlet\"></code>'",
+				"isTrue": false
+			}
+		]
+	},
+	{
+		"texte": "Quelle syntaxe utilisée pour afficher des données Java dans une page HTML avec la JSTL",
+		"topic": "Java",
+		"reponses": [
+			{
+				"texte": "${object.attribute}",
+				"isTrue": true
+			},
+			{
+				"texte": "#{object.attribute}",
+				"isTrue": false
+			},
+			{
+				"texte": "#{object.getAttribute()}",
+				"isTrue": false
+			}
+		]
+	},
+	{
+		"texte": "Quelle est la classe mère de toutes les classes ?",
+		"topic": "Java",
+		"reponses": [
+			{
+				"texte": "Class",
+				"isTrue": false
+			},
+			{
+				"texte": "Object",
+				"isTrue": true
+			},
+			{
+				"texte": "Pojo",
+				"isTrue": false
+			}
+		]
+	},
+	{
+		"texte": "Quelle est la principe d'une Map ?",
+		"topic": "Java",
+		"reponses": [
+			{
+				"texte": "Elle référence un objet grâce à son hashcode",
+				"isTrue": false
+			},
+			{
+				"texte": "Elle permet de stocker des objets à un autre emplacement mémoire",
+				"isTrue": false
+			},
+			{
+				"texte": "Elle référence un object grâce à une clé",
+				"isTrue": true
+			}
+		]
+	},
+	{
+		"texte": "A qui correspond l'annotation'<code>@Id @GeneratedValue(strategy = GenerationType.IDENTITY)</code>' ?",
+		"topic": "JPA",
+		"reponses": [
+			{
+				"texte": "Elle référence un objet grâce à son hashcode",
+				"isTrue": false
+			},
+			{
+				"texte": "L'Id de l'objet sera directement mappé avec la valeur de l'Id qu'on lui affectera manuellement",
+				"isTrue": false
+			},
+			{
+				"texte": "Une séquence seré générée spécifiquement pour cet objet",
+				"isTrue": true
+			}
+		]
+	},
+	{
+		"texte": "Quel est l'équivalent de l'annotation <code>@javax.inject.Named</code> ?",
+		"topic": "JPA",
+		"reponses": [
+			{
+				"texte": "<code>@org.springframework.stereotype.Component</code>",
+				"isTrue": true
+			},
+			{
+				"texte": "<code>@org.springframework.beans.factory.annotation.Autowired</code>",
+				"isTrue": false
+			},
+			{
+				"texte": "<code>@javax.inject.Inject</code>",
+				"isTrue": false
+			}
+		]
+	},
+	{
+		"texte": "Quel est l'équivalent de l'annotation <code>javax.inject.@Inject</code> ?",
+		"topic": "JPA",
+		"reponses": [
+			{
+				"texte": "<code>@org.springframework.stereotype.Component</code>",
+				"isTrue": false
+			},
+			{
+				"texte": "<code>@org.springframework.beans.factory.annotation.Autowired</code>",
+				"isTrue": true
+			},
+			{
+				"texte": "<code>@javax.inject.Named</code>",
+				"isTrue": false
+			}
+		]
+	}
+]

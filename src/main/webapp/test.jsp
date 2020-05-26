@@ -73,9 +73,9 @@
 		});
 	});
 
-	$(document).ready(function() {
-	 	timer();
-	});
+// 	$(document).ready(function() {
+// 	 	timer();
+// 	});
 </script>
 
 <%-- <tag:footer /> --%>

@@ -38,12 +38,14 @@
 						//Réponse
 						if (entry.getValue() != null) {
 							out.print(TagBuilder.buildTag("h5", "Vous avez répondu : "));
-							out.print(TagBuilder.buildTag("h5", " - " + entry.getValue().getTexte()));
+							
 							if (entry.getValue().getIsTrue()) {
-								out.print("<i class=\"fa fa-wright\" style=\"font-size: 36px\"></i>");
+								out.print(TagBuilder.buildTag("h5", " - " + entry.getValue().getTexte(), "color:green"));
+								out.print("<i class=\"fas fa-check\" style=\"font-size: 36px; color: green;\"></i>");
 								out.print(TagBuilder.buildTag("h5", "Bonne réponse !!!", "display:inline-block"));
 							} else {
-								out.print("<i class=\"fa fa-false\" style=\"font-size: 36px\"></i>");
+								out.print(TagBuilder.buildTag("h5", " - " + entry.getValue().getTexte(), "color:red"));
+								out.print("<i class=\"fas fa-times\" style=\"font-size: 36px; color: red;\"></i>");
 								out.print(TagBuilder.buildTag("h5", "Mauvaise réponse...", "display:inline-block"));
 							}
 						} else {
