@@ -45,6 +45,8 @@
 	<div id="test-section" class="container">
 		<div id="inner-section">
 			<div id="question-section">
+				<h4 style="text-decoration: underline;">${question.topic}</h4>
+				<br>
 				<h4>${question.texte}</h4>
 			</div>
 			<div id="reponses-section" class="form-check">
