@@ -40,13 +40,11 @@
 							out.print(TagBuilder.buildTag("h5", "Vous avez répondu : "));
 							
 							if (entry.getValue().getIsTrue()) {
-								out.print(TagBuilder.buildTag("h5", " - " + entry.getValue().getTexte(), "color:green"));
-								out.print("<i class=\"fas fa-check\" style=\"font-size: 36px; color: green;\"></i>");
-								out.print(TagBuilder.buildTag("h5", "Bonne réponse !!!", "display:inline-block"));
+								out.print("<i class=\"fa fa-check\" aria-hidden=\"true\" style=\"font-size: 20px; color: green; \"></i>");
+								out.print(TagBuilder.buildTag("h5", " - " + entry.getValue().getTexte(), "display:inline-block;"));
 							} else {
-								out.print(TagBuilder.buildTag("h5", " - " + entry.getValue().getTexte(), "color:red"));
-								out.print("<i class=\"fas fa-times\" style=\"font-size: 36px; color: red;\"></i>");
-								out.print(TagBuilder.buildTag("h5", "Mauvaise réponse...", "display:inline-block"));
+								out.print("<i class=\"fa fa-close\" aria-hidden=\"true\" style=\"font-size: 20px; color: red; \"></i>");
+								out.print(TagBuilder.buildTag("h5", " - " + entry.getValue().getTexte(), "display:inline-block;"));
 							}
 						} else {
 							out.print(TagBuilder.buildTag("h5", "(Vous n'avez pas répondu...)"));
@@ -57,7 +55,8 @@
 							out.print(TagBuilder.buildTag("h5", "La bonne réponse était :"));
 							for (Reponse reponse : entry.getKey().getReponses()) {
 								if (reponse.getIsTrue()) {
-									out.print(TagBuilder.buildTag("h5", " - " + reponse.getTexte()));
+									out.print("<i class=\"fa fa-check\" aria-hidden=\"true\" style=\"font-size: 20px; color: green; \"></i>");
+									out.print(TagBuilder.buildTag("h5", " - " + reponse.getTexte(), "display:inline-block;"));
 								}
 							}
 						}
@@ -70,6 +69,9 @@
 			<div id="return-btn">
 				<a href="index.jsp">
 					<button class="btn" type="submit">Retour au quizz</button>
+				</a> 
+				<a href="pdf">
+					<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
 				</a>
 			</div>
 		</div>

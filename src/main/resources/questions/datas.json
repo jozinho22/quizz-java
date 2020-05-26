@@ -18,43 +18,43 @@
 		]
 	},
 	{
-		"texte": "Quel interface implémente la classe ArrayList ?",
+		"texte": "Quel interface implémente la classe <code>ArrayList</code> ?",
 		"topic": "Java",
 		"reponses": [
 			{
-				"texte": "List",
+				"texte": "<code>List</code>",
 				"isTrue": true
 			},
 			{
-				"texte": "Queue",
+				"texte": "<code>Queue</code>",
 				"isTrue": false
 			},
 			{
-				"texte": "Serializable",
+				"texte": "<code>Serializable</code>",
 				"isTrue": false
 			}
 		]
 	},
 	{
-		"texte": "Que signifie '-u' dans la commande 'git push -u origin master' ?",
+		"texte": "Que signifie '<code>-u</code>' dans la commande '<code>git push -u origin master</code>' ?",
 		"topic": "Git",
 		"reponses": [
 			{
-				"texte": "--unique",
+				"texte": "<code>--unique</code>",
 				"isTrue": false
 			},
 			{
-				"texte": "--set-upstream",
+				"texte": "<code>--set-upstream</code>",
 				"isTrue": true
 			},
 			{
-				"texte": "--utf-8",
+				"texte": "<code>--utf-8</code>",
 				"isTrue": false
 			}
 		]
 	},
 	{
-		"texte": "Quel est le principal avantage de l'interface Set par rapport à l'interface List ?",
+		"texte": "Quel est le principal avantage de l'interface <code>Set</code> par rapport à l'interface <code>List</code> ?",
 		"topic": "Java",
 		"reponses": [
 			{
@@ -72,7 +72,7 @@
 		]
 	},
 	{
-		"texte": "Que se passe-t-il si vous créez un nouveau dépôt Git en remote avec un commit, et que vous créez son équivalent local et que vous effectuez la commenade 'git push' après avoir commité ?",
+		"texte": "Que se passe-t-il si vous créez un nouveau dépôt Git en remote avec un commit, et que vous créez son équivalent local et que vous effectuez la commenade <code>'git push'</code> après avoir commité ?",
 		"topic": "Git",
 		"reponses": [
 			{
@@ -90,7 +90,7 @@
 		]
 	},
 	{
-		"texte": "Quel sont les avantages à utiliser la classe Vector plutôt que la classe List ?",
+		"texte": "Quel sont les avantages à utiliser la classe Vector plutôt que la classe <code>List</code> ?",
 		"topic": "Java",
 		"reponses": [
 			{
@@ -98,7 +98,7 @@
 				"isTrue": false
 			},
 			{
-				"texte": "Elle est synchronisée et permet d'itérer sur des Enums",
+				"texte": "Elle est synchronisée et permet d'itérer sur un <code>Enum</code>",
 				"isTrue": true
 			},
 			{
