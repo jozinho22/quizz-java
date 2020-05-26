@@ -41,10 +41,10 @@
 							
 							if (entry.getValue().getIsTrue()) {
 								out.print("<i class=\"fa fa-check\" aria-hidden=\"true\" style=\"font-size: 20px; color: green; \"></i>");
-								out.print(TagBuilder.buildTag("h5", " - " + entry.getValue().getTexte(), "display:inline-block;"));
+								out.print(TagBuilder.buildTag("h5", " - " + entry.getValue().getTexte(), "display:inline;"));
 							} else {
 								out.print("<i class=\"fa fa-close\" aria-hidden=\"true\" style=\"font-size: 20px; color: red; \"></i>");
-								out.print(TagBuilder.buildTag("h5", " - " + entry.getValue().getTexte(), "display:inline-block;"));
+								out.print(TagBuilder.buildTag("h5", " - " + entry.getValue().getTexte(), "display:inline;"));
 							}
 						} else {
 							out.print(TagBuilder.buildTag("h5", "(Vous n'avez pas répondu...)"));
@@ -52,6 +52,7 @@
 	
 						// Si pas de réponse ou mauvaise réponse
 						if (entry.getValue() == null || !entry.getValue().getIsTrue()) {
+							out.print("<br>");
 							out.print(TagBuilder.buildTag("h5", "La bonne réponse était :"));
 							for (Reponse reponse : entry.getKey().getReponses()) {
 								if (reponse.getIsTrue()) {

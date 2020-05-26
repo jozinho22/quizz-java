@@ -39,7 +39,9 @@ public class QuestionDao {
 		FileReader reader = new FileReader();
 		File jsonFile = null;
 		try {
-			jsonFile = reader.getFile("questions/datas.json");
+//			jsonFile = reader.getFile("questions/datas.json");
+			jsonFile = reader.getFile("questions/dataswithquotes.json");
+
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}

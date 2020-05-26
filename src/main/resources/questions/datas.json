@@ -4,7 +4,7 @@
 		"topic": "Java",
 		"reponses": [
 			{
-				"texte": "Lencapsulation, lhéritage et le polymorphisme",
+				"texte": "L'encapsulation, l'héritage et le polymorphisme",
 				"isTrue": true
 			},
 			{
@@ -149,7 +149,7 @@
 		"reponses": [
 			{
 				"texte": "git rebase place le commit souhaité au niveau du commit actuel, tandis que git merge va créer un nouveau commit pour la fusion des deux branches",
-				"isTrue": true
+				"isTrue": false
 			},
 			{
 				"texte": "Ce sont deux façons de faire différentes pour le même résultat",
@@ -185,7 +185,7 @@
 		"reponses": [
 			{
 				"texte": "request.setAttribute(\"attribute\", attribute);",
-				"isTrue": true
+				"isTrue": false
 			},
 			{
 				"texte": "request.setParameter(\"parameter\", attribute);",
@@ -319,6 +319,240 @@
 			},
 			{
 				"texte": "@javax.inject.Named",
+				"isTrue": false
+			}
+		]
+	},
+	{
+		"texte": "Quel est la définition d'une classe abstraite ?",
+		"topic": "Java",
+		"reponses": [
+			{
+				"texte": "Une classe qui contient au moins une méthode abstraite",
+				"isTrue": true
+			},
+			{
+				"texte": "Une classe qui hérite d'une classe fille",
+				"isTrue": false
+			},
+			{
+				"texte": "Une classe qui ne contient pas d'attribut",
+				"isTrue": false
+			}
+		]
+	},
+	{
+		"texte": "Quelle est la définition d'une interface ?",
+		"topic": "Java",
+		"reponses": [
+			{
+				"texte": "Une classe qui masque d'autres classes filles",
+				"isTrue": false
+			},
+			{
+				"texte": "Une classe qui ne contient que des méthodes abstraites",
+				"isTrue": true
+			},
+			{
+				"texte": "Aucune des deux",
+				"isTrue": false
+			}
+		]
+	},
+	{
+		"texte": "Que signifie les mots-clefs 'final static' appliqués à un attribut d'une classe ?",
+		"topic": "Java",
+		"reponses": [
+			{
+				"texte": "Cela signifie que l'attribut ne peut pas être instancié",
+				"isTrue": false
+			},
+			{
+				"texte": "Cela signifie que l'attribut pourra être appelé uniquement après avoir instancier la classe",
+				"isTrue": false
+			},
+			{
+				"texte": "Cela signifie que l'attribut sera une constante",
+				"isTrue": true
+			}
+		]
+	},
+	{
+		"texte": "Que signifie le mot-clef 'static' appliqué à une méthode d'une classe ?",
+		"topic": "Java",
+		"reponses": [
+			{
+				"texte": "Cela signifie que la méthode pourra être appelée sans instancier la classe",
+				"isTrue": true
+			},
+			{
+				"texte": "Cela signifie que la méthode ne pourra pas être modifiée",
+				"isTrue": false
+			},
+			{
+				"texte": "Aucune des deux",
+				"isTrue": false
+			}
+		]
+	},
+	{
+		"texte": "Que signifie le mot-clef 'private' pour un attribut de classe ?",
+		"topic": "",
+		"reponses": [
+			{
+				"texte": "Cela signifie que l'attribut ne pourra être visible qu'avec un mot de passe",
+				"isTrue": false
+			},
+			{
+				"texte": "Cela signifie que l'attribut ne sera visible que depuis la classe",
+				"isTrue": true
+			},
+			{
+				"texte": "Cela signifie que l'attribut ne sera visible que depuis la classe et les classes du même package",
+				"isTrue": false
+			}
+		]
+	},
+	{
+		"texte": "Que signifie le mot-clef 'protected' pour un attribut de classe ?",
+		"topic": "",
+		"reponses": [
+			{
+				"texte": "Cela signifie que l'attribut ne pourra être visible qu'avec un mot de passe",
+				"isTrue": false
+			},
+			{
+				"texte": "Cela signifie que l'attribut ne sera visible que depuis la classe qui hérite de la classe",
+				"isTrue": true
+			},
+			{
+				"texte": "Cela signifie que l'attribut ne sera visible que depuis la classe et les classes du même package",
+				"isTrue": false
+			}
+		]
+	},
+	{
+		"texte": "Quel est l'utilité du design pattern",
+		"topic": "",
+		"reponses": [
+			{
+				"texte": "",
+				"isTrue": true
+			},
+			{
+				"texte": "",
+				"isTrue": false
+			},
+			{
+				"texte": "",
+				"isTrue": false
+			}
+		]
+	},
+	{
+		"texte": "",
+		"topic": "",
+		"reponses": [
+			{
+				"texte": "",
+				"isTrue": true
+			},
+			{
+				"texte": "",
+				"isTrue": false
+			},
+			{
+				"texte": "",
+				"isTrue": false
+			}
+		]
+	},
+	{
+		"texte": "",
+		"topic": "",
+		"reponses": [
+			{
+				"texte": "",
+				"isTrue": true
+			},
+			{
+				"texte": "",
+				"isTrue": false
+			},
+			{
+				"texte": "",
+				"isTrue": false
+			}
+		]
+	},
+	{
+		"texte": "",
+		"topic": "",
+		"reponses": [
+			{
+				"texte": "",
+				"isTrue": true
+			},
+			{
+				"texte": "",
+				"isTrue": false
+			},
+			{
+				"texte": "",
+				"isTrue": false
+			}
+		]
+	},
+	{
+		"texte": "",
+		"topic": "",
+		"reponses": [
+			{
+				"texte": "",
+				"isTrue": true
+			},
+			{
+				"texte": "",
+				"isTrue": false
+			},
+			{
+				"texte": "",
+				"isTrue": false
+			}
+		]
+	},
+	{
+		"texte": "",
+		"topic": "",
+		"reponses": [
+			{
+				"texte": "",
+				"isTrue": true
+			},
+			{
+				"texte": "",
+				"isTrue": false
+			},
+			{
+				"texte": "",
+				"isTrue": false
+			}
+		]
+	},
+	{
+		"texte": "",
+		"topic": "",
+		"reponses": [
+			{
+				"texte": "",
+				"isTrue": true
+			},
+			{
+				"texte": "",
+				"isTrue": false
+			},
+			{
+				"texte": "",
 				"isTrue": false
 			}
 		]
