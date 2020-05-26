@@ -40,23 +40,23 @@
 							
 							if (entry.getValue().getIsTrue()) {
 								out.print("<i class=\"fa fa-check\" aria-hidden=\"true\" style=\"font-size: 20px; color: green; \"></i>");
-								out.print(TagBuilder.buildTag("h5", entry.getValue().getTexte()));
+								out.print(TagBuilder.buildTag("h5", entry.getValue().getTexte(), "display:inline;"));
 							} else {
 								out.print("<i class=\"fa fa-close\" aria-hidden=\"true\" style=\"font-size: 20px; color: red; \"></i>");
-								out.print(TagBuilder.buildTag("h5", entry.getValue().getTexte()));
+								out.print(TagBuilder.buildTag("h5", entry.getValue().getTexte(), "display:inline;"));
 							}
 						} else {
-							out.print("<br>");
 							out.print("<i class=\"fa fa-close\" aria-hidden=\"true\" style=\"font-size: 20px; color: red; \"></i>");
-							out.print(TagBuilder.buildTag("h5", "(Vous n'avez pas répondu...)"));
+							out.print(TagBuilder.buildTag("h5", "(Vous n'avez pas répondu...)", "display:inline;"));
 						}
 	
 						// Si pas de réponse ou mauvaise réponse
 						if (entry.getValue() == null || !entry.getValue().getIsTrue()) {
 							for (Reponse reponse : entry.getKey().getReponses()) {
 								if (reponse.getIsTrue()) {
+									out.print("<br>");
 									out.print("<i class=\"fa fa-check\" aria-hidden=\"true\" style=\"font-size: 20px; color: green; \"></i>");
-									out.print(TagBuilder.buildTag("h5", reponse.getTexte(), "display:inline-block;"));
+									out.print(TagBuilder.buildTag("h5", reponse.getTexte(), "display:inline"));
 								}
 							}
 						}
