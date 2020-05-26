@@ -4,61 +4,61 @@
 		"topic": "Java",
 		"reponses": [
 			{
-				"texte": "L'encapsulation, l'héritage et le polymorphisme",
+				"texte": "Lencapsulation, lhéritage et le polymorphisme",
 				"isTrue": true
 			},
 			{
-				"texte": "L'encapsulation, l'héritage multiple et le polymorphisme",
+				"texte": "Lencapsulation, lhéritage multiple et le polymorphisme",
 				"isTrue": false
 			},
 			{
-				"texte": "Le multi-threading, l'accès aux données et le polymorphisme",
+				"texte": "Le multi-threading, laccès aux données et le polymorphisme",
 				"isTrue": false
 			}
 		]
 	},
 	{
-		"texte": "Quel interface implémente la classe <code>ArrayList</code> ?",
+		"texte": "Quel interface implémente la classe ArrayList ?",
 		"topic": "Java",
 		"reponses": [
 			{
-				"texte": "<code>List</code>",
+				"texte": "List",
 				"isTrue": true
 			},
 			{
-				"texte": "<code>Queue</code>",
+				"texte": "Queue",
 				"isTrue": false
 			},
 			{
-				"texte": "<code>Serializable</code>",
+				"texte": "Serializable",
 				"isTrue": false
 			}
 		]
 	},
 	{
-		"texte": "Que signifie '<code>-u</code>' dans la commande '<code>git push -u origin master</code>' ?",
+		"texte": "Que signifie -u dans la commande git push -u origin master ?",
 		"topic": "Git",
 		"reponses": [
 			{
-				"texte": "<code>--unique</code>",
+				"texte": "--unique",
 				"isTrue": false
 			},
 			{
-				"texte": "<code>--set-upstream</code>",
+				"texte": "--set-upstream",
 				"isTrue": true
 			},
 			{
-				"texte": "<code>--utf-8</code>",
+				"texte": "--utf-8",
 				"isTrue": false
 			}
 		]
 	},
 	{
-		"texte": "Quel est le principal avantage de l'interface <code>Set</code> par rapport à l'interface <code>List</code> ?",
+		"texte": "Quel est le principal avantage de linterface Set par rapport à linterface List ?",
 		"topic": "Java",
 		"reponses": [
 			{
-				"texte": "Elle permet d'accepter des doublons",
+				"texte": "Elle permet daccepter des doublons",
 				"isTrue": true
 			},
 			{
@@ -72,11 +72,11 @@
 		]
 	},
 	{
-		"texte": "Que se passe-t-il si vous créez un nouveau dépôt Git en remote avec un commit, et que vous créez son équivalent local et que vous effectuez la commenade <code>'git push'</code> après avoir commité ?",
+		"texte": "Que se passe-t-il si vous créez un nouveau dépôt Git en remote avec un commit, et que vous créez son équivalent local et que vous effectuez la commenade git push après avoir commité ?",
 		"topic": "Git",
 		"reponses": [
 			{
-				"texte": "Git va vous informer que les deux commits n'ont pas de commits en commun",
+				"texte": "Git va vous informer que les deux commits nont pas de commits en commun",
 				"isTrue": true
 			},
 			{
@@ -84,13 +84,13 @@
 				"isTrue": false
 			},
 			{
-				"texte": "Git va vous informer que vous n'êtes pas à jour par rapport au dépôt distant",
+				"texte": "Git va vous informer que vous nêtes pas à jour par rapport au dépôt distant",
 				"isTrue": false
 			}
 		]
 	},
 	{
-		"texte": "Quel sont les avantages à utiliser la classe Vector plutôt que la classe <code>List</code> ?",
+		"texte": "Quel sont les avantages à utiliser la classe Vector plutôt que la classe List ?",
 		"topic": "Java",
 		"reponses": [
 			{
@@ -98,7 +98,7 @@
 				"isTrue": false
 			},
 			{
-				"texte": "Elle est synchronisée et permet d'itérer sur un <code>Enum</code>",
+				"texte": "Elle est synchronisée et permet ditérer sur un Enum",
 				"isTrue": true
 			},
 			{
@@ -108,29 +108,29 @@
 		]
 	},
 	{
-		"texte": "Quel interfaces implémente la classe <code>LinkedList</code> ?",
+		"texte": "Quel interfaces implémente la classe LinkedList ?",
 		"topic": "Java",
 		"reponses": [
 			{
-				"texte": "<code>List</code> et <code>Set</code>",
+				"texte": "List et Set",
 				"isTrue": false
 			},
 			{
-				"texte": "<code>List</code> et <code>Queue</code>",
+				"texte": "List et Queue",
 				"isTrue": true
 			},
 			{
-				"texte": "<code>Set</code> et <code>Queue</code>",
+				"texte": "Set et Queue",
 				"isTrue": false
 			}
 		]
 	},
 	{
-		"texte": "Quelle est une des utilités de la classe <code>Integer</code>, par rapport à un <code>int</code> primitif ?",
+		"texte": "Quelle est une des utilités de la classe Integer, par rapport à un int primitif ?",
 		"topic": "Java",
 		"reponses": [
 			{
-				"texte": "C'est Thread-safe",
+				"texte": "Cest Thread-safe",
 				"isTrue": false
 			},
 			{
@@ -144,11 +144,11 @@
 		]
 	},
 	{
-		"texte": "Quel est la différence entre les commandes 'git rebase' et 'git merge' ?",
+		"texte": "Quel est la différence entre les commandes git rebase et git merge ?",
 		"topic": "Git",
 		"reponses": [
 			{
-				"texte": "'git rebase' place le commit souhaité au niveau du commit actuel, tandis que 'git merge' va créer un nouveau commit pour la fusion des deux branches",
+				"texte": "git rebase place le commit souhaité au niveau du commit actuel, tandis que git merge va créer un nouveau commit pour la fusion des deux branches",
 				"isTrue": true
 			},
 			{
@@ -156,7 +156,7 @@
 				"isTrue": false
 			},
 			{
-				"texte": "'git rebase' place le commit actuel au niveau du commit souhaité, tandis que 'git merge' va créer un nouveau commit pour la fusion des deux branches",
+				"texte": "git rebase place le commit actuel au niveau du commit souhaité, tandis que git merge va créer un nouveau commit pour la fusion des deux branches",
 				"isTrue": true
 			}
 		]
@@ -166,15 +166,15 @@
 		"topic": "Java",
 		"reponses": [
 			{
-				"texte": "'git init'",
+				"texte": "git init",
 				"isTrue": true
 			},
 			{
-				"texte": "'git status'",
+				"texte": "git status",
 				"isTrue": false
 			},
 			{
-				"texte": "'git clone'",
+				"texte": "git clone",
 				"isTrue": false
 			}
 		]
@@ -184,33 +184,33 @@
 		"topic": "Java",
 		"reponses": [
 			{
-				"texte": "<code>request.setAttribute(\"attribute\", attribute);</code>",
+				"texte": "request.setAttribute(\"attribute\", attribute);",
 				"isTrue": true
 			},
 			{
-				"texte": "<code>request.setParameter(\"attribute\", attribute);</code>",
+				"texte": "request.setParameter(\"parameter\", attribute);",
 				"isTrue": false
 			},
 			{
-				"texte": "<code>session.setAttribute(\"attribute\", attribute);</code>",
+				"texte": "session.setAttribute(\"attribute\", attribute);",
 				"isTrue": true
 			}
 		]
 	},
 	{
-		"texte": "Laquelles de ces deux appels sont des façons d'appeler une Servlet dans une page HTML ?",
+		"texte": "Laquelles de ces deux appels sont des façons dappeler une Servlet dans une page HTML ?",
 		"topic": "Java",
 		"reponses": [
 			{
-				"texte": "'<code><form onaction=\"MyServlet.java\" method=\"GET\"></code>' + '<code><button type=\"submit\"></button></code>' et '<code><a href=\"MyServlet.java\"></code>'",
+				"texte": "<form onaction=\"MyServlet.java\" method=\"GET\"> + <button type=\"submit\"></button> et <a href=\"MyServlet.java\">",
 				"isTrue": false
 			},
 			{
-				"texte": "'<code><form action=\"myServlet\" method=\"GET\"></code>' + '<code><button type=\"submit\"></button></code>' et '<code><a href=\"myServlet\"></code>'",
+				"texte": "<form action=\"myServlet\" method=\"GET\"> + <button type=\"submit\"></button> et <a href=\"myServlet\">",
 				"isTrue": true
 			},
 			{
-				"texte": "'<code><form onaction=\"myServlet\" method=\"GET\"></code>' + '<code><button type=\"submit\"></button></code>' et '<code><a href=\"myServlet\"></code>'",
+				"texte": "<form onaction=\"myServlet\" method=\"GET\"> + <button type=\"submit\"></button> et <a href=\"myServlet\">",
 				"isTrue": false
 			}
 		]
@@ -252,11 +252,11 @@
 		]
 	},
 	{
-		"texte": "Quelle est la principe d'une Map ?",
+		"texte": "Quelle est la principe d''une Map ?",
 		"topic": "Java",
 		"reponses": [
 			{
-				"texte": "Elle référence un objet grâce à son hashcode",
+				"texte": "Elle référence un objet grâce à son hashcode()",
 				"isTrue": false
 			},
 			{
@@ -270,15 +270,15 @@
 		]
 	},
 	{
-		"texte": "A qui correspond l'annotation'<code>@Id @GeneratedValue(strategy = GenerationType.IDENTITY)</code>' ?",
+		"texte": "A qui correspond lannotation @Id @GeneratedValue(strategy = GenerationType.IDENTITY) ?",
 		"topic": "JPA",
 		"reponses": [
 			{
-				"texte": "Elle référence un objet grâce à son hashcode",
+				"texte": "Elle référence un objet grâce à son hashcode()",
 				"isTrue": false
 			},
 			{
-				"texte": "L'Id de l'objet sera directement mappé avec la valeur de l'Id qu'on lui affectera manuellement",
+				"texte": "L'Id de l'objet sera directement mappé avec la valeur de l'Id quon lui affectera manuellement",
 				"isTrue": false
 			},
 			{
@@ -288,37 +288,37 @@
 		]
 	},
 	{
-		"texte": "Quel est l'équivalent de l'annotation <code>@javax.inject.Named</code> ?",
+		"texte": "Quel est léquivalent de lannotation @javax.inject.Named ?",
 		"topic": "JPA",
 		"reponses": [
 			{
-				"texte": "<code>@org.springframework.stereotype.Component</code>",
+				"texte": "@org.springframework.stereotype.Component",
 				"isTrue": true
 			},
 			{
-				"texte": "<code>@org.springframework.beans.factory.annotation.Autowired</code>",
+				"texte": "@org.springframework.beans.factory.annotation.Autowired",
 				"isTrue": false
 			},
 			{
-				"texte": "<code>@javax.inject.Inject</code>",
+				"texte": "@javax.inject.Inject",
 				"isTrue": false
 			}
 		]
 	},
 	{
-		"texte": "Quel est l'équivalent de l'annotation <code>javax.inject.@Inject</code> ?",
+		"texte": "Quel est léquivalent de l''annotation @javax.inject.Inject ?",
 		"topic": "JPA",
 		"reponses": [
 			{
-				"texte": "<code>@org.springframework.stereotype.Component</code>",
+				"texte": "@org.springframework.stereotype.Component",
 				"isTrue": false
 			},
 			{
-				"texte": "<code>@org.springframework.beans.factory.annotation.Autowired</code>",
+				"texte": "@org.springframework.beans.factory.annotation.Autowired",
 				"isTrue": true
 			},
 			{
-				"texte": "<code>@javax.inject.Named</code>",
+				"texte": "@javax.inject.Named",
 				"isTrue": false
 			}
 		]
