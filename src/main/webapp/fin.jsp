@@ -11,7 +11,7 @@
 	}
 %>
 
-<tag:begin />
+<%@ include file="/WEB-INF/tags/begin.jsp" %>
 <tag:navbar />
 
 <div id="index-section" class="container">
@@ -34,5 +34,4 @@
 	</div>
 </div>
 
-<%-- <tag:footer /> --%>
 <tag:end />

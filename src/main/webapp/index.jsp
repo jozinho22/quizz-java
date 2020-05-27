@@ -1,9 +1,11 @@
 <%@ taglib prefix="tag" tagdir="/WEB-INF/tags"%>
 <%@ page import="java.util.UUID"%>
+
 <% 
 	String uuid = UUID.randomUUID().toString();
 %>
-<tag:begin />
+
+<%@ include file="/WEB-INF/tags/begin.jsp" %>
 <tag:navbar />
 
 <div id="index-section" class="container">
@@ -37,5 +39,4 @@
 	console.log(uuid)
 </script>
 
-<%-- <tag:footer /> --%>
 <tag:end />

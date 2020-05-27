@@ -1,3 +1,5 @@
+<%@ page import="com.douineau.utils.TagBuilder"%>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -9,7 +11,13 @@
 		<link rel="shortcut icon" href="">		
 		<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">		
 		<link rel="stylesheet" href="css/font/font-awesome-4.7.0/css/font-awesome.min.css" >	
-		<link rel="stylesheet" href="css/stylesheet.css">
+		
+		<% 
+			String theme = (String) session.getAttribute("theme");
+			out.print(TagBuilder.buildTagImportCss(theme)); 
+		%>
+<!-- 		<link rel="stylesheet" href="css/stylesheet-dark.css"> -->
+<!-- <link rel="stylesheet" href="css/stylesheet.css"> -->
 		
 		<script src="js/jquery.min.js"></script>
 		

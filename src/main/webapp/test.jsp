@@ -16,7 +16,7 @@
 
 %>
 
-<tag:begin />
+<%@ include file="/WEB-INF/tags/begin.jsp" %>
 <tag:navbar />
 
 <script>
@@ -80,5 +80,4 @@
 	});
 </script>
 
-<%-- <tag:footer /> --%>
 <tag:end />

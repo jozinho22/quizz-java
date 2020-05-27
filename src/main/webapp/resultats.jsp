@@ -16,7 +16,7 @@
 	}
 %>
 
-<tag:begin />
+<%@ include file="/WEB-INF/tags/begin.jsp" %>
 <tag:navbar />
 
 <div id="resultats-section" class="container">
@@ -33,21 +33,21 @@
 					for (Map.Entry<Question, Reponse> entry : user.getMap().entrySet()) {
 	
 						//Question
-						out.print(TagBuilder.buildTag("h4",
-						TagBuilder.buildTag("b", "Question n°" + ++k + " : ") + entry.getKey().getTexte()));
+						out.print(TagBuilder.buildTagResultats("h4",
+						TagBuilder.buildTagResultats("b", "Question n°" + ++k + " : ") + entry.getKey().getTexte()));
 						//Réponse
 						if (entry.getValue() != null) {
 							
 							if (entry.getValue().getIsTrue()) {
 								out.print("<i class=\"fa fa-check\" aria-hidden=\"true\" style=\"font-size: 20px; color: green; \"></i>");
-								out.print(TagBuilder.buildTag("h5", entry.getValue().getTexte(), "display:inline;"));
+								out.print(TagBuilder.buildTagResultats("h5", entry.getValue().getTexte(), "display:inline;"));
 							} else {
 								out.print("<i class=\"fa fa-close\" aria-hidden=\"true\" style=\"font-size: 20px; color: red; \"></i>");
-								out.print(TagBuilder.buildTag("h5", entry.getValue().getTexte(), "display:inline;"));
+								out.print(TagBuilder.buildTagResultats("h5", entry.getValue().getTexte(), "display:inline;"));
 							}
 						} else {
 							out.print("<i class=\"fa fa-close\" aria-hidden=\"true\" style=\"font-size: 20px; color: red; \"></i>");
-							out.print(TagBuilder.buildTag("h5", "(Vous n'avez pas répondu...)", "display:inline;"));
+							out.print(TagBuilder.buildTagResultats("h5", "(Vous n'avez pas répondu...)", "display:inline;"));
 						}
 	
 						// Si pas de réponse ou mauvaise réponse
@@ -56,7 +56,7 @@
 								if (reponse.getIsTrue()) {
 									out.print("<br>");
 									out.print("<i class=\"fa fa-check\" aria-hidden=\"true\" style=\"font-size: 20px; color: green; \"></i>");
-									out.print(TagBuilder.buildTag("h5", reponse.getTexte(), "display:inline"));
+									out.print(TagBuilder.buildTagResultats("h5", reponse.getTexte(), "display:inline"));
 								}
 							}
 						}
@@ -79,5 +79,4 @@
 
 </div>
 
-<%-- <tag:relative-footer /> --%>
 <tag:end />

@@ -2,7 +2,7 @@ package com.douineau.utils;
 
 public class TagBuilder {
 	
-	public static String buildTag(String tag, String texte) {
+	public static String buildTagResultats(String tag, String texte) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("<");
 		sb.append(tag);
@@ -15,7 +15,7 @@ public class TagBuilder {
 		return sb.toString();
 	}
 	
-	public static String buildTag(String tag, String texte, String style) {
+	public static String buildTagResultats(String tag, String texte, String style) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("<");
 		sb.append(tag);
@@ -27,5 +27,24 @@ public class TagBuilder {
 		
 		return sb.toString();
 	}
+	
+	public static String buildTagImportCss(String theme) {
+		StringBuilder sb = new StringBuilder();
+		if(theme == null || "dark".equals(theme)) {
+			sb.append("<link rel=\"stylesheet\" href=\"css/stylesheet-dark.css\">");
+		} else if("normal".equals(theme)) {
+			sb.append("<link rel=\"stylesheet\" href=\"css/stylesheet.css\">");
+		}	
+		return sb.toString();
+	}
 
+	public static String buildTagThemeButton(String theme) {
+		StringBuilder sb = new StringBuilder();
+		if(theme == null || "dark".equals(theme)) {
+			sb.append("<button class=\"btn\" type=\"submit\">Passer en mode light</button>");
+		} else if("normal".equals(theme)) {
+			sb.append("<button class=\"btn\" type=\"submit\">Passer en mode dark</button>");
+		}	
+		return sb.toString();
+	}
 }
