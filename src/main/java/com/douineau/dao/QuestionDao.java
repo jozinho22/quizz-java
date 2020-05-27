@@ -80,6 +80,10 @@ public class QuestionDao {
 			}
 			randomQuestions.add(questions.get(i));
 		}
+		System.out.println("id question : ");
+		for(Question q : randomQuestions) {
+			System.out.print(q.getId() + ", ");
+		}
 		return randomQuestions;
 	}
 

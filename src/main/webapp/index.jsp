@@ -15,6 +15,7 @@
 		<div id="desc-section">
 			<h5>- 20 questions sur le thème de Java et son environnement</h5>
 			<h5>- 20 secondes par question</h5>
+			<h5>- une seule bonne réponse</h5>
 			<h5>- chaque réponse est définitive</h5>
 			<h5>- interdiction de rafraîchir la page</h5>
 			<h5>- vos résultats imprimables en pdf à l'issue du quizz</h5>
