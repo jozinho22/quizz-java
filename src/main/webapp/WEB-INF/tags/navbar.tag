@@ -14,12 +14,44 @@
 		</div>
 
 	</div>
+
 	<div id="theme-btn" class="pull-right">
-		<a href="theme">
-		<% 
-			String theme = (String) session.getAttribute("theme");
-			out.print(TagBuilder.buildTagThemeButton(theme));
-		%>
-		</a>
+		<button id="changeThemeBtn" onclick="changeTheme(this);" class="btn" type="submit" value="dark">Passer en mode light</button> 
 	</div>
 </nav>
+
+<script>
+
+	function changeTheme(thisButton) {
+		
+		var theme = thisButton.value;
+
+		var newButtonText;
+		var newButtonValue;
+		var newHref;
+		
+		if (theme == "light") {			
+			newButtonValue = "dark";
+			newButtonText = "Passer en mode light";
+			newHref = "css/stylesheet-dark.css";
+
+		} else if (theme == "dark") {			
+			newButtonValue = "light";
+			newButtonText = "Passer en mode dark";
+			newHref = "css/stylesheet.css";
+		}
+		
+		document.getElementById("changeThemeBtn").value = newButtonValue;
+		document.getElementById("changeThemeBtn").innerHTML = newButtonText;
+
+		document.getElementById("importCss").href = newHref;
+	}
+	
+	function displayImage(img) {
+		img.style.opacity = '1';
+	}
+	
+	function hideImage(img) {
+		img.style.opacity = '0.1';
+	}
+</script>

@@ -108,6 +108,10 @@ h5 {
 	float: none;
 }
 
+#stack a {
+	margin-top:15px;
+}
+
 #copyright small {
 	color : grey;
 }

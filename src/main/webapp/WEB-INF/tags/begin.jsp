@@ -12,14 +12,9 @@
 		<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">		
 		<link rel="stylesheet" href="css/font/font-awesome-4.7.0/css/font-awesome.min.css" >	
 		
-		<% 
-			String theme = (String) session.getAttribute("theme");
-			out.print(TagBuilder.buildTagImportCss(theme)); 
-		%>
-<!-- 		<link rel="stylesheet" href="css/stylesheet-dark.css"> -->
-<!-- <link rel="stylesheet" href="css/stylesheet.css"> -->
-		
+		<link id="importCss" rel="stylesheet" href="css/stylesheet-dark.css">		
 		<script src="js/jquery.min.js"></script>
+
 		
 	</head>
 	
