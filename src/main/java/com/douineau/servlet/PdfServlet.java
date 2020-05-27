@@ -39,22 +39,6 @@ public class PdfServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		
-		String inputFile = "resultats.jsp";
-		String url = new File(inputFile).toURI().toURL().toString();
-		String outputFile = "resultats.pdf";
-		OutputStream os = new FileOutputStream(outputFile);
-
-		ITextRenderer renderer = new ITextRenderer();
-		renderer.setDocument(url);
-		renderer.layout();
-		try {
-			renderer.createPDF(os);
-		} catch (DocumentException e) {
-			e.printStackTrace();
-		}
-
-		os.close();
 	}
 
 	/**
@@ -63,34 +47,7 @@ public class PdfServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		String inputFile = "resultats.jsp";
-		String url = new File(inputFile).toURI().toURL().toString();
-		String outputFile = "resultats.pdf";
-		OutputStream os = new FileOutputStream(outputFile);
-
-		ITextRenderer renderer = new ITextRenderer();
-		renderer.setDocument(url);
-		renderer.layout();
-		try {
-			renderer.createPDF(os);
-		} catch (DocumentException e) {
-			e.printStackTrace();
-		}
-
-		os.close();
 		
-		
-	}
-
-	private void end(PDPageContentStream contentStream) throws IOException {
-		contentStream.endText();
-		contentStream.close();
-	}
-
-	private void start(PDPageContentStream contentStream) throws IOException {
-		contentStream.beginText();
-		contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-	}
+	}	
 
 }

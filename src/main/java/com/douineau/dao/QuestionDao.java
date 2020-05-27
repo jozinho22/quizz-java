@@ -21,6 +21,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class QuestionDao {
 
+	private static List<Long> listIdQuestions;
+	
+	public static List<Long> getListIdQuestions() {
+		return listIdQuestions;
+	}
+
 	public static List<Question> getRandomQuestions(int nb, int bound) {
     	
     	StringBuilder sb = buildQuery(nb, bound);
@@ -80,9 +86,12 @@ public class QuestionDao {
 			}
 			randomQuestions.add(questions.get(i));
 		}
-		System.out.println("id question : ");
+		
+		System.out.println("id questions : ");
+		listIdQuestions = new ArrayList<Long>();
 		for(Question q : randomQuestions) {
 			System.out.print(q.getId() + ", ");
+			listIdQuestions.add(q.getId());
 		}
 		return randomQuestions;
 	}

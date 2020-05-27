@@ -1,6 +1,8 @@
 package com.douineau.servlet;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
@@ -11,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.douineau.dao.QuestionDao;
 import com.douineau.entity.Question;
 import com.douineau.entity.Reponse;
 import com.douineau.entity.User;
@@ -44,6 +47,21 @@ public class ResultatServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");	
+		
+		//tri car les questions ne sont pas dans l'ordre
+		Map<Question, Reponse> sortedMap = new HashMap<Question, Reponse>();
+
+		List<Long> listIdQuestions = QuestionDao.getListIdQuestions();
+		for(Long l : listIdQuestions) {
+			for (Map.Entry<Question, Reponse> entry : user.getMap().entrySet()) {
+				if(entry.getKey().getId().equals(l)) {
+					sortedMap.put(entry.getKey(), entry.getValue());
+					break;
+				}
+			}
+		}
+		
+		user.setMap(sortedMap);
 		
 		request.setAttribute("user", user);
 		

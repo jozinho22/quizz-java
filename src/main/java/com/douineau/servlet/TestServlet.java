@@ -60,7 +60,7 @@ public class TestServlet extends HttpServlet {
 			session.setAttribute("user", user);
 
 			if (questions == null) {
-				questions = QuestionDao.getRandomQuestionsJson(20, 57);
+				questions = QuestionDao.getRandomQuestionsJson(20, 75);
 				nbQuestions = questions.size();
 				session.setAttribute("time-out", 20);
 			}
@@ -98,7 +98,6 @@ public class TestServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 			String idReponse = request.getParameter("reponse");
-			System.out.println("Réponse : " + idReponse);
 
 			if (idReponse != null) {
 				Long id = Long.parseLong(idReponse);
