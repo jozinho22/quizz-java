@@ -69,7 +69,8 @@ public class TestServlet extends HttpServlet {
 
 				session.setAttribute("user", user);
 
-				questions = QuestionDao.getRandomQuestionsJson(5, 75);
+				questions = QuestionDao.getRandomQuestionsJson(5, 100);
+//				questions = QuestionDao.getRandomQuestions(5, 20);
 				nbQuestions = questions.size();
 				request.setAttribute("time-out", 20);
 

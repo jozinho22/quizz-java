@@ -81,6 +81,16 @@ h5 {
 	float: none;
 }
 
+@media (max-width : 800px) {
+	#navbar {
+		height:100%;
+	}
+	#navbar #nav-elem-1, #navbar #nav-elem-2, #navbar #nav-elem-3 {
+		display: flex;
+		flex-direction: column;	
+	}
+}
+
 #stack a {
 	margin-top:15px;
 	opacity: 0.01;

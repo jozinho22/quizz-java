@@ -13,6 +13,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Question implements Serializable {
@@ -25,15 +28,20 @@ public class Question implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonIgnore
 	private Long id;
 	private String texte;
 	private String topic;
+	@Transient
+	@JsonIgnore
+	private Integer timeOut;
 	
 	@OneToMany(mappedBy = "question", fetch = FetchType.EAGER)
 	private List<Reponse> reponses;
 	
 	@Column(name = "created_at")
 	@Temporal(TemporalType.TIMESTAMP)
+	@JsonIgnore
 	private Date createdAt;
 	
 	
@@ -66,6 +74,14 @@ public class Question implements Serializable {
 		this.topic = topic;
 	}
 
+	public Integer getTimeOut() {
+		return timeOut;
+	}
+
+	public void setTimeOut(Integer timeOut) {
+		this.timeOut = timeOut;
+	}
+
 	public List<Reponse> getReponses() {
 		return reponses;
 	}
@@ -84,8 +100,9 @@ public class Question implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Question [id=" + id + ", texte=" + texte + ", topic=" + topic + ", reponses=" + reponses
-				+ ", createdAt=" + createdAt + "]";
+		return "Question [id=" + id + ", texte=" + texte + ", topic=" + topic + ", timeOut=" + timeOut + ", reponses="
+				+ reponses + ", createdAt=" + createdAt + "]";
 	}
 
+	
 }

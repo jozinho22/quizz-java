@@ -77,11 +77,6 @@
 
 
 <script >
-
-// $.ajax({
-//     url : 'test', // La ressource ciblée
-//     type : 'GET' // Le type de la requête HTTP.
-//  });
 	
 	// check only one box at time
 	$(document).ready(function() {
