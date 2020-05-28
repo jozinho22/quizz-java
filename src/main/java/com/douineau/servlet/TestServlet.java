@@ -49,6 +49,13 @@ public class TestServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		HttpSession session = request.getSession();
+
+		if(request.getParameter("theme") != null) {
+			String theme = (String) request.getParameter("theme");
+			session.setAttribute("theme", theme);
+		}
+
 		String uuid = (String) request.getParameter("uuid");
 
 		if (uuid == null) {
@@ -56,7 +63,6 @@ public class TestServlet extends HttpServlet {
 		} else {
 			createUser(uuid);
 
-			HttpSession session = request.getSession();
 			session.setAttribute("user", user);
 
 			if (questions == null) {
@@ -97,37 +103,44 @@ public class TestServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-			String idReponse = request.getParameter("reponse");
+		HttpSession session = request.getSession();
 
-			if (idReponse != null) {
-				Long id = Long.parseLong(idReponse);
+		if(request.getParameter("theme") != null) {
+			String theme = (String) request.getParameter("theme");
+			session.setAttribute("theme", theme);
+		}
 
-				for (Reponse reponse : reponses) {
-					if (reponse.getId().equals(id)) {
-						user.getMap().put(questions.get(0), reponse);
-						if (reponse.getIsTrue()) {
-							user.setScore(user.getScore() + 1);
-							break;
-						}
+		String idReponse = request.getParameter("reponse");
+
+		if (idReponse != null) {
+			Long id = Long.parseLong(idReponse);
+
+			for (Reponse reponse : reponses) {
+				if (reponse.getId().equals(id)) {
+					user.getMap().put(questions.get(0), reponse);
+					if (reponse.getIsTrue()) {
+						user.setScore(user.getScore() + 1);
+						break;
 					}
 				}
-
-			} else {
-				user.getMap().put(questions.get(0), null);
 			}
 
-			questions.remove(questions.get(0));
-			nbRestantes = questions.size();
+		} else {
+			user.getMap().put(questions.get(0), null);
+		}
+
+		questions.remove(questions.get(0));
+		nbRestantes = questions.size();
 
 		if (questions.size() == 0) {
+
 			questions = null;
-			
-			HttpSession session = request.getSession();
 			session.setAttribute("nbQuestions", nbQuestions);
 
 			RequestDispatcher rd = request.getRequestDispatcher("fin");
 			rd.forward(request, response);
 		} else {
+
 			setRequestAttributes(request);
 
 			RequestDispatcher rd = request.getRequestDispatcher("test.jsp");

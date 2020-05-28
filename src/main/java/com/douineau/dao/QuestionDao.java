@@ -93,6 +93,8 @@ public class QuestionDao {
 			System.out.print(q.getId() + ", ");
 			listIdQuestions.add(q.getId());
 		}
+		System.out.println("------------------");
+
 		return randomQuestions;
 	}
 

@@ -1,4 +1,3 @@
-<%@ taglib prefix="tag" tagdir="/WEB-INF/tags"%>
 <%@ page import="java.util.UUID"%>
 
 <% 
@@ -6,7 +5,7 @@
 %>
 
 <%@ include file="/WEB-INF/tags/begin.jsp" %>
-<tag:navbar />
+<%@ include file="/WEB-INF/tags/navbar.jsp" %>
 
 <div id="index-section" class="container">
 	<div id="inner-section">
@@ -24,6 +23,7 @@
 			
 			<form action="test" method="GET">
 				<input id="input" name="uuid" type="text" class="form-control" hidden=true>
+				<input id="sessionTheme" name="theme" value="" hidden="true">
 				<div id="start-btn">
 					<button class="btn" type="submit">Commencer</button>
 				</div>
@@ -39,4 +39,4 @@
 	console.log(uuid)
 </script>
 
-<tag:end />
+<%@ include file="/WEB-INF/tags/end.jsp" %>

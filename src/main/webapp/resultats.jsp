@@ -1,4 +1,3 @@
-<%@ taglib prefix="tag" tagdir="/WEB-INF/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="com.douineau.entity.User"%>
 <%@ page import="com.douineau.entity.Question"%>
@@ -17,7 +16,7 @@
 %>
 
 <%@ include file="/WEB-INF/tags/begin.jsp" %>
-<tag:navbar />
+<%@ include file="/WEB-INF/tags/navbar.jsp" %>
 
 <div id="resultats-section" class="container">
 	<div id="inner-section-resultats">
@@ -67,16 +66,14 @@
 			%>
 			<%-- 			</c:forEach> --%>
 			<div id="return-btn">
+				<input id="sessionTheme" name="theme" value="" hidden="true">
 				<a href="index.jsp">
 					<button class="btn" type="submit">Retour au quizz</button>
 				</a> 
-				<a href="pdf">
-					<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
-				</a>
 			</div>
 		</div>
 	</div>
 
 </div>
 
-<tag:end />
+<%@ include file="/WEB-INF/tags/end.jsp" %>

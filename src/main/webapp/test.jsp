@@ -1,4 +1,3 @@
-<%@ taglib prefix="tag" tagdir="/WEB-INF/tags"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -13,11 +12,11 @@
 	} else {
 	    timeOut = (Integer) session.getAttribute("time-out");
 	}
-
+	
 %>
 
 <%@ include file="/WEB-INF/tags/begin.jsp" %>
-<tag:navbar />
+<%@ include file="/WEB-INF/tags/navbar.jsp" %>
 
 <script>
 	var timeout =<%=timeOut%>;
@@ -58,6 +57,7 @@
 			</div>
 
 			<div id="next-btn">
+				<input id="sessionTheme" name="theme" value="" hidden="true">
 				<button class="btn btn-outline-secondary"
 					type="submit">Valider</button>
 			</div>
@@ -75,9 +75,9 @@
 		});
 	});
 
-	$(document).ready(function() {
-	 	timer();
-	});
+// 	$(document).ready(function() {
+// 	 	timer();
+// 	});
 </script>
 
-<tag:end />
+<%@ include file="/WEB-INF/tags/end.jsp" %>

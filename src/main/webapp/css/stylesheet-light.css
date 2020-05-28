@@ -1,5 +1,5 @@
 #mainback {
-	background-color: #343a40;
+	background-color: #A9A9A9;
 }
 
 /* fonts*/
@@ -11,7 +11,7 @@ p, h3 {
 
 /* Questions / reponses */
 h4, h5 {
-	color: grey;
+	color: #343a40;
 }
 
 
@@ -26,7 +26,7 @@ h4, h5 {
 }
 
 #theme-btn button {
-	background-color: #A0522D;
+	background-color: #CD853F;
 	color: black;
 }
 
@@ -36,13 +36,13 @@ h4, h5 {
 
 /*sections */
 #index-section, #test-section, #resultats-section {
-	background-color: #343a40;
-	border-color: #A0522D;
+	background-color: #FFE4C4;
+	border-color: #CD853F;
 }
 
 #inner-section, #inner-section-resultats {
-	background-color: #343a40;
-	border-color: rgba(255, 255, 255, .5);
+	background-color: #DCDCDC;
+	border-color:#A9A9A9;;
 }
 /*sections */
 
@@ -56,7 +56,7 @@ h4, h5 {
 /* Index */
 
 #start-btn button {
-	background-color: #A0522D;
+	background-color: #CD853F;
 	color: black;
 }
 
@@ -74,8 +74,8 @@ h4, h5 {
 
 #timer-section input {
 	border-color: #CD853F;
-	background-color : #343a40; 
-	color : grey;
+/* 	background-color : #343a40;  */
+	color : black;
 }
 
 #next-btn button {
@@ -92,7 +92,7 @@ h4, h5 {
 /* FIN */
 
 #resultats-btn button {
-	background-color: #A0522D;
+	background-color: #CD853F;
 	color: black;
 }
 
@@ -105,7 +105,7 @@ h4, h5 {
 /* RESULTATS */
 
 #return-btn button {
-	background-color: #A0522D;
+	background-color: #CD853F;
 	color: black;
 }
 

@@ -38,6 +38,12 @@ public class FinServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
+		
+		if(request.getParameter("theme") != null) {
+			String theme = (String) request.getParameter("theme");
+			session.setAttribute("theme", theme);
+		}
+		
 		session.removeAttribute("uuid");
 		
 		RequestDispatcher rd = request.getRequestDispatcher("fin.jsp");

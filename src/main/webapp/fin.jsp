@@ -1,4 +1,3 @@
-<%@ taglib prefix="tag" tagdir="/WEB-INF/tags"%>
 <%@ page import="com.douineau.entity.User"%>
 
 <%
@@ -12,7 +11,7 @@
 %>
 
 <%@ include file="/WEB-INF/tags/begin.jsp" %>
-<tag:navbar />
+<%@ include file="/WEB-INF/tags/navbar.jsp" %>
 
 <div id="index-section" class="container">
 	<div id="inner-section">
@@ -27,6 +26,7 @@
 				%>
 <%-- 				<input name="score" type="text" value="${user}" hidden="true"> --%>
 				<div id="resultats-btn">
+					<input id="sessionTheme" name="theme" value="" hidden="true">
 					<button class="btn" type="submit">Voir les résultats</button>
 				</div>
 			</form>
@@ -34,4 +34,4 @@
 	</div>
 </div>
 
-<tag:end />
+<%@ include file="/WEB-INF/tags/end.jsp" %>
