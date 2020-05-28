@@ -25,12 +25,8 @@
 		if (--timeout > 0) {
 			document.form.clock.value = timeout;
 			window.setTimeout("timer()", 1000);
-		} else {
-			console.log('timeout');
-			
+		} else {			
 			document.getElementById("form").submit();
- // 		     location.reload();
-// 			document.location.href = "test?input-name=fg";
 		}
 	}
 </script>

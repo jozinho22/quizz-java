@@ -73,13 +73,11 @@ h4, h5 {
 }
 
 #timer-section input {
-	border-color: #CD853F;
-/* 	background-color : #343a40;  */
 	color : black;
 }
 
 #next-btn button {
-	background-color: #006400;
+	background-color: #228B22;
 	color: black;
 }
 

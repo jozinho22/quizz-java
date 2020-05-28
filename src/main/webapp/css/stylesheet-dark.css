@@ -31,7 +31,7 @@ h4, h5 {
 }
 
 #theme-btn button:hover {
-	background-color: #A0522D;
+	background-color: #CD853F;
 }
 
 /*sections */
@@ -61,7 +61,7 @@ h4, h5 {
 }
 
 #start-btn button:hover {
-	background-color: #A0522D;
+	background-color: #CD853F;
 }
 
 /* Index */
@@ -73,7 +73,6 @@ h4, h5 {
 }
 
 #timer-section input {
-	border-color: #CD853F;
 	background-color : #343a40; 
 	color : grey;
 }
@@ -84,7 +83,7 @@ h4, h5 {
 }
 
 #next-btn button:hover {
-	background-color: #006400;
+	background-color:  #228B22;
 }
 
 /* TEST */
@@ -97,7 +96,7 @@ h4, h5 {
 }
 
 #resultats-btn button:hover {
-	background-color: #A0522D;
+	background-color: #CD853F;
 }
 
 /* FIN */
@@ -110,7 +109,7 @@ h4, h5 {
 }
 
 #return-btn button:hover {
-	background-color: #A0522D;
+	background-color: #CD853F;
 }
 
 /* RESULTATS */
