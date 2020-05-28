@@ -71,7 +71,7 @@ public class TestServlet extends HttpServlet {
 
 				questions = QuestionDao.getRandomQuestionsJson(5, 75);
 				nbQuestions = questions.size();
-				session.setAttribute("time-out", 20);
+				request.setAttribute("time-out", 20);
 
 				currentQuestion = questions.get(0);
 				setRequestAttributes(request);
@@ -80,7 +80,10 @@ public class TestServlet extends HttpServlet {
 				rd.forward(request, response);
 			}
 		} else {
+			Integer timeOut = (Integer) request.getAttribute("time-out");
+			request.setAttribute("time-out", timeOut);
 			
+			System.out.println("In servlet doGet - timeOut = "+ timeOut);
 			setRequestAttributes(request);
 			
 			RequestDispatcher rd = request.getRequestDispatcher("test.jsp");
@@ -131,7 +134,7 @@ public class TestServlet extends HttpServlet {
 
 			for (Reponse reponse : reponses) {
 				if (reponse.getId().equals(idReponse)) {
-					if(!questionAlreadyExistsInMap(currentQuestion, reponse)) {
+					if(!questionAlreadyExistsInMapReplace(currentQuestion, reponse)) {
 						user.getMap().put(currentQuestion, reponse);
 					}
 					if (reponse.getIsTrue()) {
@@ -153,7 +156,7 @@ public class TestServlet extends HttpServlet {
 			questions = null;
 			init = false;
 			
-			request.setAttribute("nbQuestions", nbQuestions);
+			session.setAttribute("nbQuestions", nbQuestions);
 
 			RequestDispatcher rd = request.getRequestDispatcher("fin");
 			rd.forward(request, response);
@@ -167,7 +170,7 @@ public class TestServlet extends HttpServlet {
 		}
 	}
 
-	private boolean questionAlreadyExistsInMap(Question currentQuestion, Reponse reponse) {
+	private boolean questionAlreadyExistsInMapReplace(Question currentQuestion, Reponse reponse) {
 		boolean alreadyExists = false;
 		for (Map.Entry<Question, Reponse> entry : user.getMap().entrySet()) {
 			if(entry.getKey().equals(currentQuestion)) {

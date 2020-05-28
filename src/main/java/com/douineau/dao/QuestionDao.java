@@ -3,7 +3,6 @@ package com.douineau.dao;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -15,7 +14,6 @@ import com.douineau.entity.Reponse;
 import com.douineau.utils.FileReader;
 import com.douineau.utils.PersistenceUtil;
 import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -86,7 +84,6 @@ public class QuestionDao {
 			}
 			randomQuestions.add(questions.get(i));
 		}
-		
 		
 		listIdQuestions = new ArrayList<Long>();
 		for(Question q : randomQuestions) {

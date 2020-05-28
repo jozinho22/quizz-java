@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="com.douineau.entity.User"%>
+<%@ page import="java.util.Timer"%>
 
 <%
 
@@ -10,8 +11,19 @@
 	if (user == null) {
 		response.sendRedirect("error");
 	} else {
-	    timeOut = (Integer) session.getAttribute("time-out");
+	    timeOut = (Integer) request.getAttribute("time-out");
 	}
+	
+// 	int k;
+// 	Timer t = new Timer();
+	
+// 	for(k = 0; k < timeOut ; k++) {
+// 		if (k++ > timeOut) {
+// 		} else {
+// 			t.wait(1000);
+// 			System.out.println(k);
+// 		}
+// 	}
 	
 %>
 
@@ -19,16 +31,16 @@
 <%@ include file="/WEB-INF/tags/navbar.jsp" %>
 
 <script>
-	var timeout =<%=timeOut%>;
+<%-- 	var timeout =<%=timeOut%>; --%>
 
-	function timer() {
-		if (--timeout > 0) {
-			document.form.clock.value = timeout;
-			window.setTimeout("timer()", 1000);
-		} else {			
-			document.getElementById("form").submit();
-		}
-	}
+// 	function timer() {
+// 		if (--timeout > 0) {
+// 			document.form.clock.value = timeout;
+// 			window.setTimeout("timer()", 1000);
+// 		} else {			
+// 			document.getElementById("form").submit();
+// 		}
+// 	}
 </script>
 <form action="test" method="POST" id="form" name="form">
 
@@ -67,7 +79,7 @@
 <script >
 
 // $.ajax({
-//     url : 'more_com.php', // La ressource ciblée
+//     url : 'test', // La ressource ciblée
 //     type : 'GET' // Le type de la requête HTTP.
 //  });
 	
