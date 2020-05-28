@@ -21,7 +21,7 @@
 		<div id="nav-elem-3" class="col-12 col-sm-4 col-md-4 text-center">
 			<div id="theme-btn" class="pull-right">
 				<button id="changeThemeBtn" onclick="changeTheme(this);" class="btn"
-					type="submit" value="dark">Passer en mode light</button>
+					type="submit" value="light">Passer en mode dark</button>
 			</div>
 		</div>
 	</div>

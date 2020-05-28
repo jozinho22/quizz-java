@@ -31,9 +31,9 @@ public class TagBuilder {
 	public static String buildTagImportCss(String theme) {
 		StringBuilder sb = new StringBuilder();
 		if(theme == null || "dark".equals(theme)) {
-			sb.append("<link rel=\"stylesheet\" href=\"css/stylesheet-dark.css\">");
-		} else if("normal".equals(theme)) {
-			sb.append("<link rel=\"stylesheet\" href=\"css/stylesheet.css\">");
+			sb.append("<link id=\"importCss\" rel=\"stylesheet\" href=\"css/stylesheet-dark.css\">");
+		} else if("light".equals(theme)) {
+			sb.append("<link id=\"importCss\" rel=\"stylesheet\" href=\"css/stylesheet-light.css\">");
 		}	
 		return sb.toString();
 	}
@@ -42,7 +42,7 @@ public class TagBuilder {
 		StringBuilder sb = new StringBuilder();
 		if(theme == null || "dark".equals(theme)) {
 			sb.append("<button class=\"btn\" type=\"submit\">Passer en mode light</button>");
-		} else if("normal".equals(theme)) {
+		} else if("light".equals(theme)) {
 			sb.append("<button class=\"btn\" type=\"submit\">Passer en mode dark</button>");
 		}	
 		return sb.toString();

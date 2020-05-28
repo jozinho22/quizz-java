@@ -51,6 +51,8 @@ public class TestServlet extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		
+		System.out.println("From servlet - theme = " + request.getParameter("theme"));
+		
 		if(request.getParameter("theme") != null) {
 			String theme = (String) request.getParameter("theme");
 			session.setAttribute("theme", theme);
@@ -69,7 +71,7 @@ public class TestServlet extends HttpServlet {
 
 				session.setAttribute("user", user);
 
-				questions = QuestionDao.getRandomQuestionsJson(5, 100);
+				questions = QuestionDao.getRandomQuestionsJson(5, 60);
 //				questions = QuestionDao.getRandomQuestions(5, 20);
 				nbQuestions = questions.size();
 				request.setAttribute("time-out", 20);
@@ -118,6 +120,8 @@ public class TestServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 
+		System.out.println("From servlet - theme = " + request.getParameter("theme"));
+
 		if(request.getParameter("theme") != null) {
 			String theme = (String) request.getParameter("theme");
 			session.setAttribute("theme", theme);
@@ -165,7 +169,7 @@ public class TestServlet extends HttpServlet {
 			
 			currentQuestion = questions.get(0);
 			setRequestAttributes(request);
-			
+			System.out.println("next");
 			RequestDispatcher rd = request.getRequestDispatcher("test.jsp");
 			rd.forward(request, response);
 		}

@@ -66,7 +66,7 @@
 			</div>
 
 			<div id="next-btn">
-				<input id="sessionTheme" name="theme" value="" hidden="true">
+				<input id="sessionTheme" name="theme" value="light" hidden="true">
 				<button class="btn btn-outline-secondary"
 					type="submit">Valider</button>
 			</div>
