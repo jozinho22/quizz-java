@@ -46,7 +46,8 @@
 			</div>
 			<div id="reponses-section" class="form-check">
 				<c:forEach items="${reponses}" var="reponse">
-					<input name="reponse" value="${reponse.id}" type="checkbox"
+					<input name="id-question" value="${question.id}" hidden="true">
+					<input name="id-reponse" value="${reponse.id}" type="checkbox"
 						class="form-check-input" id="checkbox-reponse">
 					<h5>${reponse.texte}</h5>
 				</c:forEach>
@@ -63,7 +64,13 @@
 
 
 
-<script>
+<script >
+
+// $.ajax({
+//     url : 'more_com.php', // La ressource ciblée
+//     type : 'GET' // Le type de la requête HTTP.
+//  });
+	
 	// check only one box at time
 	$(document).ready(function() {
 		$('input:checkbox').click(function() {

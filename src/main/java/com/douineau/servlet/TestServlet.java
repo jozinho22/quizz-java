@@ -28,10 +28,10 @@ public class TestServlet extends HttpServlet {
 
 	private static List<Question> questions;
 	private static Integer nbQuestions;
+	private static boolean init;
+	private static Question currentQuestion;
 
 	private static List<Reponse> reponses;
-
-	private static Integer nbRestantes;
 
 	private static User user;
 
@@ -50,33 +50,43 @@ public class TestServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
-
+		
 		if(request.getParameter("theme") != null) {
 			String theme = (String) request.getParameter("theme");
 			session.setAttribute("theme", theme);
 		}
+		
+		if(!init) {
+			init = true;
 
-		String uuid = (String) request.getParameter("uuid");
+			String uuid = (String) request.getParameter("uuid");
+			session.setAttribute("uuid", uuid);
+			
+			if (uuid == null) {
+				response.sendRedirect("test.jsp");
+			} else {
+				createUser(uuid);
 
-		if (uuid == null) {
-			response.sendRedirect("test.jsp");
-		} else {
-			createUser(uuid);
+				session.setAttribute("user", user);
 
-			session.setAttribute("user", user);
-
-			if (questions == null) {
 				questions = QuestionDao.getRandomQuestionsJson(5, 75);
 				nbQuestions = questions.size();
 				session.setAttribute("time-out", 20);
+
+				currentQuestion = questions.get(0);
+				setRequestAttributes(request);
+
+				RequestDispatcher rd = request.getRequestDispatcher("test.jsp");
+				rd.forward(request, response);
 			}
-
-			nbRestantes = questions.size();
+		} else {
+			
 			setRequestAttributes(request);
-
+			
 			RequestDispatcher rd = request.getRequestDispatcher("test.jsp");
 			rd.forward(request, response);
 		}
+		
 	}
 
 	private void createUser(String uuid) {
@@ -89,10 +99,9 @@ public class TestServlet extends HttpServlet {
 
 	private void setRequestAttributes(HttpServletRequest request) {
 
-		reponses = questions.get(0).getReponses();
+		request.setAttribute("question", currentQuestion);
 
-		request.setAttribute("nbRestantes", nbRestantes);
-		request.setAttribute("question", questions.get(0));
+		reponses = currentQuestion.getReponses();
 		request.setAttribute("reponses", reponses);
 	}
 
@@ -102,7 +111,7 @@ public class TestServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
 		HttpSession session = request.getSession();
 
 		if(request.getParameter("theme") != null) {
@@ -110,14 +119,21 @@ public class TestServlet extends HttpServlet {
 			session.setAttribute("theme", theme);
 		}
 
-		String idReponse = request.getParameter("reponse");
+		String idQuestionStr = request.getParameter("id-question");
+		Long idQuestion = Long.parseLong(idQuestionStr);
+		
+		currentQuestion = getQuestionById(idQuestion);
+		
+		String idReponseStr = request.getParameter("id-reponse");
 
-		if (idReponse != null) {
-			Long id = Long.parseLong(idReponse);
+		if (idReponseStr != null) {
+			Long idReponse = Long.parseLong(idReponseStr);
 
 			for (Reponse reponse : reponses) {
-				if (reponse.getId().equals(id)) {
-					user.getMap().put(questions.get(0), reponse);
+				if (reponse.getId().equals(idReponse)) {
+					if(!questionAlreadyExistsInMap(currentQuestion, reponse)) {
+						user.getMap().put(currentQuestion, reponse);
+					}
 					if (reponse.getIsTrue()) {
 						user.setScore(user.getScore() + 1);
 						break;
@@ -126,26 +142,52 @@ public class TestServlet extends HttpServlet {
 			}
 
 		} else {
-			user.getMap().put(questions.get(0), null);
+			user.getMap().put(currentQuestion, null);
 		}
 
-		questions.remove(questions.get(0));
-		nbRestantes = questions.size();
+		questions.remove(currentQuestion);		
+		System.out.println("questions.size() : " + questions.size());
 
 		if (questions.size() == 0) {
-
+			
 			questions = null;
-			session.setAttribute("nbQuestions", nbQuestions);
+			init = false;
+			
+			request.setAttribute("nbQuestions", nbQuestions);
 
 			RequestDispatcher rd = request.getRequestDispatcher("fin");
 			rd.forward(request, response);
 		} else {
-
+			
+			currentQuestion = questions.get(0);
 			setRequestAttributes(request);
-
+			
 			RequestDispatcher rd = request.getRequestDispatcher("test.jsp");
 			rd.forward(request, response);
 		}
+	}
+
+	private boolean questionAlreadyExistsInMap(Question currentQuestion, Reponse reponse) {
+		boolean alreadyExists = false;
+		for (Map.Entry<Question, Reponse> entry : user.getMap().entrySet()) {
+			if(entry.getKey().equals(currentQuestion)) {
+				entry.setValue(reponse);
+				alreadyExists = true;
+				break;
+			}
+		}
+		return alreadyExists;
+	}
+
+	private Question getQuestionById(Long idQuestion) {
+		Question question = null;
+		for(Question q : questions) {
+			if(q.getId().equals(idQuestion)) {
+				question = q;
+				break;
+			}
+		}
+		return question;
 	}
 
 }
