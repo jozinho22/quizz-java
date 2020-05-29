@@ -17,6 +17,7 @@ import com.douineau.dao.QuestionDao;
 import com.douineau.entity.Question;
 import com.douineau.entity.Reponse;
 import com.douineau.entity.User;
+import com.douineau.utils.RequestUtil;
 
 /**
  * Servlet implementation class ResultatServlet
@@ -44,14 +45,12 @@ public class ResultatServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+				
+		System.out.println(this.getClass().getName() + " doPost - theme = " + request.getParameter("theme"));
+		System.out.println("--------------------------------");
+		request = RequestUtil.setThemeAttribute(request);
 		
 		HttpSession session = request.getSession();
-		
-		if(request.getParameter("theme") != null) {
-			String theme = (String) request.getParameter("theme");
-			session.setAttribute("theme", theme);
-		}
-		
 		User user = (User) session.getAttribute("user");	
 		
 		//tri car les questions ne sont pas dans l'ordre
@@ -69,8 +68,11 @@ public class ResultatServlet extends HttpServlet {
 		
 		user.setMap(sortedMap);
 		
-		request.setAttribute("user", user);
+		session.removeAttribute("user");
+		session.setAttribute("user", user);
 		
+		request.setAttribute("nbQuestions", request.getAttribute("nbQuestions"));
+
 		RequestDispatcher rd = request.getRequestDispatcher("resultats.jsp");
 		rd.forward(request, response);
 		

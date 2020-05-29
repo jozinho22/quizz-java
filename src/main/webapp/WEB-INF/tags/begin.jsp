@@ -15,8 +15,10 @@
 
 		<link rel="stylesheet" href="css/stylesheet.css">		
 		<% 
-			System.out.println("from jsp - theme = " + (String) session.getAttribute("theme"));
-			out.print(TagBuilder.buildTagImportCss((String) session.getAttribute("theme")));
+			System.out.println("from begin.jsp - theme = " + (String) request.getAttribute("theme"));
+			System.out.println("--------------------------------");
+
+			out.print(TagBuilder.buildTagImportCss((String) request.getAttribute("theme")));
 			
 		%>
 <!-- 		<link id="importCss" rel="stylesheet" href="css/stylesheet-dark.css"> -->

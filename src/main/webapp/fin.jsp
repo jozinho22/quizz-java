@@ -1,13 +1,8 @@
 <%@ page import="com.douineau.entity.User"%>
+<%@ page import="com.douineau.utils.SessionUtil"%>
 
 <%
-	boolean ok = false;
-	User user = (User) session.getAttribute("user");
-	if (user == null) {
-		response.sendRedirect("error");
-	} else {
-		ok = true;
-	}
+    User user = SessionUtil.checkSessionByUuidAndGetUser(response, session);
 %>
 
 <%@ include file="/WEB-INF/tags/begin.jsp" %>
@@ -19,12 +14,6 @@
 			<p>${user.score}/${nbQuestions}</p>
 <!-- 		<div class="center"> -->
 			<form id="form" action="resultats" method="POST">
-				<%
-					if(ok) {
-						out.print("<input name=\"score\" type=\"text\" value=\"${user}\" hidden=\"true\">");
-					}
-				%>
-<%-- 				<input name="score" type="text" value="${user}" hidden="true"> --%>
 				<div id="resultats-btn">
 					<input id="sessionTheme" name="theme" value="" hidden="true">
 					<button class="btn" type="submit">Voir les résultats</button>

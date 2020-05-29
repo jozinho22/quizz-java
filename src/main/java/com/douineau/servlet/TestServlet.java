@@ -17,6 +17,7 @@ import com.douineau.dao.QuestionDao;
 import com.douineau.entity.Question;
 import com.douineau.entity.Reponse;
 import com.douineau.entity.User;
+import com.douineau.utils.RequestUtil;
 
 @WebServlet("/test")
 public class TestServlet extends HttpServlet {
@@ -51,12 +52,10 @@ public class TestServlet extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		
-		System.out.println("From servlet - theme = " + request.getParameter("theme"));
-		
-		if(request.getParameter("theme") != null) {
-			String theme = (String) request.getParameter("theme");
-			session.setAttribute("theme", theme);
-		}
+		System.out.println(this.getClass().getName() + " doGet - theme = " + request.getParameter("theme"));
+		System.out.println("--------------------------------");
+
+		request = RequestUtil.setThemeAttribute(request);
 		
 		if(!init) {
 			init = true;
@@ -71,7 +70,7 @@ public class TestServlet extends HttpServlet {
 
 				session.setAttribute("user", user);
 
-				questions = QuestionDao.getRandomQuestionsJson(5, 60);
+				questions = QuestionDao.getRandomQuestionsJson(2, 60);
 //				questions = QuestionDao.getRandomQuestions(5, 20);
 				nbQuestions = questions.size();
 				request.setAttribute("time-out", 20);
@@ -86,7 +85,6 @@ public class TestServlet extends HttpServlet {
 			Integer timeOut = (Integer) request.getAttribute("time-out");
 			request.setAttribute("time-out", timeOut);
 			
-			System.out.println("In servlet doGet - timeOut = "+ timeOut);
 			setRequestAttributes(request);
 			
 			RequestDispatcher rd = request.getRequestDispatcher("test.jsp");
@@ -118,14 +116,9 @@ public class TestServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		HttpSession session = request.getSession();
-
-		System.out.println("From servlet - theme = " + request.getParameter("theme"));
-
-		if(request.getParameter("theme") != null) {
-			String theme = (String) request.getParameter("theme");
-			session.setAttribute("theme", theme);
-		}
+		request = RequestUtil.setThemeAttribute(request);
+		System.out.println(this.getClass().getName() + " doPost - theme = " + request.getParameter("theme"));
+		System.out.println("--------------------------------");
 
 		String idQuestionStr = request.getParameter("id-question");
 		Long idQuestion = Long.parseLong(idQuestionStr);
@@ -156,16 +149,18 @@ public class TestServlet extends HttpServlet {
 		questions.remove(currentQuestion);		
 		System.out.println("questions.size() : " + questions.size());
 
+		// Fin du quizz
 		if (questions.size() == 0) {
 			
 			questions = null;
 			init = false;
+			request.setAttribute("nbQuestions", nbQuestions);
 			
-			session.setAttribute("nbQuestions", nbQuestions);
-
 			RequestDispatcher rd = request.getRequestDispatcher("fin");
 			rd.forward(request, response);
-		} else {
+		} 
+		// Continuer
+		else {
 			
 			currentQuestion = questions.get(0);
 			setRequestAttributes(request);

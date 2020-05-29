@@ -13,16 +13,16 @@ import javax.servlet.http.HttpSession;
 import com.douineau.utils.RequestUtil;
 
 /**
- * Servlet implementation class FinServlet
+ * Servlet implementation class RetourServlet
  */
-@WebServlet("/fin")
-public class FinServlet extends HttpServlet {
+@WebServlet("/index")
+public class IndexServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FinServlet() {
+    public IndexServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,25 +31,24 @@ public class FinServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.sendRedirect("fin.jsp");
-		}
+		
+		System.out.println(this.getClass().getName() + " doGet - theme = " + request.getParameter("theme"));
+		System.out.println("--------------------------------");
+
+		request = RequestUtil.setThemeAttribute(request);
+		
+		HttpSession session = request.getSession();
+		session.removeAttribute("uuid");
+		
+		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+		rd.forward(request, response);	
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		System.out.println(this.getClass().getName() + " doPost - theme = " + request.getParameter("theme"));
-		System.out.println("--------------------------------");
 
-		request = RequestUtil.setThemeAttribute(request);
-		
-		System.out.println(this.getClass().getName() + " doPost - nbQuestions = " + request.getAttribute("nbQuestions"));
-		System.out.println("--------------------------------");
-		request.setAttribute("nbQuestions", request.getAttribute("nbQuestions"));
-		
-		RequestDispatcher rd = request.getRequestDispatcher("fin.jsp");
-		rd.forward(request, response);	
 	}
 
 }

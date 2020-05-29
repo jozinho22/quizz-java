@@ -3,29 +3,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="com.douineau.entity.User"%>
 <%@ page import="java.util.Timer"%>
+<%@ page import="com.douineau.utils.SessionUtil"%>
 
 <%
+	User user = SessionUtil.checkSessionByUuidAndGetUser(response, session);	
 
-	Integer timeOut = 0;
-	User user = (User) session.getAttribute("user");
-	if (user == null) {
-		response.sendRedirect("error");
-	} else {
-	    timeOut = (Integer) request.getAttribute("time-out");
-	}
-	
-// 	int k;
-// 	Timer t = new Timer();
-	
-// 	for(k = 0; k < timeOut ; k++) {
-// 		if (k++ > timeOut) {
-// 		} else {
-// 			t.wait(1000);
-// 			System.out.println(k);
-// 		}
-// 	}
-	
+    Integer timeOut = (Integer) request.getAttribute("time-out");
 %>
+
 
 <%@ include file="/WEB-INF/tags/begin.jsp" %>
 <%@ include file="/WEB-INF/tags/navbar.jsp" %>
@@ -66,7 +51,7 @@
 			</div>
 
 			<div id="next-btn">
-				<input id="sessionTheme" name="theme" value="light" hidden="true">
+				<input id="sessionTheme" name="theme" value="" hidden="true">
 				<button class="btn btn-outline-secondary"
 					type="submit">Valider</button>
 			</div>

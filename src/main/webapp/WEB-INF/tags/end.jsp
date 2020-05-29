@@ -1,16 +1,20 @@
 	<% 
 	
 		String theme = null;
-		if(session.getAttribute("theme") != null) {
-			theme = (String) session.getAttribute("theme");
-		}
+		System.out.println("from end.jsp (Java code) - theme = " + request.getParameter("theme"));
+		System.out.println("--------------------------------");
+		theme = (String) request.getAttribute("theme");
 		
 	 %>
 	
 	<script>
 
 		var theme = '<%= theme %>';
+		console.log("theme : " + theme);
+		console.log("in js");
+
 		if(theme == "dark" || theme == "light") {
+			console.log("in js : if(theme == \"dark\" || theme == \"light\") {");
 			processChangeTheme(theme);
 		}
 	
@@ -28,6 +32,8 @@
 		}
 		
 		function processChangeTheme(theme) {
+			console.log("in js : processChangeTheme(" + theme + ");");
+
 			var newButtonText;
 			var newButtonValue;
 			var newHref;

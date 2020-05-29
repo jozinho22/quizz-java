@@ -43,5 +43,7 @@ public class User {
 	public String toString() {
 		return "User [uuid=" + uuid + ", score=" + score + ", map=" + map + "]";
 	}
+
+
 	
 }
