@@ -30,7 +30,7 @@ public class TagBuilder {
 	
 	public static String buildTagImportCss(String theme) {
 		StringBuilder sb = new StringBuilder();
-		if(theme == null || "dark".equals(theme)) {
+		if("dark".equals(theme)) {
 			sb.append("<link id=\"importCss\" rel=\"stylesheet\" href=\"css/stylesheet-dark.css\">");
 		} else if("light".equals(theme)) {
 			sb.append("<link id=\"importCss\" rel=\"stylesheet\" href=\"css/stylesheet-light.css\">");
@@ -40,11 +40,24 @@ public class TagBuilder {
 
 	public static String buildTagThemeButton(String theme) {
 		StringBuilder sb = new StringBuilder();
-		if(theme == null || "dark".equals(theme)) {
+		if("dark".equals(theme)) {
 			sb.append("<button class=\"btn\" type=\"submit\">Passer en mode light</button>");
 		} else if("light".equals(theme)) {
 			sb.append("<button class=\"btn\" type=\"submit\">Passer en mode dark</button>");
 		}	
+		return sb.toString();
+	}
+	
+	public static String buildTagCheckBoxes(Boolean isDone) {
+		StringBuilder sb = new StringBuilder();
+		sb.append("<input name=\"id-reponse\" value=\"${reponse.id}\" type=\"checkbox\" class=\"form-check-input\"");
+		
+		if(isDone) {
+			sb.append("disabled=\"disabled\"");
+		} 
+		
+		sb.append(">");
+		
 		return sb.toString();
 	}
 }

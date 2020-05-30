@@ -87,16 +87,7 @@ public class QuestionDao {
 		
 		listIdQuestions = new ArrayList<Long>();
 		for(Question q : randomQuestions) {
-			System.out.println("id question : ");
-			System.out.println(q.getId());
 			listIdQuestions.add(q.getId());
-			System.out.println("------------------");
-			System.out.println(" id reponses : ");
-			for(Reponse r : q.getReponses()) {
-				System.out.println(r.getId());
-			}
-			System.out.println("------------------");
-			System.out.println("------------------");
 		}
 
 		return randomQuestions;

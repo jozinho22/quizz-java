@@ -1,24 +1,20 @@
+<%@ page import="com.douineau.utils.PrintUtil"%>
+
 	<% 
-	
-		String theme = null;
-		System.out.println("from end.jsp (Java code) - theme = " + request.getParameter("theme"));
-		System.out.println("--------------------------------");
-		theme = (String) request.getAttribute("theme");
-		
+		String theme = (String) session.getAttribute("theme");
+		PrintUtil.printInfo("end.jsp", "script Java", "theme", theme);	
 	 %>
 	
 	<script>
 
 		var theme = '<%= theme %>';
-		console.log("theme : " + theme);
-		console.log("in js");
-
+		console.log(theme);
+				
 		if(theme == "dark" || theme == "light") {
-			console.log("in js : if(theme == \"dark\" || theme == \"light\") {");
 			processChangeTheme(theme);
 		}
 	
-		function changeTheme(thisButton) {
+		function getTheme(thisButton) {
 	
 			var actualTheme = thisButton.value;
 			
@@ -32,7 +28,6 @@
 		}
 		
 		function processChangeTheme(theme) {
-			console.log("in js : processChangeTheme(" + theme + ");");
 
 			var newButtonText;
 			var newButtonValue;

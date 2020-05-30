@@ -7,11 +7,14 @@ public class User {
 	private String uuid;
 	private Integer score;
 	private Map<Question, Reponse> map;
+	private Integer nbQuestionsRestantes;
+	private Integer nbQuestionsTotal;
 	
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
 	
 	public String getUuid() {
 		return uuid;
@@ -20,7 +23,6 @@ public class User {
 	public void setUuid(String uuid) {
 		this.uuid = uuid;
 	}
-
 
 	public Integer getScore() {
 		return score;
@@ -39,11 +41,26 @@ public class User {
 		this.map = map;
 	}
 
-	@Override
-	public String toString() {
-		return "User [uuid=" + uuid + ", score=" + score + ", map=" + map + "]";
+	public Integer getNbQuestionsRestantes() {
+		return nbQuestionsRestantes;
 	}
 
+	public void setNbQuestionsRestantes(Integer nbQuestionsRestantes) {
+		this.nbQuestionsRestantes = nbQuestionsRestantes;
+	}
 
-	
+	public Integer getNbQuestionsTotal() {
+		return nbQuestionsTotal;
+	}
+
+	public void setNbQuestionsTotal(Integer nbQuestionsTotal) {
+		this.nbQuestionsTotal = nbQuestionsTotal;
+	}
+
+	@Override
+	public String toString() {
+		return "User [uuid=" + uuid + ", score=" + score + ", map=" + map + ", nbQuestionsRestantes="
+				+ nbQuestionsRestantes + ", nbQuestionsTotal=" + nbQuestionsTotal + "]";
+	}
+
 }

@@ -1,4 +1,5 @@
 <%@ page import="com.douineau.utils.TagBuilder"%>
+<%@ page import="com.douineau.utils.PrintUtil"%>
 
 <!DOCTYPE html>
 <html>
@@ -15,11 +16,9 @@
 
 		<link rel="stylesheet" href="css/stylesheet.css">		
 		<% 
-			System.out.println("from begin.jsp - theme = " + (String) request.getAttribute("theme"));
-			System.out.println("--------------------------------");
-
-			out.print(TagBuilder.buildTagImportCss((String) request.getAttribute("theme")));
 			
+			out.print(TagBuilder.buildTagImportCss((String) session.getAttribute("theme")));
+			PrintUtil.printInfo("begin-dynamic.jsp", "script Java", "theme", session.getAttribute("theme"));	
 		%>
 <!-- 		<link id="importCss" rel="stylesheet" href="css/stylesheet-dark.css"> -->
 <!-- 		<link id="importCss" rel="stylesheet" href="css/stylesheet-light.css">	 -->

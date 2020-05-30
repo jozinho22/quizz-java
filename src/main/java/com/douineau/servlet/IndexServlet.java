@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.douineau.utils.RequestUtil;
+import com.douineau.utils.SessionUtil;
 
 /**
  * Servlet implementation class RetourServlet
@@ -31,14 +32,11 @@ public class IndexServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		System.out.println(this.getClass().getName() + " doGet - theme = " + request.getParameter("theme"));
-		System.out.println("--------------------------------");
 
-		request = RequestUtil.setThemeAttribute(request);
+		request = SessionUtil.setThemeAttribute(request);
 		
 		HttpSession session = request.getSession();
-		session.removeAttribute("uuid");
+		session.removeAttribute("user");
 		
 		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 		rd.forward(request, response);	

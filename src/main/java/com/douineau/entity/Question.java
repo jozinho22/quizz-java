@@ -30,8 +30,11 @@ public class Question implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonIgnore
 	private Long id;
+	
 	private String texte;
+	
 	private String topic;
+	
 	@Transient
 	@JsonIgnore
 	private Integer timeOut;
@@ -100,9 +103,7 @@ public class Question implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Question [id=" + id + ", texte=" + texte + ", topic=" + topic + ", timeOut=" + timeOut + ", reponses="
-				+ reponses + ", createdAt=" + createdAt + "]";
+		return "Question [id=" + id + ", texte=" + texte + ", topic=" + topic + ", timeOut=" + timeOut + ", reponses=" + reponses + ", createdAt=" + createdAt + "]";
 	}
-
 	
 }
