@@ -1,21 +1,8 @@
 package com.douineau.entity;
 
 import java.io.Serializable;
-import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.persistence.Transient;
-
-@Entity
+//@Entity
 public class Reponse implements Serializable {
 
 	/**
@@ -23,22 +10,22 @@ public class Reponse implements Serializable {
 	 */
 	private static final long serialVersionUID = 1876188057166632647L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@Id
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Long id;
 
 	private String texte;
 
-	@Column(name = "is_true")
+//	@Column(name = "is_true")
 	private Boolean isTrue;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "question_id")
+//	@ManyToOne(fetch = FetchType.LAZY)
+//	@JoinColumn(name = "question_id")
 	private Question question;
 
-	@Column(name = "created_at")
-	@Temporal(TemporalType.TIMESTAMP)
-	protected Date createdAt;
+//	@Column(name = "created_at")
+//	@Temporal(TemporalType.TIMESTAMP)
+//	protected Date createdAt;
 
 	public Reponse() {
 		super();
@@ -77,18 +64,19 @@ public class Reponse implements Serializable {
 		this.question = question;
 	}
 
-	public Date getCreatedAt() {
-		return createdAt;
-	}
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
 	@Override
 	public String toString() {
-		return "Reponse [id=" + id + ", texte=" + texte + ", isTrue=" + isTrue + ", question=" + question
-				+ ", createdAt=" + createdAt + "]";
+		return "Reponse [id=" + id + ", texte=" + texte + ", isTrue=" + isTrue + ", question=" + question + "]";
 	}
+
+//	public Date getCreatedAt() {
+//		return createdAt;
+//	}
+//
+//	public void setCreatedAt(Date createdAt) {
+//		this.createdAt = createdAt;
+//	}
+
+
 
 }

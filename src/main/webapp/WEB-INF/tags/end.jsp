@@ -2,13 +2,13 @@
 
 	<% 
 		String theme = (String) session.getAttribute("theme");
-		PrintUtil.printInfo("end.jsp", "script Java", "theme", theme);	
+// 		PrintUtil.printInfo("end.jsp", "script Java", "theme", theme);	
 	 %>
 	
 	<script>
 
 		var theme = '<%= theme %>';
-		console.log(theme);
+		console.log("theme = " + theme);
 				
 		if(theme == "dark" || theme == "light") {
 			processChangeTheme(theme);

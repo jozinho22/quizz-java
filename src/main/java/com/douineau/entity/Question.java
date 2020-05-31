@@ -1,23 +1,11 @@
 package com.douineau.entity;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-@Entity
+//@Entity
 public class Question implements Serializable {
 
 	
@@ -26,8 +14,8 @@ public class Question implements Serializable {
 	 */
 	private static final long serialVersionUID = 5641309062449375141L;
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@Id
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonIgnore
 	private Long id;
 	
@@ -35,18 +23,17 @@ public class Question implements Serializable {
 	
 	private String topic;
 	
-	@Transient
+//	@Transient
 	@JsonIgnore
-	private Integer timeOut;
+	private Integer clock;
 	
-	@OneToMany(mappedBy = "question", fetch = FetchType.EAGER)
+//	@OneToMany(mappedBy = "question", fetch = FetchType.EAGER)
 	private List<Reponse> reponses;
 	
-	@Column(name = "created_at")
-	@Temporal(TemporalType.TIMESTAMP)
-	@JsonIgnore
-	private Date createdAt;
-	
+//	@Column(name = "created_at")
+//	@Temporal(TemporalType.TIMESTAMP)
+//	@JsonIgnore
+//	private Date createdAt;
 	
 	public Question() {
 		super();
@@ -77,12 +64,12 @@ public class Question implements Serializable {
 		this.topic = topic;
 	}
 
-	public Integer getTimeOut() {
-		return timeOut;
+	public Integer getClock() {
+		return clock;
 	}
 
-	public void setTimeOut(Integer timeOut) {
-		this.timeOut = timeOut;
+	public void setClock(Integer clock) {
+		this.clock = clock;
 	}
 
 	public List<Reponse> getReponses() {
@@ -93,17 +80,19 @@ public class Question implements Serializable {
 		this.reponses = reponses;
 	}
 
-	public Date getCreatedAt() {
-		return createdAt;
-	}
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
 	@Override
 	public String toString() {
-		return "Question [id=" + id + ", texte=" + texte + ", topic=" + topic + ", timeOut=" + timeOut + ", reponses=" + reponses + ", createdAt=" + createdAt + "]";
+		return "Question [id=" + id + ", texte=" + texte + ", topic=" + topic + ", clock=" + clock + ", reponses="
+				+ reponses + "]";
 	}
-	
+
+//	public Date getCreatedAt() {
+//		return createdAt;
+//	}
+//
+//	public void setCreatedAt(Date createdAt) {
+//		this.createdAt = createdAt;
+//	}
+
+
 }

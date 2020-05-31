@@ -18,7 +18,8 @@
 		<% 
 			
 			out.print(TagBuilder.buildTagImportCss((String) session.getAttribute("theme")));
-			PrintUtil.printInfo("begin-dynamic.jsp", "script Java", "theme", session.getAttribute("theme"));	
+// 			PrintUtil.printInfo("begin-dynamic.jsp", "script Java", "theme", session.getAttribute("theme"));	
+
 		%>
 <!-- 		<link id="importCss" rel="stylesheet" href="css/stylesheet-dark.css"> -->
 <!-- 		<link id="importCss" rel="stylesheet" href="css/stylesheet-light.css">	 -->

@@ -18,8 +18,8 @@
 	<div id="inner-section">
 		<p>Quizz terminé !</p>
 		<p>${user.score}/${user.nbQuestionsTotal}</p>
-		<form id="form" action="resultats" method="POST">
-			<div id="resultats-btn">
+		<form id="form" action="results" method="POST">
+			<div id="results-btn">
 				<input id="sessionTheme" name="theme" value="" hidden="true">
 				<button class="btn" type="submit">Voir les résultats</button>
 			</div>

@@ -1,6 +1,7 @@
 package com.douineau.servlet;
 
 import java.io.IOException;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,24 +11,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.douineau.entity.Question;
+import com.douineau.entity.Reponse;
 import com.douineau.entity.User;
 import com.douineau.utils.PrintUtil;
 import com.douineau.utils.RequestUtil;
+import com.douineau.utils.ServletEnum;
 import com.douineau.utils.SessionUtil;
 
 /**
- * Servlet implementation class FinServlet
+ * Servlet implementation class EndGameServlet
  */
-@WebServlet("/fin")
-public class FinServlet extends HttpServlet {
+@WebServlet("/end-game")
+public class EndGameServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FinServlet() {
+    public EndGameServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -37,22 +40,28 @@ public class FinServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
-		PrintUtil.printInfo(this.getClass().getName(), request.getMethod(), "uuid de session", user.getUuid());
 
 		boolean checked = SessionUtil.checkSessionByUuid(user);
 
 		if (!checked) {
-			response.sendRedirect("error");
+			response.sendRedirect(ServletEnum.ERROR.getServletRelativePath());
 		} else {
-			request.setAttribute("permission", "checked");
-			request = SessionUtil.setThemeAttribute(request);
 
+			request.setAttribute("permission", "checked");
+			if(request.getParameter("theme") != null) {
+				session.setAttribute("theme", request.getParameter("theme"));
+			}
+			
 			String redirection = RequestUtil.getRedirection(request.getServletPath(), user.getNbQuestionsRestantes());
 			
 			if (redirection != null) {
-				response.sendRedirect(redirection);
+				RequestDispatcher rd = request.getRequestDispatcher(redirection);
+				rd.forward(request, response);
 			} else {
-				RequestDispatcher rd = request.getRequestDispatcher("fin.jsp");
+				user.setScore(calculateScore(user.getMap()));
+				session.setAttribute("user", user);
+
+				RequestDispatcher rd = request.getRequestDispatcher(ServletEnum.END_GAME.getJspPath());
 				rd.forward(request, response);
 			}
 		}
@@ -62,28 +71,20 @@ public class FinServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+	
+	private Integer calculateScore(Map<Question, Reponse> map) {
 		
-		HttpSession session = request.getSession();
-		User user = (User) session.getAttribute("user");
-
-		boolean checked = SessionUtil.checkSessionByUuid(user);
-
-		if (!checked) {
-			response.sendRedirect("error");
-		} else {
-			request.setAttribute("permission", "checked");
-			request = SessionUtil.setThemeAttribute(request);
-
-			String redirection = RequestUtil.getRedirection(request.getServletPath(), user.getNbQuestionsRestantes());
-
-			if (redirection != null) {
-				response.sendRedirect(redirection);
-			} else {
-
-				RequestDispatcher rd = request.getRequestDispatcher("fin.jsp");
-				rd.forward(request, response);
+		Integer score = 0;
+		for (Map.Entry<Question, Reponse> entry : map.entrySet()) {
+			if (entry.getValue() != null && entry.getValue().getIsTrue()) {
+				score += 1;
 			}
 		}
+		
+		return score;
+		
 	}
 
 }

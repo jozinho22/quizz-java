@@ -2,7 +2,7 @@ package com.douineau.utils;
 
 public class TagBuilder {
 	
-	public static String buildTagResultats(String tag, String texte) {
+	public static String buildTagResults(String tag, String texte) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("<");
 		sb.append(tag);
@@ -15,7 +15,7 @@ public class TagBuilder {
 		return sb.toString();
 	}
 	
-	public static String buildTagResultats(String tag, String texte, String style) {
+	public static String buildTagResults(String tag, String texte, String style) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("<");
 		sb.append(tag);

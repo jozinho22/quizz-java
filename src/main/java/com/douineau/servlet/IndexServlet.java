@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.douineau.utils.RequestUtil;
+import com.douineau.utils.ServletEnum;
 import com.douineau.utils.SessionUtil;
 
 /**
@@ -33,12 +34,15 @@ public class IndexServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		request = SessionUtil.setThemeAttribute(request);
-		
 		HttpSession session = request.getSession();
+		
+		if(request.getParameter("theme") != null) {
+			session.setAttribute("theme", request.getParameter("theme"));
+		}
+		
 		session.removeAttribute("user");
 		
-		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher(ServletEnum.INDEX.getJspPath());
 		rd.forward(request, response);	
 	}
 

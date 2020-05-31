@@ -68,9 +68,11 @@ h5 {
 	font-family: "csm";
 	src: url("./font/comic-sans-ms.ttf") format("truetype");
 }
+
 /* fonts */ 
 
 /* navbar */
+
 #navbar {
 	height: 100px;
 }
@@ -105,24 +107,33 @@ h5 {
 /* navbar */
 
 /*sections */
-#index-section, #test-section, #resultats-section {
-	position: relative;
+
+#index-section, #game-section, #results-section {
 	width: 60%;
 	border-style: solid;
 	border-width: 4px;
 	padding-top: 15px;
 	padding-bottom: 15px;
 	margin: 0 auto;
-	top: 30px;
 	margin-bottom: 60px;
 }
 
-#inner-section, #inner-section-resultats {
+#index-section, #results-section {
+	position: relative;
+	top: 30px;
+}
+
+/* #game-section { */
+	
+/*  } */
+
+#inner-section, #inner-section-results {
 	border-style: solid;
 	border-width: 2px;
 	width: 100%;
 	height: 100%;
 }
+
 /*sections */
 
 /* code */
@@ -132,7 +143,8 @@ h5 {
 
 /* code */
 
-/* Index */
+/* index */
+
 #index-section {
 	width: 40%;
 	top: 100px;
@@ -186,27 +198,29 @@ h5 {
 	width: 150px;
 }
 
-/* Index */
+/* index */
 
-/* Test*/
-#test-section {
-	top: 60px;
+/* game */
+
+#game-section {
+	position : relative;
+	top: 50px;
 }
 
 @media ( max-width : 1000px) {
-	#test-section {
+	#game-section {
 		top: 50px;
 	}
 }
 
 @media ( max-width : 768px) {
-	#test-section {
+	#game-section {
 		width: 80%;
 	}
 }
 
 @media ( max-width : 575px) {
-	#test-section {
+	#game-section {
 		width: 85%;
 	}
 }
@@ -284,49 +298,55 @@ form button {
 	text-align: center;
 }
 
-/* TEST */
+/* game */
 
-/* FIN */
+/* end-game */
+
 #form {
 	margin-bottom: 20px;
 }
 
-#resultats-btn {
+#results-btn {
 	position: relative;
 	text-align: center;
 }
 
-#resultats-btn button {
+#results-btn button {
 	margin: 0 auto;
 	position: relative;
 	width: 150px;
 }
 
-/* FIN */
+/* end-game */
 
-/* RESULTATS */
-#resultats-section {
+/* results */
+#results-section {
 	width: 75%;
 	top: 60px;
 	margin-bottom: 120px;
 }
 
 @media ( max-width : 1000px) {
-	#resultats-section {
+	#results-section {
 		width: 85%;
 	}
 }
 
 @media ( max-width : 768px) {
-	#resultats-section {
+	#results-section {
 		width: 87%;
 	}
 }
 
 @media ( max-width : 575px) {
-	#resultats-section {
+	#results-section {
 		width: 92%;
 	}
+}
+
+#results-reponses {
+	position: relative;
+	left : 30px;
 }
 
 #return-btn {
@@ -341,4 +361,4 @@ form button {
 	width: 150px;
 }
 
-/* RESULTATS */
+/* results */

@@ -19,17 +19,5 @@ public class SessionUtil {
 		
 		return checked;
 	}
-	
-	public static HttpServletRequest setThemeAttribute(HttpServletRequest request)  {
-		HttpSession session = request.getSession();
-		
-		String theme = (String) request.getParameter("theme");
-		if(theme != null) {
-			session.setAttribute("theme", theme);
-			PrintUtil.printInfo("SessionUtil", "setThemeAttribute", "theme", theme);
-		}
-		
-		return request;
-	}
 
 }

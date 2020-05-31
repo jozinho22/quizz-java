@@ -35,12 +35,12 @@ h4, h5 {
 }
 
 /*sections */
-#index-section, #test-section, #resultats-section {
+#index-section, #game-section, #results-section {
 	background-color: #343a40;
 	border-color: #A0522D;
 }
 
-#inner-section, #inner-section-resultats {
+#inner-section, #inner-section-results {
 	background-color: #343a40;
 	border-color: rgba(255, 255, 255, .5);
 }
@@ -53,7 +53,7 @@ h4, h5 {
 
 /* code */
 
-/* Index */
+/* index */
 
 #start-btn button {
 	background-color: #A0522D;
@@ -64,9 +64,9 @@ h4, h5 {
 	background-color: #CD853F;
 }
 
-/* Index */
+/* index */
 
-/* Test*/
+/* game*/
 
 #timer-section {
 	color : grey;
@@ -86,22 +86,22 @@ h4, h5 {
 	background-color:  #228B22;
 }
 
-/* TEST */
+/* game */
 
-/* FIN */
+/* end-game */
 
-#resultats-btn button {
+#results-btn button {
 	background-color: #A0522D;
 	color: black;
 }
 
-#resultats-btn button:hover {
+#results-btn button:hover {
 	background-color: #CD853F;
 }
 
-/* FIN */
+/* end-game */
 
-/* RESULTATS */
+/* results */
 
 #return-btn button {
 	background-color: #A0522D;
@@ -112,4 +112,4 @@ h4, h5 {
 	background-color: #CD853F;
 }
 
-/* RESULTATS */
+/* results */

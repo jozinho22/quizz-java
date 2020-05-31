@@ -12,7 +12,7 @@
 			<h5>- 20 secondes par question</h5>
 			<h5>- une seule bonne réponse par question</h5>
 			
-			<form action="test" method="GET">
+			<form action="game" method="POST">
 <!-- 				<input id="input" name="uuid" type="text" class="form-control" hidden=true> -->
 				<input id="sessionTheme" name="theme" value="dark" hidden="true">
 				<div id="start-btn">

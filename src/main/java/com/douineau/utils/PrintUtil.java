@@ -7,7 +7,7 @@ public class PrintUtil {
 		System.out.println("------------------------------");
 		System.out.println("------------------------------");
 		System.out.println("");
-		System.out.println("NOUVEAU TEST");
+		System.out.println("NOUVEAU QUIZZ");
 		System.out.println("");
 		System.out.println("------------------------------");
 		System.out.println("------------------------------");
@@ -16,7 +16,7 @@ public class PrintUtil {
 	
 	public static void printInfo(String className, String methode, String parameter, Object valeur) {
 		System.out.println("---------------------");
-		System.out.println("INFO from : " + className + " - " + "methode : " + methode);
+		System.out.println(className + " - " + methode);
 		System.out.println("parametre : " + parameter);
 		System.out.println("valeur : " + valeur);
 		System.out.println("---------------------");
