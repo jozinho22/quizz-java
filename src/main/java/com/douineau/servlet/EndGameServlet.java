@@ -52,18 +52,18 @@ public class EndGameServlet extends HttpServlet {
 				session.setAttribute("theme", request.getParameter("theme"));
 			}
 			
-			String redirection = RequestUtil.getRedirection(request.getServletPath(), user.getNbQuestionsRestantes());
-			
-			if (redirection != null) {
-				RequestDispatcher rd = request.getRequestDispatcher(redirection);
-				rd.forward(request, response);
-			} else {
+//			String redirection = RequestUtil.getRedirection(request.getServletPath(), user.getNbQuestionsRestantes());
+//			
+//			if (redirection != null) {
+//				RequestDispatcher rd = request.getRequestDispatcher(redirection);
+//				rd.forward(request, response);
+//			} else {
 				user.setScore(calculateScore(user.getMap()));
 				session.setAttribute("user", user);
 
 				RequestDispatcher rd = request.getRequestDispatcher(ServletEnum.END_GAME.getJspPath());
 				rd.forward(request, response);
-			}
+//			}
 		}
 	}
 

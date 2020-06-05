@@ -57,14 +57,14 @@ public class ResultsServlet extends HttpServlet {
 				session.setAttribute("theme", request.getParameter("theme"));
 			}
 			
-			String redirection = RequestUtil.getRedirection(request.getServletPath(), user.getNbQuestionsRestantes());
-
-			if (redirection != null) {
-				response.sendRedirect(redirection);
-			} else {
+//			String redirection = RequestUtil.getRedirection(request.getServletPath(), user.getNbQuestionsRestantes());
+//
+//			if (redirection != null) {
+//				response.sendRedirect(redirection);
+//			} else {
 				RequestDispatcher rd = request.getRequestDispatcher(ServletEnum.RESULTS.getJspPath());
 				rd.forward(request, response);
-			}
+//			}
 		}
 	}
 

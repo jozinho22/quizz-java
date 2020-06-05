@@ -43,13 +43,7 @@
 			<div id="reponses-section" class="form-check">
 				<c:forEach items="${question.reponses}" var="reponse">
 					<input id="${reponse.id}" name="id-reponse" value="${reponse.id}"
-						type="checkbox" class="form-check-input"
-						<%
-							if (session.getAttribute("end-quizz") != null) {
-								out.print(" disabled=\"disabled\"");
-							}
-						%>
-					>
+						type="checkbox" class="form-check-input">
 					<h5>${reponse.texte}</h5>
 				</c:forEach>
 			</div>

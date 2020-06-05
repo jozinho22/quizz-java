@@ -38,9 +38,9 @@ public class GameServlet extends HttpServlet {
 	private static Question currentQuestion;
 
 	private static User user;
-	
+
 	private final static Integer NB_QUESTIONS_TOTAL = 10;
-	private final static Integer NB_QUESTIONS_POSSIBLES = 10;
+	private final static Integer NB_QUESTIONS_POSSIBLES = 120;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -51,8 +51,8 @@ public class GameServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		PrintUtil.printFin();		
+
+		PrintUtil.printFin();
 		RequestDispatcher rd = request.getRequestDispatcher(ServletEnum.END_GAME.getServletRelativePath());
 		rd.forward(request, response);
 	}
@@ -65,7 +65,7 @@ public class GameServlet extends HttpServlet {
 		// if init
 		if (session.getAttribute("user") == null) {
 			PrintUtil.printDebut();
-			
+
 			List<Question> questions = QuestionDao.getRandomQuestionsJson(NB_QUESTIONS_TOTAL, NB_QUESTIONS_POSSIBLES);
 			gameMap = new HashMap<Long, Question>();
 
@@ -81,53 +81,53 @@ public class GameServlet extends HttpServlet {
 
 			display(request, response);
 		} else {
-			
-			if (session.getAttribute("end-quizz") == null) {
-				if (Integer.parseInt(TimerServlet.clock) == 0) {
-					session.setAttribute("end-quizz", true);
+
+			if (Integer.parseInt(TimerServlet.clock) == 0) {
+				doPost(request, response);
+			} else {
+
+				String idQuestionStr = request.getParameter("id-question");
+				Long idQuestion = null;
+				if (idQuestionStr != null) {
+					idQuestion = Long.parseLong(idQuestionStr);
 				}
-			}
-			
-			String idQuestionStr = request.getParameter("id-question");
-			Long idQuestion = null;
-			if (idQuestionStr != null) {
-				idQuestion = Long.parseLong(idQuestionStr);
-			}
 
-			if (currentQuestion.getId().equals(idQuestion)) {
-				if (request.getParameter("id-reponse") != null) {
+				if (currentQuestion.getId().equals(idQuestion)) {
+					if (request.getParameter("id-reponse") != null) {
 
-					Long idReponse = Long.parseLong(request.getParameter("id-reponse"));
+						Long idReponse = Long.parseLong(request.getParameter("id-reponse"));
 
-					for (Reponse reponse : currentQuestion.getReponses()) {
-						if (reponse.getId().equals(idReponse)) {
-							user.getMap().put(currentQuestion, reponse);
-							break;
+						for (Reponse reponse : currentQuestion.getReponses()) {
+							if (reponse.getId().equals(idReponse)) {
+								user.getMap().put(currentQuestion, reponse);
+								break;
+							}
 						}
+					} else {
+						user.getMap().put(currentQuestion, null);
+					}
+
+					currentQuestion.setIsDone(true);
+
+					gameMap.put(currentQuestion.getId(), currentQuestion);
+
+					user.setNbQuestionsRestantes(getNbQuestionsRestantes());
+					PrintUtil.printInfo(getServletName(), request.getMethod(), "user.getNbQuestionsRestantes()",
+							user.getNbQuestionsRestantes());
+
+					// Fin du quizz
+					if (user.getNbQuestionsRestantes() == 0) {
+						doPost(request, response);
+					} else {
+						currentQuestion = getNextQuestion();
+						PrintUtil.printNext();
+						display(request, response);
 					}
 				} else {
-					user.getMap().put(currentQuestion, null);
-				}
-
-				currentQuestion.setIsDone(true);
-
-				gameMap.put(currentQuestion.getId(), currentQuestion);
-
-				user.setNbQuestionsRestantes(getNbQuestionsRestantes());
-				PrintUtil.printInfo(getServletName(), request.getMethod(), "user.getNbQuestionsRestantes()",
-						user.getNbQuestionsRestantes());
-
-				// Fin du quizz
-				if (user.getNbQuestionsRestantes() == 0) {
-					doPost(request, response);
-				} else {
-					currentQuestion = getNextQuestion();
-					PrintUtil.printNext();
+					// F5
 					display(request, response);
 				}
-			} else {
-				// F5
-				display(request, response);
+
 			}
 
 		}
@@ -150,14 +150,14 @@ public class GameServlet extends HttpServlet {
 				session.setAttribute("theme", request.getParameter("theme"));
 			}
 
-			String redirection = RequestUtil.getRedirection(request.getServletPath(), user.getNbQuestionsRestantes());
-
-			if (redirection != null) {
-				response.sendRedirect(redirection);
-			} else {
-				RequestDispatcher rd = request.getRequestDispatcher(ServletEnum.GAME.getJspPath());
-				rd.forward(request, response);
-			}
+//			String redirection = RequestUtil.getRedirection(request.getServletPath(), user.getNbQuestionsRestantes());
+//
+//			if (redirection != null) {
+//				response.sendRedirect(redirection);
+//			} else {
+			RequestDispatcher rd = request.getRequestDispatcher(ServletEnum.GAME.getJspPath());
+			rd.forward(request, response);
+//			}
 		}
 	}
 
