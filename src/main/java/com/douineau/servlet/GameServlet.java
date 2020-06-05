@@ -39,7 +39,7 @@ public class GameServlet extends HttpServlet {
 
 	private static User user;
 	
-	private final static Integer NB_QUESTIONS_TOTAL = 2;
+	private final static Integer NB_QUESTIONS_TOTAL = 10;
 	private final static Integer NB_QUESTIONS_POSSIBLES = 10;
 
 	/**

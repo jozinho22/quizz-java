@@ -75,10 +75,8 @@ public class ResultsServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		HttpSession session = request.getSession();
-		User user = (User) session.getAttribute("user");
-
-		System.out.println(user.getMap());
+//		HttpSession session = request.getSession();
+//		User user = (User) session.getAttribute("user");
 
 		// tri car les questions ne sont pas dans l'ordre
 //		Map<Question, Reponse> sortedMap = new HashMap<Question, Reponse>();

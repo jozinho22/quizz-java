@@ -45,7 +45,6 @@
 					<input id="${reponse.id}" name="id-reponse" value="${reponse.id}"
 						type="checkbox" class="form-check-input"
 						<%
-							System.out.println("session.getAttribute(\"end-quizz\")" + session.getAttribute("end-quizz"));
 							if (session.getAttribute("end-quizz") != null) {
 								out.print(" disabled=\"disabled\"");
 							}
@@ -67,20 +66,12 @@
 
 <script>
 
-
 	history.pushState(null, null, location.href);
 	history.back();
 	history.forward();
 	window.onpopstate = function() {
 		history.go(1);
 	};
-
-	function httpGet(theUrl) {
-		var xmlHttp = new XMLHttpRequest();
-		xmlHttp.open("GET", theUrl, false); // false for synchronous request
-		xmlHttp.send(null);
-		return xmlHttp.responseText;
-	}
 
 	function disableCheckBoxes() {
 		var reponseSection = document.getElementById("reponses-section");
@@ -93,18 +84,9 @@
 		}
 	}
 
-	// 	if(document.getElementById("isDone").value == true) {
-	// 		disableCheckBoxes();
-	// 	}
-
 	var clock = 0;
 
 	var getTimerUrl = "/ROOT/timer";
-
-	// 	$.ajax({
-	// 		url: postTimerUrl,
-	// 		method: "POST"
-	// 	});
 
 	$.ajax({
 		url : getTimerUrl,
@@ -127,26 +109,16 @@
 				url : postTimerUrl,
 				method : "POST"
 			});
-			console.log(postTimerUrl);
 			window.setTimeout("timer()", 1000);
 		} else {
 			stopTimer();
-			// 				disableCheckBoxes();
-			//						 	document.getElementById("form").submit();
 		}
 
-		// 		} else {
-		// 			console.log("in timer() - timer stopped");
-		// 		}
 	}
-
-	// 	timer();
 
 	function stopTimer() {
 		disableCheckBoxes();
 		console.log("in stopTimer()");
-		// 		clock = 0;
-		// 		onTimer = false;
 	}
 
 	// check only one box at time
