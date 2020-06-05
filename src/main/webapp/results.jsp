@@ -84,4 +84,13 @@
 
 </div>
 
+<script>
+	history.pushState(null, null, location.href);
+	history.back();
+	history.forward();
+	window.onpopstate = function() {
+		history.go(1);
+	};
+</script>
+
 <%@ include file="/WEB-INF/tags/end.jsp"%>

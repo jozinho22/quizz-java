@@ -78,7 +78,7 @@ public class EndGameServlet extends HttpServlet {
 		
 		Integer score = 0;
 		for (Map.Entry<Question, Reponse> entry : map.entrySet()) {
-			if (entry.getValue() != null && entry.getValue().getIsTrue()) {
+			if (entry.getValue() != null && entry.getValue().getIsTrue().booleanValue()) {
 				score += 1;
 			}
 		}

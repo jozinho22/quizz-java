@@ -23,13 +23,12 @@ public class Question implements Serializable {
 	
 	private String topic;
 	
-//	@Transient
-	@JsonIgnore
-	private Integer clock;
-	
 //	@OneToMany(mappedBy = "question", fetch = FetchType.EAGER)
 	private List<Reponse> reponses;
-	
+
+	@JsonIgnore
+	private Boolean isDone = false;
+
 //	@Column(name = "created_at")
 //	@Temporal(TemporalType.TIMESTAMP)
 //	@JsonIgnore
@@ -64,14 +63,6 @@ public class Question implements Serializable {
 		this.topic = topic;
 	}
 
-	public Integer getClock() {
-		return clock;
-	}
-
-	public void setClock(Integer clock) {
-		this.clock = clock;
-	}
-
 	public List<Reponse> getReponses() {
 		return reponses;
 	}
@@ -79,12 +70,23 @@ public class Question implements Serializable {
 	public void setReponses(List<Reponse> reponses) {
 		this.reponses = reponses;
 	}
+	
+	public Boolean getIsDone() {
+		return isDone;
+	}
+
+	public void setIsDone(Boolean isDone) {
+		this.isDone = isDone;
+	}
 
 	@Override
 	public String toString() {
-		return "Question [id=" + id + ", texte=" + texte + ", topic=" + topic + ", clock=" + clock + ", reponses="
-				+ reponses + "]";
+		return "Question [id=" + id + ", texte=" + texte + ", topic=" + topic + ", reponses=" + reponses + ", isDone="
+				+ isDone + "]";
 	}
+
+
+
 
 //	public Date getCreatedAt() {
 //		return createdAt;

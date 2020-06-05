@@ -2,6 +2,7 @@ package com.douineau.servlet;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -31,19 +32,16 @@ public class GameServlet extends HttpServlet {
 	 */
 	private static final long serialVersionUID = -5384359235916855711L;
 
-	private static Map<Question, Boolean> gameMap;
+	private static Map<Long, Question> gameMap;
+
+//	@Named
 	private static Question currentQuestion;
-	
-	private static Integer clock;
 
 	private static User user;
-
-	private final static Integer NB_QUESTIONS_TOTAL = 2;
-	private final static Integer NB_QUESTIONS_POSSIBLES = 2;
-
-	public static final int TIME_OUT = 12;
-
 	
+	private final static Integer NB_QUESTIONS_TOTAL = 2;
+	private final static Integer NB_QUESTIONS_POSSIBLES = 10;
+
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -51,26 +49,107 @@ public class GameServlet extends HttpServlet {
 		super();
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		PrintUtil.printFin();		
+		RequestDispatcher rd = request.getRequestDispatcher(ServletEnum.END_GAME.getServletRelativePath());
+		rd.forward(request, response);
+	}
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
+
+		// if init
+		if (session.getAttribute("user") == null) {
+			PrintUtil.printDebut();
+			
+			List<Question> questions = QuestionDao.getRandomQuestionsJson(NB_QUESTIONS_TOTAL, NB_QUESTIONS_POSSIBLES);
+			gameMap = new HashMap<Long, Question>();
+
+			questions.forEach(q -> gameMap.put(q.getId(), q));
+			user = createUser();
+
+			TimerServlet.init = false;
+			TimerServlet.endQuizz = false;
+
+			session.setAttribute("user", user);
+
+			currentQuestion = getNextQuestion();
+
+			display(request, response);
+		} else {
+			
+			if (session.getAttribute("end-quizz") == null) {
+				if (Integer.parseInt(TimerServlet.clock) == 0) {
+					session.setAttribute("end-quizz", true);
+				}
+			}
+			
+			String idQuestionStr = request.getParameter("id-question");
+			Long idQuestion = null;
+			if (idQuestionStr != null) {
+				idQuestion = Long.parseLong(idQuestionStr);
+			}
+
+			if (currentQuestion.getId().equals(idQuestion)) {
+				if (request.getParameter("id-reponse") != null) {
+
+					Long idReponse = Long.parseLong(request.getParameter("id-reponse"));
+
+					for (Reponse reponse : currentQuestion.getReponses()) {
+						if (reponse.getId().equals(idReponse)) {
+							user.getMap().put(currentQuestion, reponse);
+							break;
+						}
+					}
+				} else {
+					user.getMap().put(currentQuestion, null);
+				}
+
+				currentQuestion.setIsDone(true);
+
+				gameMap.put(currentQuestion.getId(), currentQuestion);
+
+				user.setNbQuestionsRestantes(getNbQuestionsRestantes());
+				PrintUtil.printInfo(getServletName(), request.getMethod(), "user.getNbQuestionsRestantes()",
+						user.getNbQuestionsRestantes());
+
+				// Fin du quizz
+				if (user.getNbQuestionsRestantes() == 0) {
+					doPost(request, response);
+				} else {
+					currentQuestion = getNextQuestion();
+					PrintUtil.printNext();
+					display(request, response);
+				}
+			} else {
+				// F5
+				display(request, response);
+			}
+
+		}
+
+	}
+
+	private void display(HttpServletRequest request, HttpServletResponse response)
+			throws IOException, ServletException {
+
+		HttpSession session = request.getSession();
 		user = (User) session.getAttribute("user");
 		boolean checked = SessionUtil.checkSessionByUuid(user);
-		
+
 		if (!checked) {
 			response.sendRedirect(ServletEnum.ERROR.getServletRelativePath());
 		} else {
 			request.setAttribute("permission", "checked");
 			request.setAttribute("question", currentQuestion);
-			if(request.getParameter("theme") != null) {
+			if (request.getParameter("theme") != null) {
 				session.setAttribute("theme", request.getParameter("theme"));
 			}
-			
+
 			String redirection = RequestUtil.getRedirection(request.getServletPath(), user.getNbQuestionsRestantes());
 
 			if (redirection != null) {
@@ -80,90 +159,8 @@ public class GameServlet extends HttpServlet {
 				rd.forward(request, response);
 			}
 		}
-
 	}
-	
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
-		HttpSession session = request.getSession();
-		
-		// if init
-		if(session.getAttribute("user") == null) {
-			PrintUtil.printDebut();
-			
-			List<Question> questions = QuestionDao.getRandomQuestionsJson(NB_QUESTIONS_TOTAL, NB_QUESTIONS_POSSIBLES);
-			gameMap = new HashMap<Question, Boolean>();
 
-			for (Question q : questions) {
-				gameMap.put(q, false);
-			}
-
-			user = createUser();
-
-			session.setAttribute("user", user);
-
-			currentQuestion = getNextQuestion();
-			currentQuestion.setClock(TIME_OUT);
-
-			doGet(request, response);
-		} else {
-			if(request.getParameter("id-question") != null) {
-				currentQuestion = getQuestionById(request.getParameter("id-question"));
-			}
-
-			if (request.getParameter("id-reponse") != null) {
-				Long idReponse = Long.parseLong(request.getParameter("id-reponse"));
-
-				for (Reponse reponse : currentQuestion.getReponses()) {
-					if (reponse.getId().equals(idReponse)) {
-						user.getMap().put(currentQuestion, reponse);
-						break;
-					} else {
-						user.getMap().put(currentQuestion, null);
-					}
-				}
-			} else {
-				user.getMap().put(currentQuestion, null);
-			}
-			
-			gameMap.put(currentQuestion, true);
-
-			user.setNbQuestionsRestantes(getNbQuestionsRestantes());
-			PrintUtil.printInfo(this.getClass().getName(), request.getMethod(), "user.getNbQuestionsRestantes()",
-					user.getNbQuestionsRestantes());
-
-			// Fin du quizz
-			if (user.getNbQuestionsRestantes() == 0) {
-				RequestDispatcher rd = request.getRequestDispatcher(ServletEnum.END_GAME.getServletRelativePath());
-				rd.forward(request, response);
-			} else {
-				currentQuestion = getNextQuestion();
-				currentQuestion.setClock(TIME_OUT);
-
-				doGet(request, response);
-			}
-		}
-
-	}
-	
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPut(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
-		String clockStr = request.getParameter("clock");
-		clock = Integer.parseInt(clockStr);
-		currentQuestion.setClock(clock);
-
-	}
-	
 	private User createUser() {
 		User user = new User();
 		UUID uuid = UUID.randomUUID();
@@ -171,20 +168,25 @@ public class GameServlet extends HttpServlet {
 		user.setScore(0);
 		user.setNbQuestionsTotal(NB_QUESTIONS_TOTAL);
 		user.setNbQuestionsRestantes(NB_QUESTIONS_TOTAL);
-		Map<Question, Reponse> map = new HashMap<Question, Reponse>();
+		Map<Question, Reponse> map = new LinkedHashMap<Question, Reponse>();
 		user.setMap(map);
 		return user;
 	}
 
-	private Question getQuestionById(String idQuestionStr) {
+	public static Question getQuestionById(String idQuestionStr) {
 
 		Question question = null;
-		for (Map.Entry<Question, Boolean> entry : gameMap.entrySet()) {
-			Long idQuestion = Long.parseLong(idQuestionStr);
-			if (entry.getKey().getId().equals(idQuestion)) {
-				question = entry.getKey();
-				break;
+
+		if (idQuestionStr != null) {
+			for (Map.Entry<Long, Question> entry : gameMap.entrySet()) {
+				Long idQuestion = Long.parseLong(idQuestionStr);
+				if (entry.getKey().equals(idQuestion)) {
+					question = entry.getValue();
+					break;
+				}
 			}
+		} else {
+			question = currentQuestion;
 		}
 
 		return question;
@@ -193,28 +195,26 @@ public class GameServlet extends HttpServlet {
 	private Question getNextQuestion() {
 
 		Question nextQuestion = null;
-		for (Map.Entry<Question, Boolean> entry : gameMap.entrySet()) {
-			if (!entry.getValue()) {
-				nextQuestion = entry.getKey();
+		for (Map.Entry<Long, Question> entry : gameMap.entrySet()) {
+			if (!entry.getValue().getIsDone().booleanValue()) {
+				nextQuestion = entry.getValue();
 				break;
 			}
 		}
 
 		return nextQuestion;
-
 	}
 
 	private Integer getNbQuestionsRestantes() {
 
 		Integer nbQuestionsRestantes = 0;
-		for (Map.Entry<Question, Boolean> entry : gameMap.entrySet()) {
-			if (!entry.getValue()) {
+		for (Map.Entry<Long, Question> entry : gameMap.entrySet()) {
+			if (!entry.getValue().getIsDone().booleanValue()) {
 				nbQuestionsRestantes += 1;
 			}
 		}
 
 		return nbQuestionsRestantes;
-
 	}
 
 }

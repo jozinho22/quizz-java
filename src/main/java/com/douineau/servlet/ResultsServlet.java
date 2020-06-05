@@ -78,23 +78,26 @@ public class ResultsServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 
+		System.out.println(user.getMap());
+
 		// tri car les questions ne sont pas dans l'ordre
-		Map<Question, Reponse> sortedMap = new HashMap<Question, Reponse>();
-
-		List<Long> listIdQuestions = QuestionDao.getListIdQuestions();
-		for (Long l : listIdQuestions) {
-			for (Map.Entry<Question, Reponse> entry : user.getMap().entrySet()) {
-				if (entry.getKey().getId().equals(l)) {
-					sortedMap.put(entry.getKey(), entry.getValue());
-					break;
-				}
-			}
-		}
-
-		user.setMap(sortedMap);
-
-		session.removeAttribute("user");
-		session.setAttribute("user", user);
+//		Map<Question, Reponse> sortedMap = new HashMap<Question, Reponse>();
+//
+//		List<Long> listIdQuestions = QuestionDao.getListIdQuestions();
+//		for (Long l : listIdQuestions) {
+//			for (Map.Entry<Question, Reponse> entry : user.getMap().entrySet()) {
+//				if (entry.getKey().getId().equals(l)) {
+//					sortedMap.put(entry.getKey(), entry.getValue());
+//					break;
+//				}
+//			}
+//		}
+//
+//		user.setMap(sortedMap);
+//
+//		System.out.println(sortedMap);
+//		session.removeAttribute("user");
+//		session.setAttribute("user", user);
 
 		doGet(request, response);
 
