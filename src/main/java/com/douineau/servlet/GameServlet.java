@@ -40,9 +40,7 @@ public class GameServlet extends HttpServlet {
 	private static User user;
 
 	private final static Integer NB_QUESTIONS_TOTAL = 10;
-	private final static Integer NB_QUESTIONS_POSSIBLES = 120;
 //	private final static Integer NB_QUESTIONS_TOTAL = 2;
-//	private final static Integer NB_QUESTIONS_POSSIBLES = 2;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -68,7 +66,7 @@ public class GameServlet extends HttpServlet {
 		if (session.getAttribute("user") == null) {
 			PrintUtil.printDebut();
 
-			List<Question> questions = QuestionDao.getRandomQuestionsJson(NB_QUESTIONS_TOTAL, NB_QUESTIONS_POSSIBLES);
+			List<Question> questions = QuestionDao.getRandomQuestionsJson(NB_QUESTIONS_TOTAL);
 			gameMap = new HashMap<Long, Question>();
 
 			questions.forEach(q -> gameMap.put(q.getId(), q));

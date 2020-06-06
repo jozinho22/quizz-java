@@ -50,8 +50,7 @@
 
 			<div id="next-btn">
 				<input id="sessionTheme" name="theme" value="" hidden="true">
-				<input id="timeOut" name="time-out" value="" hidden="true">
-				<button onclick="stopTimer();" class="btn btn-outline-secondary"
+				<button class="btn btn-outline-secondary"
 					type="submit">Valider</button>
 			</div>
 		</div>
@@ -67,18 +66,18 @@
 		history.go(1);
 	};
 
-	function disableCheckBoxes() {
-		var reponseSection = document.getElementById("reponses-section");
-		var children = reponseSection.children;
+// 	function disableCheckBoxes() {
+// 		var reponseSection = document.getElementById("reponses-section");
+// 		var children = reponseSection.children;
 
-		for (var k = 0; k < children.length; k++) {
-			if (k % 2 == 0) {
-				children[k].disabled = "disabled";
-			}
-		}
-	}
+// 		for (var k = 0; k < children.length; k++) {
+// 			if (k % 2 == 0) {
+// 				children[k].disabled = "disabled";
+// 			}
+// 		}
+// 	}
 
-	var clock = 0;
+	var clock;
 
 	var getTimerUrl = "timer";
 
@@ -86,16 +85,14 @@
 		url : getTimerUrl,
 		success : function(data) {
 			clock = data;
-			console.log(getTimerUrl + " reponse : " + data);
 			timer();
 		}
 	});
 
-	// 	var onTimer = true;
 
 	function timer() {
-
-		// 		if(onTimer) {
+		
+		console.log(clock);
 		if (clock-- > 0) {
 			document.form.clock.value = clock;
 			var postTimerUrl = "timer?clock=" + clock;
@@ -105,13 +102,13 @@
 			});
 			window.setTimeout("timer()", 1000);
 		} else {
-			stopTimer();
+			displayLastQuestionMessage();
 		}
 
 	}
 
-	function stopTimer() {
-		console.log("in stopTimer()");
+	function displayLastQuestionMessage() {
+		document.getElementById("timer-section").innerHTML = 'Le temps est écoulé, vous pouvez tout de même valider votre question avant de voir vos résultats'
 	}
 
 	// check only one box at time
