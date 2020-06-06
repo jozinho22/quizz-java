@@ -265,17 +265,16 @@ h5 {
 }
 
 #question-section {
+	padding-right: 50px;
 	position: relative;
 	top: 20px;
 	left: 30px;
-	margin-right: 30px;
 }
 
 #reponses-section {
-	padding-right: 15px;
+	padding-right: 50px;
 	top: 50px;
 	left: 30px;
-	margin-right: 30px;
 	margin-bottom: 80px;
 }
 

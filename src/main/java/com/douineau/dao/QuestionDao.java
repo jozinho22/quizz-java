@@ -63,7 +63,8 @@ public class QuestionDao {
 		List<Integer> integers = new ArrayList<Integer>();
 		
 		for (int k = 0; k < nb ; k++) {
-     		int r = getRandomNumber(bound, integers);
+//     		int r = getRandomNumber(bound, integers);
+			int r = getRandomNumber(questions.size() - 1, integers);
      		integers.add(r);
      	}
 		
@@ -75,7 +76,6 @@ public class QuestionDao {
 			
 			for(Reponse reponse : questions.get(i).getReponses()) {
 				reponse.setId(Long.valueOf(k++));
-				System.out.println("DAO reponse.getId() = " + reponse.getId());
 //				reponse.setCreatedAt(new Date());
 			}
 			randomQuestions.add(questions.get(i));
