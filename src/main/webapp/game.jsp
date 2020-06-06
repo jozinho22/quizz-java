@@ -80,7 +80,7 @@
 
 	var clock = 0;
 
-	var getTimerUrl = "/ROOT/timer";
+	var getTimerUrl = "timer";
 
 	$.ajax({
 		url : getTimerUrl,
@@ -98,7 +98,7 @@
 		// 		if(onTimer) {
 		if (clock-- > 0) {
 			document.form.clock.value = clock;
-			var postTimerUrl = "/ROOT/timer?clock=" + clock;
+			var postTimerUrl = "timer?clock=" + clock;
 			$.ajax({
 				url : postTimerUrl,
 				method : "POST"

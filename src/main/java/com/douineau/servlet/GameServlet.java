@@ -82,7 +82,7 @@ public class GameServlet extends HttpServlet {
 			display(request, response);
 		} else {
 
-			if (Integer.parseInt(TimerServlet.clock) == 0) {
+			if (TimerServlet.clock != null && Integer.parseInt(TimerServlet.clock) == 0) {
 				doPost(request, response);
 			} else {
 
@@ -112,8 +112,8 @@ public class GameServlet extends HttpServlet {
 					gameMap.put(currentQuestion.getId(), currentQuestion);
 
 					user.setNbQuestionsRestantes(getNbQuestionsRestantes());
-					PrintUtil.printInfo(getServletName(), request.getMethod(), "user.getNbQuestionsRestantes()",
-							user.getNbQuestionsRestantes());
+//					PrintUtil.printInfo(getServletName(), request.getMethod(), "user.getNbQuestionsRestantes()",
+//							user.getNbQuestionsRestantes());
 
 					// Fin du quizz
 					if (user.getNbQuestionsRestantes() == 0) {
