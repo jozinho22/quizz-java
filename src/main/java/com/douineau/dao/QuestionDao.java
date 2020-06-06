@@ -75,6 +75,7 @@ public class QuestionDao {
 			
 			for(Reponse reponse : questions.get(i).getReponses()) {
 				reponse.setId(Long.valueOf(k++));
+				System.out.println("DAO reponse.getId() = " + reponse.getId());
 //				reponse.setCreatedAt(new Date());
 			}
 			randomQuestions.add(questions.get(i));

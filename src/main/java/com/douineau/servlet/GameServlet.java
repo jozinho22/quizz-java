@@ -93,6 +93,7 @@ public class GameServlet extends HttpServlet {
 				}
 
 				if (currentQuestion.getId().equals(idQuestion)) {
+					System.out.println(request.getParameter("id-reponse"));
 					if (request.getParameter("id-reponse") != null) {
 
 						Long idReponse = Long.parseLong(request.getParameter("id-reponse"));

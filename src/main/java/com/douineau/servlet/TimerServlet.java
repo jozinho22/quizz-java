@@ -16,7 +16,7 @@ public class TimerServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
-	public final static Integer TIME_OUT = 80;
+	public final static Integer TIME_OUT = 120;
 	
 	public static String clock;
 	

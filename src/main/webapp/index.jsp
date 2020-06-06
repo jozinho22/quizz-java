@@ -9,7 +9,7 @@
 		</div>
 		<div id="desc-section">
 			<h5>- 10 questions sur le thème de Java et son environnement</h5>
-			<h5>- 80 secondes pour finir le quizz</h5>
+			<h5>- 2 minutes pour finir le quizz</h5>
 			<h5>- une seule bonne réponse par question</h5>
 			
 			<form action="game" method="GET">

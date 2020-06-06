@@ -111,7 +111,6 @@
 	}
 
 	function stopTimer() {
-		disableCheckBoxes();
 		console.log("in stopTimer()");
 	}
 
