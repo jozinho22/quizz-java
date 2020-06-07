@@ -95,12 +95,15 @@ h5 {
 
 #stack a {
 	margin-top:15px;
-	opacity: 0.01;
+}
+
+#theme-btn {
+	margin: 0 auto;
+	position: relative;
+	margin-top : 10px;
 }
 
 #theme-btn button {
-	margin: 0 auto;
-	position: relative;
 	width: 150px;
 }
 
@@ -171,7 +174,6 @@ h5 {
 #title-section {
 	position: relative;
 	text-align: center;
-	text-decoration: underline;
 	top: 20px;
 }
 
@@ -262,16 +264,16 @@ h5 {
 }
 
 #question-section {
+	padding-right: 50px;
 	position: relative;
 	top: 20px;
 	left: 30px;
-	margin-right: 30px;
 }
 
 #reponses-section {
+	padding-right: 50px;
 	top: 50px;
 	left: 30px;
-	margin-right: 30px;
 	margin-bottom: 80px;
 }
 

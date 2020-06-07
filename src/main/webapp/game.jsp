@@ -43,22 +43,14 @@
 			<div id="reponses-section" class="form-check">
 				<c:forEach items="${question.reponses}" var="reponse">
 					<input id="${reponse.id}" name="id-reponse" value="${reponse.id}"
-						type="checkbox" class="form-check-input"
-						<%
-							System.out.println("session.getAttribute(\"end-quizz\")" + session.getAttribute("end-quizz"));
-							if (session.getAttribute("end-quizz") != null) {
-								out.print(" disabled=\"disabled\"");
-							}
-						%>
-					>
+						type="checkbox" class="form-check-input">
 					<h5>${reponse.texte}</h5>
 				</c:forEach>
 			</div>
 
 			<div id="next-btn">
 				<input id="sessionTheme" name="theme" value="" hidden="true">
-				<input id="timeOut" name="time-out" value="" hidden="true">
-				<button onclick="stopTimer();" class="btn btn-outline-secondary"
+				<button class="btn btn-outline-secondary"
 					type="submit">Valider</button>
 			</div>
 		</div>
@@ -67,7 +59,6 @@
 
 <script>
 
-
 	history.pushState(null, null, location.href);
 	history.back();
 	history.forward();
@@ -75,78 +66,49 @@
 		history.go(1);
 	};
 
-	function httpGet(theUrl) {
-		var xmlHttp = new XMLHttpRequest();
-		xmlHttp.open("GET", theUrl, false); // false for synchronous request
-		xmlHttp.send(null);
-		return xmlHttp.responseText;
-	}
+// 	function disableCheckBoxes() {
+// 		var reponseSection = document.getElementById("reponses-section");
+// 		var children = reponseSection.children;
 
-	function disableCheckBoxes() {
-		var reponseSection = document.getElementById("reponses-section");
-		var children = reponseSection.children;
+// 		for (var k = 0; k < children.length; k++) {
+// 			if (k % 2 == 0) {
+// 				children[k].disabled = "disabled";
+// 			}
+// 		}
+// 	}
 
-		for (var k = 0; k < children.length; k++) {
-			if (k % 2 == 0) {
-				children[k].disabled = "disabled";
-			}
-		}
-	}
+	var clock;
 
-	// 	if(document.getElementById("isDone").value == true) {
-	// 		disableCheckBoxes();
-	// 	}
-
-	var clock = 0;
-
-	var getTimerUrl = "/ROOT/timer";
-
-	// 	$.ajax({
-	// 		url: postTimerUrl,
-	// 		method: "POST"
-	// 	});
+	var getTimerUrl = "timer";
 
 	$.ajax({
 		url : getTimerUrl,
 		success : function(data) {
 			clock = data;
-			console.log(getTimerUrl + " reponse : " + data);
 			timer();
 		}
 	});
 
-	// 	var onTimer = true;
 
 	function timer() {
-
-		// 		if(onTimer) {
+		
+		console.log(clock);
 		if (clock-- > 0) {
 			document.form.clock.value = clock;
-			var postTimerUrl = "/ROOT/timer?clock=" + clock;
+			var postTimerUrl = "timer?clock=" + clock;
 			$.ajax({
 				url : postTimerUrl,
 				method : "POST"
 			});
-			console.log(postTimerUrl);
 			window.setTimeout("timer()", 1000);
 		} else {
-			stopTimer();
-			// 				disableCheckBoxes();
-			//						 	document.getElementById("form").submit();
+			displayLastQuestionMessage();
 		}
 
-		// 		} else {
-		// 			console.log("in timer() - timer stopped");
-		// 		}
 	}
 
-	// 	timer();
-
-	function stopTimer() {
-		disableCheckBoxes();
-		console.log("in stopTimer()");
-		// 		clock = 0;
-		// 		onTimer = false;
+	function displayLastQuestionMessage() {
+		document.getElementById("timer-section").innerHTML = 'Le temps est écoulé, vous pouvez tout de même valider votre question avant de voir vos résultats'
 	}
 
 	// check only one box at time

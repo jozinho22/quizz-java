@@ -42,7 +42,7 @@
 					out.print(TagBuilder.buildTagResults("h4",
 					TagBuilder.buildTagResults("b", "Question n°" + ++k + " : ") + entry.getKey().getTexte()));
 					//Réponse
-					out.print("<div id=\"results-reponses\"");
+					out.print("<div id=\"results-reponses\">");
 					if (entry.getValue() != null) {
 						
 						if (entry.getValue().getIsTrue()) {

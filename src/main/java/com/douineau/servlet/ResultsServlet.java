@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.douineau.entity.User;
-import com.douineau.utils.RequestUtil;
 import com.douineau.utils.ServletEnum;
 import com.douineau.utils.SessionUtil;
 
@@ -50,14 +49,14 @@ public class ResultsServlet extends HttpServlet {
 				session.setAttribute("theme", request.getParameter("theme"));
 			}
 			
-			String redirection = RequestUtil.getRedirection(request.getServletPath(), user.getNbQuestionsRestantes());
-
-			if (redirection != null) {
-				response.sendRedirect(redirection);
-			} else {
+//			String redirection = RequestUtil.getRedirection(request.getServletPath(), user.getNbQuestionsRestantes());
+//
+//			if (redirection != null) {
+//				response.sendRedirect(redirection);
+//			} else {
 				RequestDispatcher rd = request.getRequestDispatcher(ServletEnum.RESULTS.getJspPath());
 				rd.forward(request, response);
-			}
+//			}
 		}
 	}
 
@@ -68,10 +67,8 @@ public class ResultsServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		HttpSession session = request.getSession();
-		User user = (User) session.getAttribute("user");
-
-		System.out.println(user.getMap());
+//		HttpSession session = request.getSession();
+//		User user = (User) session.getAttribute("user");
 
 		// tri car les questions ne sont pas dans l'ordre
 //		Map<Question, Reponse> sortedMap = new HashMap<Question, Reponse>();

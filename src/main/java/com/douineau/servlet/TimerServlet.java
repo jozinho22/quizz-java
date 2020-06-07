@@ -16,7 +16,7 @@ public class TimerServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
-	public final static Integer TIME_OUT = 8;
+	public final static Integer TIME_OUT = 120;
 	
 	public static String clock;
 	
@@ -37,23 +37,13 @@ public class TimerServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		System.out.println("Entrée ---");
-		System.out.println("endQuizz " + endQuizz);
-		System.out.println("init " + init);
-		System.out.println("---");
 
 		if(!init) {
 			clock = TIME_OUT.toString();
 			init = true;
-			System.out.println("at init ---");
-			System.out.println("init " + init);
-			System.out.println("endQuizz " + endQuizz);
-			System.out.println("---");
 		} else if(endQuizz) {
 			Integer k = 0;
 			clock = k.toString();
-			System.out.println("k " + clock);
 		} 
 		
 		response.getWriter().write(clock.toString());
@@ -70,10 +60,6 @@ public class TimerServlet extends HttpServlet {
 		
 		if(Integer.parseInt(clock) == 0) {
 			endQuizz = true;
-			System.out.println("init " + init);
-			System.out.println("endQuizz " + endQuizz);
-			System.out.println("---");
-
 		}
 
 	}

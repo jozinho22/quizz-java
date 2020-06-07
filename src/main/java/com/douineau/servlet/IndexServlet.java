@@ -39,7 +39,6 @@ public class IndexServlet extends HttpServlet {
 		}
 		
 		session.removeAttribute("user");
-		session.removeAttribute("end-quizz");
 		
 		RequestDispatcher rd = request.getRequestDispatcher(ServletEnum.INDEX.getJspPath());
 		rd.forward(request, response);	
