@@ -23,11 +23,8 @@ public class RequestUtil {
 
 		} else if (ServletEnum.END_GAME.getServletPath().equals(servletPath)
 				|| ServletEnum.END_GAME.getJspPath().equals(servletPath)) {
-			if (nbRestantes > 0) {
-				redirection = ServletEnum.GAME.getServletRelativePath();
-			} else {
 				redirection = ServletEnum.END_GAME.getJspPath();
-			}
+				
 		} else if ( ServletEnum.RESULTS.getServletPath().equals(servletPath)
 				|| ServletEnum.RESULTS.getJspPath().equals(servletPath)) {
 			if (nbRestantes > 0) {

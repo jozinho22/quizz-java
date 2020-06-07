@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 import com.douineau.entity.Question;
 import com.douineau.entity.Reponse;
@@ -14,12 +15,6 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class QuestionDao {
-
-	private static List<Long> listIdQuestions;
-	
-	public static List<Long> getListIdQuestions() {
-		return listIdQuestions;
-	}
 
 //	public static List<Question> getRandomQuestions(int nb, int bound) {
 //    	
@@ -80,10 +75,7 @@ public class QuestionDao {
 			randomQuestions.add(questions.get(i));
 		}
 		
-		listIdQuestions = new ArrayList<Long>();
-		for(Question q : randomQuestions) {
-			listIdQuestions.add(q.getId());
-		}
+//		List<Question> questionsCustoms = questions.stream().filter(q -> "Algorithmie".equals(q.getTopic())).collect(Collectors.toList());
 
 		return randomQuestions;
 	}

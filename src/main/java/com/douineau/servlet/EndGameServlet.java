@@ -53,7 +53,9 @@ public class EndGameServlet extends HttpServlet {
 			user.setScore(calculateScore(user.getMap()));
 			session.setAttribute("user", user);
 			
-			RequestUtil.redirect(request, response, user.getNbQuestionsRestantes());
+			RequestDispatcher rd = request.getRequestDispatcher(ServletEnum.END_GAME.getJspPath());
+			rd.forward(request, response);
+//			RequestUtil.redirect(request, response, user.getNbQuestionsRestantes());
 		}
 	}
 

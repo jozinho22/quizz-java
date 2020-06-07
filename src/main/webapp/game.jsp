@@ -92,7 +92,6 @@
 
 	function timer() {
 		
-		console.log(clock);
 		if (clock-- > 0) {
 			document.form.clock.value = clock;
 			var postTimerUrl = "timer?clock=" + clock;

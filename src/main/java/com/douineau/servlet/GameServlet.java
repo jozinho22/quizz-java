@@ -144,7 +144,9 @@ public class GameServlet extends HttpServlet {
 				session.setAttribute("theme", request.getParameter("theme"));
 			}
 
-			RequestUtil.redirect(request, response, user.getNbQuestionsRestantes());
+			RequestDispatcher rd = request.getRequestDispatcher(ServletEnum.GAME.getJspPath());
+			rd.forward(request, response);
+//			RequestUtil.redirect(request, response, user.getNbQuestionsRestantes());
 		}
 	}
 
