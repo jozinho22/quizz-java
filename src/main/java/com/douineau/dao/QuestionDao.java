@@ -56,7 +56,6 @@ public class QuestionDao {
 				      .forType(new TypeReference<List<Question>>() {})
 				      .readValue(jsonFile);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 				
@@ -65,9 +64,9 @@ public class QuestionDao {
 //		for (int k = 0; k < nb ; k++) {
 //     		integers.add(k);
 //     	}
-		for (int k = 0; k < nb ; k++) {
+		for (int k = 0; k < questions.size() ; k++) {
 //     		int r = getRandomNumber(bound, integers);
-			int r = getRandomNumber(questions.size() - 1, integers);
+			int r = getRandomNumber(questions.size(), integers);
      		integers.add(r);
      	}
 		
@@ -118,7 +117,7 @@ public class QuestionDao {
 		Random random = new Random();
 
 		// +1 pour éviter le 0
-		int r = random.nextInt(bound) + 1;
+		int r = random.nextInt(bound);
 		if(integers.size() == 0) {
 			return r;
 		} else {

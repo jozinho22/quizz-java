@@ -32,7 +32,7 @@ public class GameServlet extends HttpServlet {
 	 */
 	private static final long serialVersionUID = -5384359235916855711L;
 
-	private static Map<Long, Question> gameMap;
+	private static List<Question> questions;
 
 //	@Named
 	private static Question currentQuestion;
@@ -66,10 +66,8 @@ public class GameServlet extends HttpServlet {
 		if (session.getAttribute("user") == null) {
 			PrintUtil.printDebut();
 
-			List<Question> questions = QuestionDao.getRandomQuestionsJson(NB_QUESTIONS_TOTAL);
-			gameMap = new HashMap<Long, Question>();
+			questions = QuestionDao.getRandomQuestionsJson(NB_QUESTIONS_TOTAL);
 
-			questions.forEach(q -> gameMap.put(q.getId(), q));
 			user = createUser();
 
 			TimerServlet.init = false;
@@ -109,8 +107,6 @@ public class GameServlet extends HttpServlet {
 					}
 
 					currentQuestion.setIsDone(true);
-
-					gameMap.put(currentQuestion.getId(), currentQuestion);
 
 					user.setNbQuestionsRestantes(getNbQuestionsRestantes());
 //					PrintUtil.printInfo(getServletName(), request.getMethod(), "user.getNbQuestionsRestantes()",
@@ -179,10 +175,10 @@ public class GameServlet extends HttpServlet {
 		Question question = null;
 
 		if (idQuestionStr != null) {
-			for (Map.Entry<Long, Question> entry : gameMap.entrySet()) {
+			for (Question q : questions) {
 				Long idQuestion = Long.parseLong(idQuestionStr);
-				if (entry.getKey().equals(idQuestion)) {
-					question = entry.getValue();
+				if (q.getId().equals(idQuestion)) {
+					question = q;
 					break;
 				}
 			}
@@ -196,9 +192,9 @@ public class GameServlet extends HttpServlet {
 	private Question getNextQuestion() {
 
 		Question nextQuestion = null;
-		for (Map.Entry<Long, Question> entry : gameMap.entrySet()) {
-			if (!entry.getValue().getIsDone().booleanValue()) {
-				nextQuestion = entry.getValue();
+		for (Question q : questions) {
+			if (!q.getIsDone().booleanValue()) {
+				nextQuestion = q;
 				break;
 			}
 		}
@@ -209,8 +205,8 @@ public class GameServlet extends HttpServlet {
 	private Integer getNbQuestionsRestantes() {
 
 		Integer nbQuestionsRestantes = 0;
-		for (Map.Entry<Long, Question> entry : gameMap.entrySet()) {
-			if (!entry.getValue().getIsDone().booleanValue()) {
+		for (Question q : questions) {
+			if (!q.getIsDone().booleanValue()) {
 				nbQuestionsRestantes += 1;
 			}
 		}
