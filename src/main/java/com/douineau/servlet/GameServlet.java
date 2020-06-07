@@ -19,6 +19,7 @@ import com.douineau.entity.Question;
 import com.douineau.entity.Reponse;
 import com.douineau.entity.User;
 import com.douineau.utils.PrintUtil;
+import com.douineau.utils.RequestUtil;
 import com.douineau.utils.ServletEnum;
 import com.douineau.utils.SessionUtil;
 
@@ -105,10 +106,7 @@ public class GameServlet extends HttpServlet {
 					}
 
 					currentQuestion.setIsDone(true);
-
 					user.setNbQuestionsRestantes(getNbQuestionsRestantes());
-//					PrintUtil.printInfo(getServletName(), request.getMethod(), "user.getNbQuestionsRestantes()",
-//							user.getNbQuestionsRestantes());
 
 					// Fin du quizz
 					if (user.getNbQuestionsRestantes() == 0) {
@@ -146,14 +144,7 @@ public class GameServlet extends HttpServlet {
 				session.setAttribute("theme", request.getParameter("theme"));
 			}
 
-//			String redirection = RequestUtil.getRedirection(request.getServletPath(), user.getNbQuestionsRestantes());
-//
-//			if (redirection != null) {
-//				response.sendRedirect(redirection);
-//			} else {
-			RequestDispatcher rd = request.getRequestDispatcher(ServletEnum.GAME.getJspPath());
-			rd.forward(request, response);
-//			}
+			RequestUtil.redirect(request, response, user.getNbQuestionsRestantes());
 		}
 	}
 
