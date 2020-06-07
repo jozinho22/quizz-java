@@ -108,6 +108,7 @@ public class GameServlet extends HttpServlet {
 				currentQuestion.setIsDone(true);
 
 				user.setNbQuestionsRestantes(getNbQuestionsRestantes());
+
 //					PrintUtil.printInfo(getServletName(), request.getMethod(), "user.getNbQuestionsRestantes()",
 //							user.getNbQuestionsRestantes());
 				// Fin du quizz
