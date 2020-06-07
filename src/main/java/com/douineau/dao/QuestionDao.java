@@ -34,7 +34,7 @@ public class QuestionDao {
 //		return questions;
 //	}
 	
-	public static List<Question> getRandomQuestionsJson(int nb, int bound) {
+	public static List<Question> getRandomQuestionsJson(int nb) {
 		
 		FileReader reader = new FileReader();
 		File jsonFile = null;
@@ -56,14 +56,14 @@ public class QuestionDao {
 				      .forType(new TypeReference<List<Question>>() {})
 				      .readValue(jsonFile);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		List<Integer> integers = new ArrayList<Integer>();
 		
-		for (int k = 0; k < nb ; k++) {
-     		int r = getRandomNumber(bound, integers);
+		for (int k = 0; k < questions.size() ; k++) {
+//     		int r = getRandomNumber(bound, integers);
+			int r = getRandomNumber(questions.size(), integers);
      		integers.add(r);
      	}
 		
@@ -114,7 +114,7 @@ public class QuestionDao {
 		Random random = new Random();
 
 		// +1 pour éviter le 0
-		int r = random.nextInt(bound) + 1;
+		int r = random.nextInt(bound);
 		if(integers.size() == 0) {
 			return r;
 		} else {

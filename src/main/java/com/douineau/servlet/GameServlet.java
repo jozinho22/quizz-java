@@ -1,7 +1,6 @@
 package com.douineau.servlet;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,15 +31,14 @@ public class GameServlet extends HttpServlet {
 	 */
 	private static final long serialVersionUID = -5384359235916855711L;
 
-	private static Map<Long, Question> gameMap;
+	private static List<Question> questions;
 
 //	@Named
 	private static Question currentQuestion;
 
 	private static User user;
 	
-	private final static Integer NB_QUESTIONS_TOTAL = 2;
-	private final static Integer NB_QUESTIONS_POSSIBLES = 10;
+	private final static Integer NB_QUESTIONS_TOTAL = 10;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -65,11 +63,9 @@ public class GameServlet extends HttpServlet {
 		// if init
 		if (session.getAttribute("user") == null) {
 			PrintUtil.printDebut();
-			
-			List<Question> questions = QuestionDao.getRandomQuestionsJson(NB_QUESTIONS_TOTAL, NB_QUESTIONS_POSSIBLES);
-			gameMap = new HashMap<Long, Question>();
 
-			questions.forEach(q -> gameMap.put(q.getId(), q));
+			questions = QuestionDao.getRandomQuestionsJson(NB_QUESTIONS_TOTAL);
+
 			user = createUser();
 
 			TimerServlet.init = false;
@@ -111,12 +107,9 @@ public class GameServlet extends HttpServlet {
 
 				currentQuestion.setIsDone(true);
 
-				gameMap.put(currentQuestion.getId(), currentQuestion);
-
 				user.setNbQuestionsRestantes(getNbQuestionsRestantes());
-				PrintUtil.printInfo(getServletName(), request.getMethod(), "user.getNbQuestionsRestantes()",
-						user.getNbQuestionsRestantes());
-
+//					PrintUtil.printInfo(getServletName(), request.getMethod(), "user.getNbQuestionsRestantes()",
+//							user.getNbQuestionsRestantes());
 				// Fin du quizz
 				if (user.getNbQuestionsRestantes() == 0) {
 					doPost(request, response);
@@ -178,10 +171,10 @@ public class GameServlet extends HttpServlet {
 		Question question = null;
 
 		if (idQuestionStr != null) {
-			for (Map.Entry<Long, Question> entry : gameMap.entrySet()) {
+			for (Question q : questions) {
 				Long idQuestion = Long.parseLong(idQuestionStr);
-				if (entry.getKey().equals(idQuestion)) {
-					question = entry.getValue();
+				if (q.getId().equals(idQuestion)) {
+					question = q;
 					break;
 				}
 			}
@@ -195,9 +188,9 @@ public class GameServlet extends HttpServlet {
 	private Question getNextQuestion() {
 
 		Question nextQuestion = null;
-		for (Map.Entry<Long, Question> entry : gameMap.entrySet()) {
-			if (!entry.getValue().getIsDone().booleanValue()) {
-				nextQuestion = entry.getValue();
+		for (Question q : questions) {
+			if (!q.getIsDone().booleanValue()) {
+				nextQuestion = q;
 				break;
 			}
 		}
@@ -208,8 +201,8 @@ public class GameServlet extends HttpServlet {
 	private Integer getNbQuestionsRestantes() {
 
 		Integer nbQuestionsRestantes = 0;
-		for (Map.Entry<Long, Question> entry : gameMap.entrySet()) {
-			if (!entry.getValue().getIsDone().booleanValue()) {
+		for (Question q : questions) {
+			if (!q.getIsDone().booleanValue()) {
 				nbQuestionsRestantes += 1;
 			}
 		}

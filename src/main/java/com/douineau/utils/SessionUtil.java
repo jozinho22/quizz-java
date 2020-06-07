@@ -2,9 +2,6 @@ package com.douineau.utils;
 
 import java.io.IOException;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import com.douineau.entity.User;
 
 public class SessionUtil {

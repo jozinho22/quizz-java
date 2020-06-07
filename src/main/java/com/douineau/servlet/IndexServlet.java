@@ -10,9 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.douineau.utils.RequestUtil;
 import com.douineau.utils.ServletEnum;
-import com.douineau.utils.SessionUtil;
 
 /**
  * Servlet implementation class RetourServlet

@@ -14,7 +14,6 @@ import javax.servlet.http.HttpSession;
 import com.douineau.entity.Question;
 import com.douineau.entity.Reponse;
 import com.douineau.entity.User;
-import com.douineau.utils.PrintUtil;
 import com.douineau.utils.RequestUtil;
 import com.douineau.utils.ServletEnum;
 import com.douineau.utils.SessionUtil;

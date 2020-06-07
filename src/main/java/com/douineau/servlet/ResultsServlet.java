@@ -1,9 +1,6 @@
 package com.douineau.servlet;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,11 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.douineau.dao.QuestionDao;
-import com.douineau.entity.Question;
-import com.douineau.entity.Reponse;
 import com.douineau.entity.User;
-import com.douineau.utils.PrintUtil;
 import com.douineau.utils.RequestUtil;
 import com.douineau.utils.ServletEnum;
 import com.douineau.utils.SessionUtil;
