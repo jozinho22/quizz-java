@@ -5,12 +5,9 @@
 /* fonts*/
 
 /* Titre */
-p, h3 {
-	color: #808080;
-}
 
 /* Questions / reponses */
-h4, h5 {
+p, h4, h5 {
 	color: grey;
 }
 
@@ -46,13 +43,6 @@ h4, h5 {
 }
 /*sections */
 
-/* code */
-/* code { */
-/* 	color : #CD853F; */
-/* } */
-
-/* code */
-
 /* index */
 
 #start-btn button {
@@ -73,15 +63,6 @@ h4, h5 {
 }
 #progress {
 	background-color: #A0522D;
-}
-
-#timer-section {
-	color : grey;
-}
-
-#timer-section input {
-	background-color : #343a40; 
-	color : grey;
 }
 
 #message-section {

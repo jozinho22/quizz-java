@@ -4,12 +4,9 @@ body {
 
 /* fonts */ 
 
-/* Titre */
-p, h3 {
-	text-align: center;
-	font-size: 180%;
-	font-family: 'csm', Fallback, sans-serif;
-	padding: 5px;
+@font-face {
+	font-family: "csm";
+	src: url("./font/comic-sans-ms.ttf") format("truetype");
 }
 
 /* Questions / reponses */
@@ -26,6 +23,14 @@ h4 {
 h5 {
 	font-size: 120%;
 	margin-left: 20px;
+}
+
+/* Résultats */
+p {
+	text-align: center;
+	font-size: 180%;
+	font-family: 'csm', Fallback, sans-serif;
+	padding: 5px;
 }
 
 @media ( max-width : 1000px) {
@@ -62,11 +67,6 @@ h5 {
 	h5 {
 		font-size: 90%;
 	}
-}
-
-@font-face {
-	font-family: "csm";
-	src: url("./font/comic-sans-ms.ttf") format("truetype");
 }
 
 /* fonts */ 
@@ -224,6 +224,11 @@ h5 {
 	margin-right: auto;
 	position: relative;
 	margin-top : 30px;
+	color : grey;
+}
+
+#timer-section {
+	color : grey;
 }
 
 #timer-section input {
@@ -232,6 +237,8 @@ h5 {
 	border-radius: 5px;
 	border-width: 1px;
 	text-align: center;
+	background-color : #343a40; 
+	color : grey;
 }
 
 #message-section {
