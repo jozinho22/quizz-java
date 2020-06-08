@@ -26,6 +26,10 @@
 <form action="game" method="GET" id="form" name="form">
 	<!-- <form action="game" method="GET" id="form" name="form"> -->
 
+	<div class="progress">
+	  <div id="progress" class="progress-bar" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
+	</div>
+	
 	<div id="timer-section">
 		Temps restant : <input id="clock" type="text" name="clock"
 			disabled="disabled"> s.
@@ -59,6 +63,11 @@
 
 <script>
 
+	var progressStyle = (10 - '${user.nbQuestionsRestantes}') * 10;
+	console.log(progressStyle);
+	var style = "width:" + progressStyle + "%;"
+	document.getElementById("progress").style = style;
+	
 	history.pushState(null, null, location.href);
 	history.back();
 	history.forward();

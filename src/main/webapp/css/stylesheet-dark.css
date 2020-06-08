@@ -68,6 +68,13 @@ h4, h5 {
 
 /* game*/
 
+.progress {
+	background-color: grey;
+}
+#progress {
+	background-color: #A0522D;
+}
+
 #timer-section {
 	color : grey;
 }
