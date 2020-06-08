@@ -349,6 +349,7 @@ form button {
 #results-reponses {
 	position: relative;
 	left : 30px;
+	padding-right: 60px;
 }
 
 #return-btn {
