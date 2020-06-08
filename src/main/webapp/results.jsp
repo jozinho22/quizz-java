@@ -23,7 +23,7 @@
 %>
 
 <%@ include file="/WEB-INF/tags/begin-dynamic.jsp"%>
-<%@ include file="/WEB-INF/tags/navbar.jsp"%>
+<%@ include file="/WEB-INF/tags/navbar.jsp" %>
 
 <div id="results-section" class="container">
 	<div id="inner-section-results">

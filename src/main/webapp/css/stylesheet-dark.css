@@ -84,6 +84,11 @@ h4, h5 {
 	color : grey;
 }
 
+#message-section {
+	background-color : #343a40; 
+	color : grey;
+}
+
 #next-btn button {
 	background-color: #006400;
 	color: black;

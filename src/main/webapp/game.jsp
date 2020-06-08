@@ -21,25 +21,21 @@
 %>
 
 <%@ include file="/WEB-INF/tags/begin-dynamic.jsp"%>
-<%@ include file="/WEB-INF/tags/navbar.jsp"%>
+<%@ include file="/WEB-INF/tags/navbar-game.jsp"%>
 
 <form action="game" method="GET" id="form" name="form">
-	<!-- <form action="game" method="GET" id="form" name="form"> -->
 
 	<div class="progress">
-	  <div id="progress" class="progress-bar" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
-	</div>
-	
-	<div id="timer-section">
-		Temps restant : <input id="clock" type="text" name="clock"
-			disabled="disabled"> s.
+		<div id="progress" class="progress-bar" role="progressbar"
+			aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
 	</div>
 
 	<div id="game-section" class="container">
 		<div id="inner-section">
 			<div id="question-section">
-				<input id="${question.id}" name="id-question" value="${question.id}" hidden="true">
-				<input id="isDone" value="${question.isDone}" hidden="true">
+				<input id="${question.id}" name="id-question" value="${question.id}"
+					hidden="true"> <input id="isDone"
+					value="${question.isDone}" hidden="true">
 				<h4 style="text-decoration: underline;">${question.topic}</h4>
 				<br>
 				<h4>${question.texte}</h4>
@@ -51,15 +47,15 @@
 					<h5>${reponse.texte}</h5>
 				</c:forEach>
 			</div>
-
 			<div id="next-btn">
 				<input id="sessionTheme" name="theme" value="" hidden="true">
-				<button class="btn btn-outline-secondary"
-					type="submit">Valider</button>
+				<button class="btn btn-outline-secondary" type="submit">Valider</button>
 			</div>
 		</div>
 	</div>
 </form>
+
+<div id="message-section"></div>
 
 <script>
 
@@ -75,21 +71,10 @@
 		history.go(1);
 	};
 
-// 	function disableCheckBoxes() {
-// 		var reponseSection = document.getElementById("reponses-section");
-// 		var children = reponseSection.children;
-
-// 		for (var k = 0; k < children.length; k++) {
-// 			if (k % 2 == 0) {
-// 				children[k].disabled = "disabled";
-// 			}
-// 		}
-// 	}
-
 	var clock;
-
+	
 	var getTimerUrl = "timer";
-
+	
 	$.ajax({
 		url : getTimerUrl,
 		success : function(data) {
@@ -97,12 +82,11 @@
 			timer();
 		}
 	});
-
-
+	
 	function timer() {
 		
 		if (clock-- > 0) {
-			document.form.clock.value = clock;
+			document.getElementById("clock").value = clock;
 			var postTimerUrl = "timer?clock=" + clock;
 			$.ajax({
 				url : postTimerUrl,
@@ -112,11 +96,11 @@
 		} else {
 			displayLastQuestionMessage();
 		}
-
+	
 	}
-
+	
 	function displayLastQuestionMessage() {
-		document.getElementById("timer-section").innerHTML = 'Le temps est écoulé, vous pouvez tout de même valider votre question avant de voir vos résultats'
+		document.getElementById("message-section").innerHTML = 'Le temps est écoulé, vous pouvez tout de même valider votre question avant de voir vos résultats'
 	}
 
 	// check only one box at time
@@ -125,6 +109,7 @@
 			$('input:checkbox').not(this).prop('checked', false);
 		});
 	});
+	
 </script>
 
 <%@ include file="/WEB-INF/tags/end.jsp"%>

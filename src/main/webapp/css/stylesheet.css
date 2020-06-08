@@ -98,7 +98,6 @@ h5 {
 }
 
 #theme-btn {
-	margin: 0 auto;
 	position: relative;
 	margin-top : 10px;
 }
@@ -138,13 +137,6 @@ h5 {
 }
 
 /*sections */
-
-/* code */
-/* code { */
-/* 	color : #CD853F; */
-/* } */
-
-/* code */
 
 /* index */
 
@@ -206,7 +198,7 @@ h5 {
 
 #game-section {
 	position : relative;
-	top: 50px;
+	top: 30px;
 }
 
 @media ( max-width : 1000px) {
@@ -228,31 +220,10 @@ h5 {
 }
 
 #timer-section {
-	position: relative;
-	width: 60%;
 	margin-left: auto;
 	margin-right: auto;
-	top: 30px;
-	bottom: 80%;
-	padding: 15px;
-}
-
-@media ( max-width : 1000px) {
-	#timer-section {
-		width: 75%;
-	}
-}
-
-@media ( max-width : 768px) {
-	#timer-section {
-		width: 80%;
-	}
-}
-
-@media ( max-width : 575px) {
-	#timer-section {
-		width: 85%;
-	}
+	position: relative;
+	margin-top : 30px;
 }
 
 #timer-section input {
@@ -260,6 +231,11 @@ h5 {
 	width: 50px;
 	border-radius: 5px;
 	border-width: 1px;
+	text-align: center;
+}
+
+#message-section {
+	position : relative;
 	text-align: center;
 }
 
