@@ -1,5 +1,5 @@
 #mainback {
-	background-color: #FFF8DC;
+	background-color: #F5DEB3;
 }
 
 /* fonts*/
@@ -12,13 +12,13 @@ p, h4, h5 {
 /* navbar */ 
 
 #navbar {
-	background-color : 	rgb(0, 73, 108);
+	background-color : 	#adc2eb;
 	border-bottom: 2px solid rgba(255, 255, 255, .5);
 	border-top: 2px solid rgba(255, 255, 255, .5);
 }
 
 #copyright small {
-	color : #B0C4DE;
+	color : black;
 }
 
 #theme-btn button {
@@ -31,13 +31,13 @@ p, h4, h5 {
 }
 
 #timer-section {
-	background-color : 	rgb(0, 73, 108);
-	color : #B0C4DE;
+	background-color : 	#adc2eb;
+	color : black;
 }
 
 #timer-section input {
-	background-color : 	rgb(0, 73, 108);
-	color : #B0C4DE;
+	background-color : 	#adc2eb;
+	color : black;
 }
 
 /* navbar */ 
@@ -45,12 +45,12 @@ p, h4, h5 {
 /*sections */
 
 #index-section, #game-section, #results-section {
-	background-color: #FFF8DC;
+	background-color: #F5DEB3;
 	border-color: #CD853F;
 }
 
 #inner-section, #inner-section-results {
-	background-color: #FFF8DC;
+	background-color: #F5DEB3;
 	border-color:#A9A9A9;
 }
 /*sections */

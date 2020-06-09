@@ -1,5 +1,3 @@
-<%@ page import="com.douineau.utils.PrintUtil"%>
-	
 	<script>
 
 		var theme = '${theme}';
