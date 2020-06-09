@@ -16,7 +16,9 @@
 
 		<link rel="stylesheet" href="css/stylesheet.css">		
 		<% 
-			
+			if(session.getAttribute("theme") == null) {
+				out.print(TagBuilder.buildTagImportCss("dark"));
+			}
 			out.print(TagBuilder.buildTagImportCss((String) session.getAttribute("theme")));
 // 			PrintUtil.printInfo("begin-dynamic.jsp", "script Java", "theme", session.getAttribute("theme"));	
 

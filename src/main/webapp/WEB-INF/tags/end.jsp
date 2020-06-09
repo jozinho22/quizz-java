@@ -3,7 +3,8 @@
 	<script>
 
 		var theme = '${theme}';
-				
+		console.log(theme);	
+		
 		if(theme == "dark" || theme == "light") {
 			processChangeTheme(theme);
 		}
