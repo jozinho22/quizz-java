@@ -1,13 +1,8 @@
 <%@ page import="com.douineau.utils.PrintUtil"%>
-
-	<% 
-		String theme = (String) session.getAttribute("theme");
-// 		PrintUtil.printInfo("end.jsp", "script Java", "theme", theme);	
-	 %>
 	
 	<script>
 
-		var theme = '<%= theme %>';
+		var theme = '${theme}';
 				
 		if(theme == "dark" || theme == "light") {
 			processChangeTheme(theme);

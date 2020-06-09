@@ -60,7 +60,6 @@
 <script>
 
 	var progressStyle = (10 - '${user.nbQuestionsRestantes}') * 10;
-	console.log(progressStyle);
 	var style = "width:" + progressStyle + "%;"
 	document.getElementById("progress").style = style;
 	

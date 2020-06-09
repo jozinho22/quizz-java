@@ -24,10 +24,4 @@
 
 </div>
 
-<!-- <script>
-<%-- 	var uuid = '<%=uuid%>' ; --%>
- 	document.getElementById("input").value = uuid ;
- 	console.log(uuid)
-    </script> -->
-
 <%@ include file="/WEB-INF/tags/end.jsp" %>
