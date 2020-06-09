@@ -241,10 +241,10 @@ p {
 	color : grey;
 }
 
-#message-section {
-	position : relative;
-	text-align: center;
+.progress {
+	background-color: grey;
 }
+
 
 #question-section {
 	padding-right: 50px;
@@ -283,6 +283,10 @@ form button {
 	text-align: center;
 }
 
+#message-section {
+	position : relative;
+	text-align: center;
+}
 /* game */
 
 /* end-game */

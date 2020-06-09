@@ -1,5 +1,5 @@
 #mainback {
-	background-color: #A9A9A9;
+	background-color: #FFF8DC;
 }
 
 /* fonts*/
@@ -31,13 +31,13 @@ p, h4, h5 {
 
 /*sections */
 #index-section, #game-section, #results-section {
-	background-color: #FFE4C4;
+	background-color: #FFF8DC;
 	border-color: #CD853F;
 }
 
 #inner-section, #inner-section-results {
-	background-color: #DCDCDC;
-	border-color:#A9A9A9;;
+	background-color: #FFF8DC;
+	border-color:#A9A9A9;
 }
 /*sections */
 
