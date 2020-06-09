@@ -8,18 +8,22 @@
 
 /* Questions / reponses */
 p, h4, h5 {
-	color: grey;
+/* 	color: #C0C0C0; */
+	color:#A9A9A9;
+/* 	color:grey; */
 }
 
 
 /* navbar */ 
+
 #navbar {
+	background-color : #343a40;
 	border-bottom: 2px solid rgba(255, 255, 255, .5);
 	border-top: 2px solid rgba(255, 255, 255, .5);
 }
 
 #copyright small {
-	color : grey;
+	color :#A9A9A9;
 }
 
 #theme-btn button {
@@ -31,7 +35,20 @@ p, h4, h5 {
 	background-color: #CD853F;
 }
 
+#timer-section {
+	background-color :  #343a40;
+	color : #A9A9A9;;
+}
+
+#timer-section input {
+	background-color : 	#343a40;
+	color : #A9A9A9;;
+}
+
+/* navbar */ 
+
 /*sections */
+
 #index-section, #game-section, #results-section {
 	background-color: #343a40;
 	border-color: #A0522D;
@@ -58,6 +75,9 @@ p, h4, h5 {
 
 /* game*/
 
+code {
+	color : #CD853F;
+}
 
 #progress {
 	background-color: #A0522D;
@@ -65,7 +85,7 @@ p, h4, h5 {
 
 #message-section {
 	background-color : #343a40; 
-	color : grey;
+	color :#A9A9A9;;
 }
 
 #next-btn button {

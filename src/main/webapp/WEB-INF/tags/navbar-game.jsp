@@ -1,4 +1,4 @@
-<nav id="navbar" class="navbar navbar-expand-sm bg-dark navbar-dark">
+<nav id="navbar" class="navbar navbar-expand-sm navbar-dark">
 	<div class="row" style="width: 110%;">
 		<div id="nav-elem-1" class="col-12 col-sm-4 col-md-4 text-center">
 			<div id="timer-section">

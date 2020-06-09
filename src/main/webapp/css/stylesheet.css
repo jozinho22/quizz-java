@@ -224,11 +224,6 @@ p {
 	margin-right: auto;
 	position: relative;
 	margin-top : 30px;
-	color : grey;
-}
-
-#timer-section {
-	color : grey;
 }
 
 #timer-section input {
@@ -237,14 +232,8 @@ p {
 	border-radius: 5px;
 	border-width: 1px;
 	text-align: center;
-	background-color : #343a40; 
-	color : grey;
-}
 
-.progress {
-	background-color: grey;
 }
-
 
 #question-section {
 	padding-right: 50px;
