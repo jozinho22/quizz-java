@@ -10,7 +10,6 @@
 <%
 
 	boolean ok = false;
-
 	User user = null;
 	
 	if(request.getAttribute("permission") == null) {
@@ -27,11 +26,9 @@
 
 <div id="results-section" class="container">
 	<div id="inner-section-results">
-		<%-- 			<c:forEach items="${map}" var="entry"> --%>
 		<p>Voici vos résultats</p>
 		<p>${user.score}/${user.nbQuestionsTotal}</p>
 		<hr>
-		<%-- 					<h4>${entry.key.texte}</h4> --%>
 		<%
 			
 			if(ok) {
@@ -75,10 +72,10 @@
 		%>
 		<%-- 			</c:forEach> --%>
 		<div id="return-btn">
-			<input id="sessionTheme" name="theme" value="" hidden="true">
-			<a href="index">
+			<form id="form" action="index" method="GET">
+				<input id="sessionTheme" name="theme" value="" hidden="true">
 				<button class="btn" type="submit">Retour au quizz</button>
-			</a>
+			</form>
 		</div>
 	</div>
 
