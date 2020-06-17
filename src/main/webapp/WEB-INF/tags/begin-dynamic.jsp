@@ -9,7 +9,8 @@
 		
 		<title>Quizz java</title>
 
-		<link rel="shortcut icon" href="">		
+		<link rel="icon" href="img/favicon-brasil.png">		
+
 		<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">		
 		<link rel="stylesheet" href="css/font/font-awesome-4.7.0/css/font-awesome.min.css" >	
 		
