@@ -1,6 +1,16 @@
+<%@ page import="com.douineau.utils.TagBuilder"%>
+
 <nav id="navbar" class="navbar navbar-expand-sm navbar-dark">
 	<div class="row" style="width: 110%;">
+
 		<div id="nav-elem-1" class="col-12 col-sm-4 col-md-4 text-center">
+		<%
+	
+			if (session.getAttribute("timer") != null) {
+			 	out.print(TagBuilder.buildTagTimer());
+			} 
+
+		%>
 		</div>
 		<div id="nav-elem-2" class="col-12 col-sm-4 col-md-4 text-center">
 			<div class="navbar-brand text-center">

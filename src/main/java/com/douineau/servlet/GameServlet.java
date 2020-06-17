@@ -52,6 +52,8 @@ public class GameServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		PrintUtil.printFin();
+		
+		request.getSession().removeAttribute("timer");
 		RequestDispatcher rd = request.getRequestDispatcher(ServletEnum.END_GAME.getServletRelativePath());
 		rd.forward(request, response);
 	}
@@ -73,6 +75,7 @@ public class GameServlet extends HttpServlet {
 			TimerServlet.endQuizz = false;
 
 			session.setAttribute("user", user);
+			session.setAttribute("timer", true);
 
 			currentQuestion = getNextQuestion();
 

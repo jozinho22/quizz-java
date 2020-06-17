@@ -1,16 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page import="com.douineau.entity.User"%>
-<%@ page import="com.douineau.entity.Question"%>
-<%@ page import="com.douineau.entity.Reponse"%>
-
-<%@ page import="com.douineau.utils.SessionUtil"%>
-<%@ page import="com.douineau.utils.RequestUtil"%>
-<%@ page import="com.douineau.utils.PrintUtil"%>
-<%@ page import="com.douineau.utils.TagBuilder"%>
-<%@ page import="java.util.List"%>
-<%@ page import="java.util.ArrayList"%>
 
 <%
 	
@@ -21,7 +11,7 @@
 %>
 
 <%@ include file="/WEB-INF/tags/begin-dynamic.jsp"%>
-<%@ include file="/WEB-INF/tags/navbar-game.jsp"%>
+<%@ include file="/WEB-INF/tags/navbar.jsp"%>
 
 <form action="game" method="GET" id="form" name="form">
 
