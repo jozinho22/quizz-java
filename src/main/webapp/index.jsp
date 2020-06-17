@@ -5,7 +5,7 @@
 	<div id="inner-section">
 
 		<div id="title-section">
-			<h4 style="text-decoration: underline;">Bienvenue sur le quizz java</h4>
+			<h4 style="text-decoration: underline;">Bienvenue sur quizz-java.cool</h4>
 		</div>
 		<div id="desc-section">
 			<h5>- 10 questions sur le thème de Java et son environnement</h5>
