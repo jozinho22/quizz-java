@@ -53,7 +53,6 @@ public class GameServlet extends HttpServlet {
 
 		PrintUtil.printFin();
 		
-		request.getSession().removeAttribute("timer");
 		RequestDispatcher rd = request.getRequestDispatcher(ServletEnum.END_GAME.getServletRelativePath());
 		rd.forward(request, response);
 	}
@@ -75,7 +74,6 @@ public class GameServlet extends HttpServlet {
 			TimerServlet.endQuizz = false;
 
 			session.setAttribute("user", user);
-			session.setAttribute("timer", true);
 
 			currentQuestion = getNextQuestion();
 
@@ -93,7 +91,6 @@ public class GameServlet extends HttpServlet {
 				}
 
 				if (currentQuestion.getId().equals(idQuestion)) {
-					System.out.println(request.getParameter("id-reponse"));
 					if (request.getParameter("id-reponse") != null) {
 
 						Long idReponse = Long.parseLong(request.getParameter("id-reponse"));

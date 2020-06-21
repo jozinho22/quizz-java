@@ -64,7 +64,7 @@ public class TagBuilder {
 	public static String buildTagTimer() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("<div id=\"timer-section\">");
-		sb.append("Temps restant :");
+		sb.append("Temps restant : ");
 		sb.append("<input id=\"clock\" type=\"text\" name=\"clock\" disabled=\"disabled\">");
 		sb.append("s.");
 		sb.append("</div>");
