@@ -10,7 +10,7 @@
 
 %>
 
-<%@ include file="/WEB-INF/tags/begin-dynamic.jsp"%>
+<%@ include file="/WEB-INF/tags/begin.jsp"%>
 <%@ include file="/WEB-INF/tags/navbar.jsp"%>
 
 <form action="game" method="GET" id="form" name="form">

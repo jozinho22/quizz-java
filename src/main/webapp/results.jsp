@@ -4,8 +4,6 @@
 <%@ page import="com.douineau.entity.Reponse"%>
 <%@ page import="java.util.Map"%>
 <%@ page import="com.douineau.utils.TagBuilder"%>
-<%@ page import="com.douineau.utils.SessionUtil"%>
-<%@ page import="com.douineau.utils.RequestUtil"%>
 
 <%
 
@@ -21,7 +19,7 @@
 	
 %>
 
-<%@ include file="/WEB-INF/tags/begin-dynamic.jsp"%>
+<%@ include file="/WEB-INF/tags/begin.jsp"%>
 <%@ include file="/WEB-INF/tags/navbar.jsp" %>
 
 <div id="results-section" class="container">
