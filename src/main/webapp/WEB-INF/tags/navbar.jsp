@@ -58,9 +58,9 @@
 	console.log(theme);	
 	
 	if (theme == "dark") {
-		document.getElementById("changeThemeBtn").checked = true;
-	} else if (theme == "light") {
 		document.getElementById("changeThemeBtn").checked = false;
+	} else if (theme == "light") {
+		document.getElementById("changeThemeBtn").checked = true;
 	}
 
 </script>

@@ -45,7 +45,7 @@
 							out.print(TagBuilder.buildTagResults("h5", entry.getValue().getTexte(), "display:inline;"));
 						} else {
 							out.print("<i class=\"fa fa-close\" aria-hidden=\"true\" style=\"font-size: 20px; color: red; \"></i>");
-							out.print(TagBuilder.buildTagResults("h5", entry.getValue().getTexte(), "display:inline;"));
+							out.print(TagBuilder.buildTagResults("h5", entry.getValue().getTexte(), "display:inline; text-decoration:line-through;"));
 						}
 					} else {
 						out.print("<i class=\"fa fa-close\" aria-hidden=\"true\" style=\"font-size: 20px; color: red; \"></i>");
