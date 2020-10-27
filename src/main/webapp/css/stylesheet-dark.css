@@ -45,6 +45,13 @@ p, h4, h5 {
 	color : #A9A9A9;
 }
 
+.slider {
+	background-color: #A0522D;
+}
+.slider.round:before {
+	background-color: #A9A9A9;	
+}
+
 /* navbar */ 
 
 /*sections */

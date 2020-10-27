@@ -94,8 +94,8 @@
 
 	// check only one box at time
 	$(document).ready(function() {
-		$('input:checkbox').click(function() {
-			$('input:checkbox').not(this).prop('checked', false);
+		$('.form-check-input input:checkbox').click(function() {
+			$('.form-check-input input:checkbox').not(this).prop('checked', false);
 		});
 	});
 	
