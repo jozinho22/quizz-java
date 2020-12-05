@@ -8,7 +8,7 @@
 			<h4 style="text-decoration: underline;">Bienvenue sur quizz-java.cool</h4>
 		</div>
 		<div id="desc-section">
-			<h5>- 10 questions sur le thème de Java et son environnement</h5>
+			<h5>- 10 questions</h5>
 			<h5>- un timer de 5 minutes</h5>
 			<h5>- une seule bonne réponse par question</h5>
 			

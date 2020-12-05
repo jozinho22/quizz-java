@@ -237,6 +237,7 @@ input#changeThemeBtn:checked+.slider:before {
 	position: relative;
 	top: 40px;
 	margin-bottom: 30px;
+	text-align : center;
 }
 
 #desc-section form {

@@ -7,8 +7,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 //@Entity
 public class Question implements Serializable {
-
-	
 	/**
 	 * 
 	 */
