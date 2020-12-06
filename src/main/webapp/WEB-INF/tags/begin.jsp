@@ -22,13 +22,13 @@
 			}
 			out.print(TagBuilder.buildTagImportCss((String) session.getAttribute("theme")));
 // 			PrintUtil.printInfo("begin-dynamic.jsp", "script Java", "theme", session.getAttribute("theme"));	
-
 		%>
 <!-- 		<link id="importCss" rel="stylesheet" href="css/stylesheet-dark.css"> -->
 <!-- 		<link id="importCss" rel="stylesheet" href="css/stylesheet-light.css">	 -->
 		
-		<script src="js/jquery.min.js"></script>
-
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> -->
+ <script src="js/jquery.min.js"></script>	
+		<script src="js/bootstrap.min.js"></script>	
 		
 	</head>
 	

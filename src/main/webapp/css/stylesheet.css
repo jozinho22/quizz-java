@@ -206,7 +206,8 @@ input#changeThemeBtn:checked+.slider:before {
 /* index */
 #index-section {
 	width: 40%;
-	top: 100px;
+	top: 40px;
+	margin-bottom: 30px;
 }
 
 @media ( max-width : 1000px) {
@@ -246,6 +247,27 @@ input#changeThemeBtn:checked+.slider:before {
 	height: 80px;
 }
 
+/* #choice-section { */
+	
+/* } */
+
+/* #choice-section label { */
+/*   display: block; */
+/*   padding-left: 15px; */
+/*   text-indent: -15px; */
+/* } */
+
+/* #choice-section input { */
+/*   width: 15px; */
+/*   height: 15px; */
+/*   padding: 0; */
+/*   margin: 0; */
+/*   vertical-align: bottom; */
+/*   position: relative; */
+/*   top: -1px; */
+/* } */
+
+
 #start-btn {
 	position: relative;
 	text-align: center;
@@ -255,6 +277,7 @@ input#changeThemeBtn:checked+.slider:before {
 	margin: 0 auto;
 	position: relative;
 	width: 150px;
+	margin-bottom: 20px;
 }
 
 /* index */

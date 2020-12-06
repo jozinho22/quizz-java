@@ -3,6 +3,7 @@ package com.douineau.dao;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -10,6 +11,7 @@ import java.util.stream.Collectors;
 import com.douineau.entity.Question;
 import com.douineau.entity.Reponse;
 import com.douineau.utils.FileReader;
+import com.douineau.utils.TopicEnum;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -29,7 +31,7 @@ public class QuestionDao {
 //		return questions;
 //	}
 	
-	public static List<Question> getRandomQuestionsJson(int nbQuestionsTotal) {
+	public static List<Question> getRandomQuestionsJson(int nbQuestionsTotal, String[] topics) {
 		
 		FileReader reader = new FileReader();
 		File jsonFile = null;
@@ -53,71 +55,51 @@ public class QuestionDao {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-				
-		List<Integer> integers = new ArrayList<Integer>();
-
-		for (int k = 0; k < nbQuestionsTotal ; k++) {
-//     		int r = getRandomNumber(bound, integers);
-			int r = getRandomNumber(integers, questions.size());
-     		integers.add(r);
-     	}
 		
-		List<Question> randomQuestions = new ArrayList<Question>();
-		int k = 1;
-		for(Integer i : integers) {
-			questions.get(i).setId(Long.valueOf(i));
-//			questions.get(i).setCreatedAt(new Date());
-			
-			for(Reponse reponse : questions.get(i).getReponses()) {
-				reponse.setId(Long.valueOf(k++));
-//				reponse.setCreatedAt(new Date());
+		List<Question> customQuestions = new ArrayList<Question>();
+		
+		List<Question> l =	questions.stream()
+				.filter(q -> TopicEnum.JAVA.name().equals(q.getTopic()))
+				.collect(Collectors.toList());
+		
+		customQuestions.addAll(l);
+		
+		// Ajout de questions sur un topic
+		if(topics != null) {
+			List<TopicEnum> topicList = new ArrayList<TopicEnum>();
+			for(String s : topics) {
+				for(TopicEnum t : TopicEnum.values()) {
+					if(s.equals(t.name())) {
+						topicList.add(t);
+					}
+				}
 			}
-			randomQuestions.add(questions.get(i));
+			
+			for(TopicEnum t : topicList) {
+				List<Question> l1 =	questions.stream()
+						.filter(q -> t.name().equals(q.getTopic()))
+						.collect(Collectors.toList());
+				
+				customQuestions.addAll(l1);
+			}
 		}
 		
-//		List<Question> questionsCustoms = questions.stream().filter(q -> "Algorithmie".equals(q.getTopic())).collect(Collectors.toList());
+		Collections.shuffle(customQuestions);
 
+		// Set id pour les questions
+		List<Question> randomQuestions = new ArrayList<Question>();
+
+		for(int i = 0 ; i < nbQuestionsTotal ; i++) {
+			customQuestions.get(i).setId(Long.valueOf(i));
+			for(Reponse reponse : customQuestions.get(i).getReponses()) {
+				reponse.setId(Long.valueOf(i));
+			}
+			randomQuestions.add(customQuestions.get(i));
+		}
+		
+		
 		return randomQuestions;
 	}
 
-//	private static StringBuilder buildQuery(int nb, int bound) {
-//		
-//		List<Integer> integers = new ArrayList<Integer>();
-//    	
-//     	for (int k = 0; k < nb ; k++) {
-//     		int r = getRandomNumber(bound, integers);
-//     		integers.add(r);
-//     	}
-//    	
-//    	StringBuilder sb = new StringBuilder();
-//    	sb.append("SELECT q FROM Question q WHERE q.id in (");
-//    	for(int i : integers) {
-//    		sb.append(i);	
-//    		sb.append(",");
-//    	}
-//    	sb.deleteCharAt(sb.length() - 1);
-//    	sb.append(")");
-//    	
-//		return sb;
-//	}
-	
-	public static int getRandomNumber(List<Integer> integers, int bound) {
-		
-		Random random = new Random();
-
-		// +1 pour éviter le 0
-		int r = random.nextInt(bound);
-		if(integers.size() == 0) {
-			return r;
-		} else {
-			for(Integer i : integers) {
-	 			if(i == r) {
-	 				return getRandomNumber(integers, bound);
-	 			}
-	 		}
-		}
-		return r;
-		
-	}
 	
 }

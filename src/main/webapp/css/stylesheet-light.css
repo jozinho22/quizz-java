@@ -116,12 +116,12 @@ code {
 
 /* results */
 
-#return-btn button {
+#return-btn, #return-btn-high button {
 	background-color: #CD853F;
 	color: black;
 }
 
-#return-btn button:hover {
+#return-btn, #return-btn-high button:hover {
 	background-color: #A0522D;
 }
 

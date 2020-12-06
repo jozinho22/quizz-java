@@ -71,4 +71,13 @@ public class TagBuilder {
 		
 		return sb.toString();
 	}
+	
+	public static String buildTagJavaImage() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("<div>");
+		sb.append("<img src=\"img/java.png\" width=\"100\" height=\"100\">");
+		sb.append("</div>");
+		
+		return sb.toString();
+	}
 }

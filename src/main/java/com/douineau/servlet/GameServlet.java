@@ -66,7 +66,9 @@ public class GameServlet extends HttpServlet {
 		if (session.getAttribute("user") == null) {
 			PrintUtil.printDebut();
 
-			questions = QuestionDao.getRandomQuestionsJson(NB_QUESTIONS_TOTAL);
+			String[] topics = request.getParameterValues("cb");
+
+			questions = QuestionDao.getRandomQuestionsJson(NB_QUESTIONS_TOTAL, topics);
 
 			user = createUser();
 

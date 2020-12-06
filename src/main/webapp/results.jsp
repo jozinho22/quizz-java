@@ -72,7 +72,7 @@
 		<div id="return-btn">
 			<form id="form" action="index" method="GET">
 				<input id="sessionTheme" name="theme" value="" hidden="true">
-				<button class="btn" type="submit">Retour au quizz</button>
+				<button class="btn" type="submit">Encore un ?</button>
 			</form>
 		</div>
 	</div>
